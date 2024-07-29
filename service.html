@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function copyAddress() {
+            if (document.getElementById("sameAsAbove").checked) {
+                document.getElementById("state2").value = document.getElementById("state1").value;
+                document.getElementById("district2").value = document.getElementById("district1").value;
+                document.getElementById("subDivision2").value = document.getElementById("subDivision1").value;
+                document.getElementById("block2").value = document.getElementById("block1").value;
+                document.getElementById("village2").value = document.getElementById("village1").value;
+                document.getElementById("postOffice2").value = document.getElementById("postOffice1").value;
+                document.getElementById("wardNo2").value = document.getElementById("wardNo1").value;
+                document.getElementById("pinCode2").value = document.getElementById("pinCode1").value;
+                document.getElementById("localBodyType2").value = document.getElementById("localBodyType1").value;
+                document.getElementById("localbodyname2").value = document.getElementById("localbodyname1").value;
+            } else {
+                document.getElementById("state2").value = "";
+                document.getElementById("district2").value = "";
+                document.getElementById("subDivision2").value = "";
+                document.getElementById("block2").value = "";
+                document.getElementById("village2").value = "";
+                document.getElementById("postOffice2").value = "";
+                document.getElementById("wardNo2").value = "";
+                document.getElementById("pinCode2").value = "";
+                document.getElementById("localBodyType2").value = "";
+                document.getElementById("localbodyname2").value = "";
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+
+select {
+    width: calc(50% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+
+.file-input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e4a471;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: #bfbdc5;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: RoyalBlue;
+}
+    </style>
+</head>
+<body>
+    <h1> प्रमाण पत्र के लिए डमी आवेदन पत्र<br>Dummy Application Form for Certificate</h1>
+    <form id="myForm" action="https://api.web3forms.com/submit" method="post" >
+    
+            <input type="hidden" name="access_key" value="c4a1d48a-a6a3-4cb2-9867-1daeda687af6">
+        <fieldset>
+            
+            <legend>आवेदक का विवरण / Details of Applicant</legend>
+            <label for="applicationtype">आवेदन का प्रकार/नाम(Type/Name of Application or Certificate) :</label>
+            <input type="text" id="applicationtype" name="applicationtype" required>
+         
+            
+               <label for="gender">लिंग / Gender:</label>
+            <select id="gender" name="gender">
+                <option value="none"></option>
+                <option value="male">पुरुष / Male</option>
+                <option value="female">महिला / Female</option>
+                <option value="thirdGender">तृतीय लिंग / Third Gender</option>
+            </select>
+
+            
+
+            <label for="salutation">श्रीमान / सुश्री / Salutation:</label>
+            <select id="salutation" name="salutation">
+                <option value ="none">कुछ नहीं </option>
+                <option value="mr">श्रीमान / Mr.</option>
+                <option value="ms">सुश्री / Ms.</option>
+            </select>
+
+            <label for="applicantName">आवेदक का नाम / Name of Applicant:</label>
+            <input type="text" id="applicantName" name="applicantName" required>
+
+            <label for="fatherName">पिता का नाम / Name of Father:</label>
+            <input type="text" id="fatherName" name="fatherName" required>
+
+            <label for="motherName">माता का नाम / Name of Mother:</label>
+            <input type="text" id="motherName" name="motherName" required>
+
+            <label for="husbandName">पति का नाम / Name of Husband:</label>
+            <input type="text" id="husbandName" name="husbandName">
+
+            <label for="mobileNumber">आवेदक का मोबाइल नंबर / Mobile No. of Applicant:</label>
+            <input type="number" id="mobileNumber" name="mobileNumber" required>
+
+            <label for="email">आवेदक का ईमेल / Email of Applicant:</label>
+            <input type="email" id="email" name="email">
+            
+             <label for="profession">श्रेणी / Profession:</label>
+            <select id="profession" name="profession">
+                <option value="">Please Select</option>
+                <option value ="student">विद्यार्थी/Student</option>
+                <option value ="govservice">सरकारी सेवा/ Govt. Service</option>
+                <option value ="private service">निजी सेवा /Private service</option>
+                <option value ="farmer">किसान / Farmer</option>
+                <option value ="Business">व्यापार / Business</option>
+                <option value ="Housewife">गृहिणी /Housewife</option>
+            </select>
+<hr>
+    
+  <legend>आवासीय पता / Residential Address</legend>  
+    <h3>स्थायी पता / Permanent Address: -</h3>
+
+    <label for="state1">राज्य / State:</label>
+    <input type="text" id="state1" name="state1">
+    
+    <label for="district1">जिला / District:</label>
+    <input type="text" id="district1" name="district1">
+
+    <label for="subDivision1">अनुमंडल / Sub-Division:</label>
+    <input type="text" id="subDivision1" name="subDivision1">
+
+    <label for="block1">प्रखंड / Block:</label>
+    <input type="text" id="block1" name="block1">
+
+    <label for="village1">गांव / Village:</label>
+    <input type="text" id="village1" name="village1">
+
+    <label for="postOffice1">डाक घर / Post Office:</label>
+    <input type="text" id="postOffice1" name="postOffice1">
+
+    <label for="wardNo1">वार्ड नंबर / Ward No.:</label>
+    <input type="text" id="wardNo1" name="wardNo1">
+
+    <label for="pinCode1">पिन कोड / Pin Code:</label>
+    <input type="text" id="pinCode1" name="pinCode1">
+
+    <label for="localBodyType1">स्थानीय निकाय का प्रकार / Type of Local Body:</label>
+    <select id="localBodyType1" name="localBodyType1">
+        <option value=""> </option>
+        <option value="villagePanchayat">ग्राम पंचायत / Village Panchayat</option>
+        <option value="municipalCorporation">नगर निगम / Municipal Corporation</option>
+        <option value="municipality">नगर परिषद / Municipality</option>
+        <option value="townPanchayat">नगर पंचायत / Town Panchayat</option>
+    </select>
+
+    <label for="localbodyname1">स्थानीय निकाय का नाम / Name of Local Body :</label>
+    <input type="text" id="localbodyname1" name="localbodyname1">
+
+    <h3>वर्तमान पता / Present Address: -</h3>
+
+    <label for="sameAsAbove">उपर्य जैसा / Same as Above</label>
+    <input type="checkbox" id="sameAsAbove" name="presentAddress" value="sameAsAbove" onclick="copyAddress()">
+    
+    <label for="state2">राज्य / State:</label>
+    <input type="text" id="state2" name="state2">
+    
+    <label for="district2">जिला / District:</label>
+    <input type="text" id="district2" name="district2">
+
+    <label for="subDivision2">अनुमंडल / Sub-Division:</label>
+    <input type="text" id="subDivision2" name="subDivision2">
+
+    <label for="block2">प्रखंड / Block:</label>
+    <input type="text" id="block2" name="block2">
+
+    <label for="village2">गांव / Village:</label>
+    <input type="text" id="village2" name="village2">
+
+    <label for="postOffice2">डाक घर / Post Office:</label>
+    <input type="text" id="postOffice2" name="postOffice2">
+
+    <label for="wardNo2">वार्ड नंबर / Ward No.:</label>
+    <input type="text" id="wardNo2" name="wardNo2">
+
+    <label for="pinCode2">पिन कोड / Pin Code:</label>
+    <input type="text" id="pinCode2" name="pinCode2">
+
+    <label for="localBodyType2">स्थानीय निकाय का प्रकार / Type of Local Body:</label>
+    <select id="localBodyType2" name="localBodyType2">
+        <option value=""> </option>
+        <option value="villagePanchayat">ग्राम पंचायत / Village Panchayat</option>
+        <option value="municipalCorporation">नगर निगम / Municipal Corporation</option>
+        <option value="municipality">नगर परिषद / Municipality</option>
+        <option value="townPanchayat">नगर पंचायत / Town Panchayat</option>
+    </select>
+
+    <label for="localbodyname2">स्थानीय निकाय का नाम / Name of Local Body :</label>
+    <input type="text" id="localbodyname2" name="localbodyname2">
+    
+    
+    
+<hr>
+     <legend style="margin: 20px;">दस्तावेज़ संलग्नक  / Document Attachment <a href="https://forms.gle/UPf4GfayNm7moj6H8"><i class="fa fa-arrow-circle-right">Click me</i></a></legend>  
+     <small style="color:red">Attach Documents ! </small>
+     
+            
+<hr>
+           <div>
+               <ul>
+    <li>इस फॉर्म को सबमिट करके आप पुष्टि करते हैं कि प्रदान किए गए सभी विवरण आपकी जानकारी के अनुसार सटीक और पूर्ण हैं।</li>
+    <li>कृपया ध्यान दें कि आवेदन पूरा होने पर भुगतान आवश्यक है।</li>
+</ul>
+           </div>
+
+               <button type="button" onclick="printForm()" style="background-color: rgb(91, 91, 94);">Print</button>
+        <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+    <script >
+        
+        function printForm() {
+            const form = document.getElementById('myForm');
+            const formData = new FormData(form);
+            let printContent = '';
+
+               // Get the current date and time
+        const now = new Date();
+        const date = now.toLocaleDateString();
+        const time = now.toLocaleTimeString();
+  // Append the date and time to the print content
+  printContent += 'Date: ' + date + '\nTime: ' + time + '\n\n';
+
+            formData.forEach((value, key) => {
+                printContent += `${key}: ${value}\n`;
+            });
+
+            const printWindow = window.open('', '', 'height=400,width=600');
+            printWindow.document.write('<pre>' + printContent + '</pre>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        
+    </script>
+</body>
+</html>
