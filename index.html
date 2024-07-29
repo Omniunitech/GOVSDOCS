@@ -1,174 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickFill</title>
+    <title>GOVSDOCS</title>
+    
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        /* Basic styling for navigation */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
         
-    body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
+        header {
+            background-color: black;
+            color: #fff;
+            padding: 100px;
+            text-align: center;
+        }
+        
+        .navbar a {
+            float: right;
+            display: block;
+            color: #fff;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: #333;
+        }
+        /* Additional styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .content {
+            padding: 20px;
+        }
+        
 .container {
-    width: 100%;
+      border-radius: 5px;
+      padding: 2rem 1rem;
+      width: 45rem;
+      background: #F8F8FF;
+      text-align: center;
+
+      margin: 0 auto;
+      font-family: "Times New Roman", Times, serif;
+      font-size:33px;
+      box-shadow: 0 0 15px  rgba(0, 0, 0, 0.3);
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #0056b3;
-    color: white;
-    padding: 10px 20px;
+.button1 {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
-.logo {
-    height: 50px;
+
+.button2 {
+  background-color: #f44336; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
-.header-left h1 {
-    margin: 0;
+
+textarea {
     
+    border-width: medium medium medium 1px;
 }
 
-.header-left p {
-    margin: 0;
-    font-size: 0.8em;
+input {
+    border-width: medium medium medium 1px;
 }
 
-.header-right {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-
-   
+select {
+    border-width: medium medium medium 1px;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    background-color: #003366;
-}
+.form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        .grid-item {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .grid-item h2 {
+            margin-bottom: 20px;
+        }
+        .grid-item a {
+            display: block;
+            margin: 20px 0;
+            padding: 20px 20px;
+            color: white;
+            background-color: #007BFF;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .grid-item a:hover {
+            background-color: #0056b3;
+        }
 
-nav ul li {
-    display: inline;
-}
+        
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: inline-block;
-}
 
-main {
-    padding: 20px;
-}
-
-main h2 {
-    margin-top: 0;
-}
-.apply {
-    text-align: center;
-}
-.govsdocs-button {
-    padding: 15px 30px;
-    
-    background-color: #007BFF; /* Blue color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    text-transform: uppercase;
-    text-align: center;
-    text-decoration: none;
-}
-
-.govsdocs-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.05); /* Slightly larger on hover */
-}
-
-.govsdocs-button:active {
-    background-color: #004494; /* Even darker blue when pressed */
-    transform: scale(1); /* Normal size when pressed */
-}
+        
 
 footer {
-    background-color: #003366;
-    color: white;
+    margin-top: auto;
+    padding: 10px;
+    background-color: #f1f1f1;
     text-align: center;
-    padding: 10px 20px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
-.footer-logos  {
-    
-    margin: 10 20px;
-    margin-bottom: 0px;
-}    
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0px;
+    padding: -100px;
+}
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="header-left">
-                
-                <h1>GOVSDOCS</h1>
-                <p>QUICKFILL</p>
-            </div>
-            
-        </header>
-        <nav>
-            <ul>
-                <li><a href="#">Manage Profile</a></li>
-                <li><a href="payment.html">Payment</a></li>
-                <li><a href="mailto:ridewave000@gmail.com">eMail</a></li>
-                <li><a href="https://t.me/SIKBOYS5">Messages </a></li>
-            </ul>
-        </nav>
-        <main>
-            <h2>Welcome to GOVSDOCS ( Online Cybercafe ) </h2>
-            <p>
-                Welcome to GOVSDOCS!
-
-GOVSDOCS is your go-to online platform for hassle-free application and form-filling services. We specialize in assisting citizens with various government-provided services, exam form submissions, and other essential service forms. Our dedicated team is here to simplify the process for you—just provide your details, and we'll handle the rest.
-
-Think of GOVSDOCS as your online cybercafe, ensuring you get the support you need to complete applications efficiently and accurately. Let us take the stress out of form-filling, so you can focus on what matters most. 
-
-Join GOVSDOCS today and experience a seamless way to manage your government service applications!
-            </p>
-            
-            <h3>The following are the salient features of the software -</h3>
-            <ul>
-                <li>Service(s) will be created online</li>
-                <li>USER will be submitting Dummy applications online</li>
-                <li>Service units will be able to receive application online</li>
-                <li>GOVSDOCS will be able to verify documents and application online</li>
-                
-                <li>Citizens will be monitoring Application status online</li>
-                <li>Private Service Access Providers will be participating in the application receipt/submission and service delivery process online</li>
-            </ul>
-            <br>
-            <div class="apply">
-                
-                <a href="https://surveyheart.com/form/66745c591ffa7747ddeef8e2" class="govsdocs-button">Apply with GOVSDOCS</a>
-            </div>
-        </main>
-        <footer>
-            <div class="footer-logos">
-                
-            </div>
-            <p>
-                Owned by GOVSDOCS
-            </p>
-
-        </footer>
+    
+  <!-- Navigation bar -->
+    <div class="navbar">
+        
+        <a href="./policy.html">POLICY</a>
+        <a href="http://govdocs234.blogspot.com/2024/07/govsdocs-update.html"><i class='fa fa-bell'></i></a>
+        <a href="./payment.html">PAYMENT</a>
+        
     </div>
+
+    
+    <header>
+        <h1>GOVSDOCS</h1>
+        <p>- भारत के ई-सेवाओं के लिए आवेदन का प्रतिकृति प्रस्तुतिकरण (Digital CyberCafe) -</p>
+    </header>
+    
+    
+    <!-- introduction -->
+    <div class="content">
+        <h1 ><b>Welcome to GOVSDOCS</b></h1>
+        <p>Your One-Stop Solution for Hassle-Free Form Filling</p><br>
+        <p>Welcome to GOVSDOCS, where we simplify the process of filling out applications for various government services and exams. Our dedicated team is here to handle the tedious paperwork on your behalf, ensuring accuracy and efficiency. With GOVSDOCS, you can say goodbye to long queues and confusing forms, and say hello to convenience and peace of mind.</p>
+        <p>GOVSDOCS में आपका स्वागत है, जहाँ हम विभिन्न सरकारी सेवाओं और परीक्षाओं के लिए आवेदन भरने की प्रक्रिया को सरल बनाते हैं। हमारी समर्पित टीम आपकी ओर से थकाऊ कागजी कार्रवाई को संभालने के लिए यहाँ है, जिससे सटीकता और दक्षता सुनिश्चित होती है। GOVSDOCS के साथ, आप लंबी कतारों और भ्रामक फ़ॉर्म को अलविदा कह सकते हैं, और सुविधा और मन की शांति को नमस्ते कह सकते हैं।</p>
+        <h2>Why Choose GOVSDOCS?</h2>
+        <ul>
+            <li><strong>Ease of Use:</strong> Simply provide your details, and our team will take care of the rest.(उपयोग में आसानी: बस अपना विवरण प्रदान करें, और हमारी टीम बाकी का काम संभाल लेगी।)</li><br>
+            <li><strong>Accuracy:</strong> Our experts ensure that all forms are filled out correctly and completely.(सटीकता: हमारे विशेषज्ञ यह सुनिश्चित करते हैं कि सभी फॉर्म सही और पूर्ण रूप से भरे जाएं।)</li><br>
+            <li><strong>Time-Saving:</strong> Save valuable time by letting us handle the paperwork.(समय की बचत: कागजी कार्रवाई हमें सौंपकर अपना बहुमूल्य समय बचाएं।)</li><br>
+            <li><strong>Secure:</strong> Your data is protected with the highest security standards.(सुरक्षित: आपका डेटा उच्चतम सुरक्षा मानकों के साथ संरक्षित है।)</li>
+        </ul>
+    </div>
+
+    
+<!-- Form  -->
+<div class="form">
+        <div class="grid-item">
+            
+            <i class='fa fa-address-card' ></i>
+            <h2 style="font-family: Verdana;">Apply for Service</h2>
+            <a href="" style="font-family: monospace;">Link 1</a>
+            <p >or</p>
+            <a href="https://surveyheart.com/form/66745c591ffa7747ddeef8e2" style="font-family: monospace;">Link 2</a>
+
+        </div>
+            
+            
+        
+        <div class="grid-item">
+            <i class='fa fa-server' ></i>
+            <h2 style="font-family: Verdana;">Apply for Exam</h2>
+            <a href="" style="font-family: monospace;">Link 1</a>
+            <p >or</p>
+            <a href="https://surveyheart.com/form/66a70d8d311b89197d60c0f2" style="font-family: monospace;">Link 2</a>
+
+        </div>
+            
+            
+        
+        
+    </div>
+  
+  <!-- Image of location/map -->
+
+ <img src="cafe.jpg" class="w3-image w3-greyscale-min" style="width:100%;height:400px;">
+ 
+    <!-- Footer -->
+<h2 style="text-align: center;"><b><u>HelpDesk</u></b><i class='fa fa-fax'></i></h2>
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+    
+       <div class="footer-content">
+           <i class="fa fa-envelope" style="width:30px"> </i> <a href="mailto:ridewave000@gmail.com">Email</a><br>
+  <i class="fa fa-telegram w3-hover-opacity "></i>
+  <a href="https://t.me/SIKBOYS5" target="_blank" rel="noopener noreferrer">Message</a>
+  
+  
+  
+  <br>
+         <label><font size="3" color="black"><b>Powered by GOVSDOCS.</b><br> </font> </label>  
+         
+         <label><font size="2" color="black"><b>Hosted by: <a href="https://t.me/OmniunitechBot" target="_blank" rel="noopener noreferrer">OMNIUNITECH.</a></b><br></font> </label>  
+         <label><font size="2" color="black"><b> © GOVSDOCS Services (2024).</b><br></font> </label>  
+         <label><font size="2" color="black"><b>Last updated on: 21/04/2023 </b></font> </label>  
+           
+       </div>
+        
+  
+        
+         
+         
+    
 </body>
 </html>
