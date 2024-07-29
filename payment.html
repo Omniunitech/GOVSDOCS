@@ -1,64 +1,131 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Payment Page</title> 
-    <style> 
-        body { 
-            font-family: Arial, sans-serif; 
-            background-color: #f4f4f4; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0; 
-        } 
- 
-        .container { 
-            background-color: #fff; 
-            padding: 20px; 
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
-            border-radius: 10px; 
-            text-align: center; 
-        } 
- 
-        h1 { 
-            margin-bottom: 20px; 
-        } 
- 
-        img { 
-            max-width: 100%; 
-            height: auto; 
-        } 
- 
-        .instructions { 
-            margin-top: 20px; 
-            font-size: 18px; 
-        } 
- 
-        .button { 
-            margin-top: 20px; 
-            padding: 10px 20px; 
-            background-color: #4CAF50; 
-            color: white; 
-            border: none; 
-            border-radius: 5px; 
-            cursor: pointer; 
-            font-size: 16px; 
-        } 
- 
-        .button:hover { 
-            background-color: #45a049; 
-        } 
-    </style> 
-</head> 
-<body> 
-    <div class="container"> 
-        <h1>Scan to Pay : ₹69 </h1> 
-        <img src="IMG_20240725_193636.png" alt="QR Code"> 
-        <p class="instructions">Scan the QR code  to complete the payment.</p> 
-        <a href="index.html" class="button">Return to Home</a>
-    </div> 
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPI Payment Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #payment-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: left;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 2px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 90px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #confirmation-message {
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <form id="payment-form">
+        <div class="payment-container">
+            <h2>Payment <small>(amount to pay)</small></h2>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" name="amount" required>
+       <p>or</p>    
+            <img src="qrcode.jpg"  style="width:50%;height:150px;">
+            
+            <p style="text-align: center;"><i class="fa fa-money">Basic Charge: ₹ 69</i></p>
+            <div style="display: flex; justify-content: space-between;">
+                <div style="flex: 1; margin-right: 10px;">
+                    <label for="month">PAYMENT FOR:</label>
+                    <select id="month" name="month">
+                        <option value="1"></option>
+                        <option value="2">Service Charge</option>
+                        <option value="3">Exam Fee & Charge</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <button type="button" onclick="initiatePayment()">Pay Now</button>
+        </div>
+        <div id="confirmation-message">
+            <p>We hope your payment was successful. Otherwise, we can't resume processing your application (हमें उम्मीद है कि आपका भुगतान सफल रहा होगा। अन्यथा, हम आपके आवेदन की प्रक्रिया फिर से शुरू नहीं कर सकते).</p>
+        </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        function initiatePayment() {
+            const amount = document.getElementById('amount').value;
+            const upiId = '9128191357@ibl'; // Your UPI ID
+            if (amount) {
+                // Create UPI payment URL
+                const upiURL = `upi://pay?pa=${upiId}&pn=RecipientName&am=${amount}&cu=INR`;
+
+                // Open UPI payment URL in a new tab (or same tab)
+                window.location.href = upiURL;
+
+                // Display confirmation message after the payment initiation
+                document.getElementById('confirmation-message').style.display = 'block';
+
+                // Simulate a successful payment process (for demonstration purposes)
+                setTimeout(() => {
+                    generatePaymentSlip(amount, upiId);
+                }, 50000); // 50 seconds delay
+            } else {
+                alert('Please enter an amount.');
+            }
+        }
+
+        function generatePaymentSlip(amount, upiId) {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text('Payment Successful!', 10, 10);
+            doc.text(`Amount: ${amount}`, 10, 20);
+            doc.text(`Transaction ID: ${Math.random().toString(36).substr(2, 9)}`, 10, 40);
+            doc.text(`Date: ${new Date().toLocaleString()}`, 10, 50);
+
+            doc.save('payment_slip.pdf');
+        }
+    </script>
+</body>
 </html>
