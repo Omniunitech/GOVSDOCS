@@ -120,8 +120,8 @@ button:hover {
 .file-label {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #e4a471;
-    color: #fff;
+    background-color: #007BFF;
+    color: white;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
@@ -135,6 +135,27 @@ button:hover {
 /* Darker background on mouse-over */
 .btn:hover {
   background-color: RoyalBlue;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  background-color: wheat;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
 }
     </style>
 </head>
@@ -280,15 +301,24 @@ button:hover {
     
     
 <hr>
-     <legend style="margin: 20px;">दस्तावेज़ संलग्नक  / Document Attachment <a href="https://forms.gle/UPf4GfayNm7moj6H8"><i class="fa fa-arrow-circle-right">Click me</i></a></legend>  
-     <small style="color:red">Attach Documents ! </small>
+     <legend style="margin: 20px;">दस्तावेज़ संलग्नक  / Document Attachment </legend>  
+    
+     <div class="file-upload">
+        <input type="file" id="file" name="otherdocs1" class="file-input" required>
+        <label for="file" class="file-label">
+          <span class="file-icon">📁</span>
+          <a href="https://forms.gle/UPf4GfayNm7moj6H8"><span class="file-label-text">Choose a file...</span></a>
+        </label>
+      </div>
      
             
 <hr>
            <div>
-               <ul>
-    <li>इस फॉर्म को सबमिट करके आप पुष्टि करते हैं कि प्रदान किए गए सभी विवरण आपकी जानकारी के अनुसार सटीक और पूर्ण हैं।</li>
-    <li>कृपया ध्यान दें कि आवेदन पूरा होने पर भुगतान आवश्यक है।</li>
+               <ul >
+    <i class="fa fa-arrow-circle-right">   इस फॉर्म को सबमिट करके आप पुष्टि करते हैं कि प्रदान किए गए सभी विवरण आपकी जानकारी के अनुसार सटीक और पूर्ण हैं।</i>
+    <i class="fa fa-arrow-circle-right">   मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें।</i>
+    <i class="fa fa-arrow-circle-right">  कृपया ध्यान दें कि आवेदन पूरा होने पर <a href="./payment.html" style="color: blue;">भुगतान</a> (payment) आवश्यक है। </i>
+
 </ul>
            </div>
 
