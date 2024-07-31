@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script>
+        function copyAddress() {
+            if (document.getElementById("sameAsAbove").checked) {
+                document.getElementById("state2").value = document.getElementById("state1").value;
+                document.getElementById("district2").value = document.getElementById("district1").value;
+                document.getElementById("subDivision2").value = document.getElementById("subDivision1").value;
+                document.getElementById("block2").value = document.getElementById("block1").value;
+                document.getElementById("village2").value = document.getElementById("village1").value;
+                document.getElementById("postOffice2").value = document.getElementById("postOffice1").value;
+                document.getElementById("wardNo2").value = document.getElementById("wardNo1").value;
+                document.getElementById("pinCode2").value = document.getElementById("pinCode1").value;
+                document.getElementById("localBodyType2").value = document.getElementById("localBodyType1").value;
+                document.getElementById("localbodyname2").value = document.getElementById("localbodyname1").value;
+            } else {
+                document.getElementById("state2").value = "";
+                document.getElementById("district2").value = "";
+                document.getElementById("subDivision2").value = "";
+                document.getElementById("block2").value = "";
+                document.getElementById("village2").value = "";
+                document.getElementById("postOffice2").value = "";
+                document.getElementById("wardNo2").value = "";
+                document.getElementById("pinCode2").value = "";
+                document.getElementById("localBodyType2").value = "";
+                document.getElementById("localbodyname2").value = "";
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="date"],
+input[type="number"],
+
+select {
+    width: calc(50% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1> परीक्षा फॉर्म के लिए डमी आवेदन<br>Dummy Application  for Exam Form</h1>
+    <form id="myForm" action="https://api.web3forms.com/submit" method="post" >
+    
+            <input type="hidden" name="access_key" value="c4a1d48a-a6a3-4cb2-9867-1daeda687af6">
+        <fieldset>
+            <legend style="margin: 20px;">दस्तावेज़ अपलोड करें  / Upload required Document  </legend>  
+            <small style ="color:red"><i class="fa fa-info-circle"></i> नीचे दिए गए फॉर्म को भरने से पहले दस्तावेज़ अपलोड करें 
+            </small>
+    
+     <div style="width: 80%;
+    max-width: 700px;
+    height: 100px;
+    border: 2px dashed #ccc;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #fff;
+    position: relative;">
+        
+        <label for="file" class="file-label" style="display: inline-block;
+        padding: 10px 20px;
+        background-color: rgb(240, 240, 240);
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;">
+          
+          <p class="file-label-text" style="color: white;"><a href="https://forms.gle/hx4Pp6KqVRkka1d19" style="color: black;text-decoration:none">📁Choose a file...</a></p>
+        </label>
+      </div>
+     
+            
+<hr>
+<legend>परीक्षा विवरण  / Exam Details </legend>
+            <label for="examtype">परीक्षा का प्रकार(Type of Application or Certificate) :</label>
+              
+        <select id="examType" name="examType">
+            <option value="">Please Select</option>
+            
+            <option value="ssc">SSC</option>
+            <option value="banking">Banking</option>
+            <option value="railways">Railways</option>
+            <option value="civilService">Civil Service</option>
+            <option value="teaching">Teaching</option>
+            <option value="stateGovt">State Govt.</option>
+            <option value="otherGovt">Other Govt.</option>
+            <option value="police">Police</option>
+            <option value="defence">Defence</option>
+            <option value="cuetUgEntrance">CUET & UG Entrance Exam</option>
+            <option value="insurance">Insurance</option>
+            <option value="nursing">Nursing</option>
+            <option value="govtOrg">Govt Organisation</option>
+        </select>
+        
+        
+          <label for="examName">Exam Name:</label>
+        <input type="text" id="examName" name="examName">
+
+
+<h4>Exam Center Preference:</h4>
+ <label for="center1">Center Preference 1:</label>
+        <input type="text" id="center1" name="center1">
+        <br>
+        <label for="center2">Center Preference 2:</label>
+        <input type="text" id="center2" name="center2">
+        <br>
+        <label for="center3">Center Preference 3:</label>
+        <input type="text" id="center3" name="center3">
+        <br>
+        <label for="center4">Center Preference 4:</label>
+        <input type="text" id="center4" name="center4"> 
+        
+        
+        <label for="examLanguage">Language of Exam:</label>
+        <select id="examLanguage" name="examLanguage">
+            <option value="">Please Select</option>
+            <option value="english">English</option>
+            <option value="hindi">Hindi</option>
+            <option value="other">Other</option>
+        </select>           
+<hr>
+
+            
+            <legend>छात्र व्यक्तिगत विवरण / Student Personal Details 👨‍🎓</legend>
+          
+         
+            
+               <label for="gender">लिंग / Gender:</label>
+            <select id="gender" name="gender">
+                <option value="none"></option>
+                <option value="male">पुरुष / Male</option>
+                <option value="female">महिला / Female</option>
+                <option value="thirdGender">तृतीय लिंग / Third Gender</option>
+            </select>
+
+
+            <label for="studentName">छात्र का नाम / Name of Student:</label>
+            <input type="text" id="studentName" name="studentName" required>
+
+            <label for="fatherName">पिता का नाम / Name of Father:</label>
+            <input type="text" id="fatherName" name="fatherName" required>
+
+            <label for="motherName">माता का नाम / Name of Mother:</label>
+            <input type="text" id="motherName" name="motherName" required>
+
+            <label for="birthday">Date of Birth/जन्म की तारीख :</label>
+        <input type="date" id="birthday" name="birthday">
+
+          
+             
+
+            <label for="category"> वर्ग / Category:</label>
+            <select id="category" name="category">
+                <option value="">Please Select</option>
+                <option value ="General">General</option>
+                <option value ="Obc">OBC</option>
+                <option value ="Sc">SC</option>
+                <option value ="st">ST</option>
+                <option value ="other">Other </option>
+                
+            </select>
+
+
+            <label for="disability-status">क्या आप बेंचमार्क विकलांगता वाले व्यक्ति हैं? / Wheather a person with Benchmark Disability (pwBD):</label>
+        <select id="category" name="category">
+            <option value="">Please Select</option>
+            <option value ="yes">Yes</option>
+            <option value ="no">No</option>
+            <option value ="maybe">Maybe</option>
+        </select>
+
+
+        <label for="visualmark">Visual mark of identification पहचान का दृश्य चिह्न. : :</label>
+        <input type="text" id="visualmark" name="visualmark">
+
+
+       
+        
+            
+<hr>
+    
+  <legend>Contact Information 🔎:</legend>  
+
+  <label for="mobileNumber">आवेदक का मोबाइल नंबर / Mobile No. of Applicant:</label>
+  <input type="number" id="mobileNumber" name="mobileNumber" required>
+
+  <label for="email">आवेदक का ईमेल / Email of Applicant:</label>
+  <input type="email" id="email" name="email">
+
+    <h3>स्थायी पता / Permanent Address: -</h3>
+
+    <label for="state1">राज्य / State:</label>
+    <input type="text" id="state1" name="state1">
+    
+    <label for="district1">जिला / District:</label>
+    <input type="text" id="district1" name="district1">
+
+    <label for="subDivision1">अनुमंडल / Sub-Division:</label>
+    <input type="text" id="subDivision1" name="subDivision1">
+
+    <label for="block1">प्रखंड / Block:</label>
+    <input type="text" id="block1" name="block1">
+
+    <label for="village1">गांव / Village:</label>
+    <input type="text" id="village1" name="village1">
+
+    <label for="postOffice1">डाक घर / Post Office:</label>
+    <input type="text" id="postOffice1" name="postOffice1">
+
+    <label for="wardNo1">वार्ड नंबर / Ward No.:</label>
+    <input type="text" id="wardNo1" name="wardNo1">
+
+    <label for="pinCode1">पिन कोड / Pin Code:</label>
+    <input type="text" id="pinCode1" name="pinCode1">
+
+    
+
+    <h3>वर्तमान पता / Present Address: -</h3>
+
+    <label for="sameAsAbove">उपर्य जैसा / Same as Above</label>
+    <input type="checkbox" id="sameAsAbove" name="presentAddress" value="sameAsAbove" onclick="copyAddress()">
+    
+    <label for="state2">राज्य / State:</label>
+    <input type="text" id="state2" name="state2">
+    
+    <label for="district2">जिला / District:</label>
+    <input type="text" id="district2" name="district2">
+
+    <label for="subDivision2">अनुमंडल / Sub-Division:</label>
+    <input type="text" id="subDivision2" name="subDivision2">
+
+    <label for="block2">प्रखंड / Block:</label>
+    <input type="text" id="block2" name="block2">
+
+    <label for="village2">गांव / Village:</label>
+    <input type="text" id="village2" name="village2">
+
+    <label for="postOffice2">डाक घर / Post Office:</label>
+    <input type="text" id="postOffice2" name="postOffice2">
+
+    <label for="wardNo2">वार्ड नंबर / Ward No.:</label>
+    <input type="text" id="wardNo2" name="wardNo2">
+
+    <label for="pinCode2">पिन कोड / Pin Code:</label>
+    <input type="text" id="pinCode2" name="pinCode2">  
+    
+            
+<hr>
+
+<legend>शैक्षणिक विवरण: /  Academic Details:   </legend>
+
+    <label for="qualification">Highest Educational Qualification:</label>
+        
+        <select id="qualification" name="qualification" required>
+            <option value="">Select your qualification</option>
+             <option value="primary-school-certificate">1-10 Standard (Primary School Certificate)</option>
+             <option value="secondary-school-certificate">10th Standard (Secondary School Certificate)</option>
+             <option value="higher-secondary-certificate">12th Standard (Higher Secondary Certificate)</option>
+             <option value="diploma">Diploma</option>
+            <option value="bachelors-degree">Bachelor's Degree / Equivalent Graduate</option>
+             <option value="masters-degree">Master's Degree</option>
+            <option value="professional-degree-other">Professional Degree / Other (specify)</option>
+</select>
+<small style ="color:Blue"><i class="fa fa-info-circle"></i> परीक्षा के अनुसार आवश्यक 
+            </small>
+<br>
+
+
+
+<label for="school-college-name">School/College /Board/University Name:  </label>
+        <input type="text" id="school-college-name" name="school-college-name" placeholder="Enter School/College Name" ><br>
+
+
+        <label for="year-of-passing">Year of Passing:</label>
+        <input type="number" id="year-of-passing" name="year-of-passing" placeholder="YYYY" min="1900" max="2099" step="1" ><br>
+
+ <label for="percentage">Percentage/CGPA Obtained:</label>
+        <input type="text" id="percentage/CGPA" name="percentage/CGPA" ><br>
+        
+       <label for="rollNumber">Roll Number (for relevant exams):</label>
+        <input type="text" id="rollNumber" name="rollNumber"  ><br>
+
+        
+<hr>        
+
+
+
+
+           <div>
+               <ul >
+    <i class="fa fa-arrow-circle-right">   इस फॉर्म को सबमिट करके आप पुष्टि करते हैं कि प्रदान किए गए सभी विवरण आपकी जानकारी के अनुसार सटीक और पूर्ण हैं।</i>
+    <i class="fa fa-arrow-circle-right">   मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें।</i>
+    <i class="fa fa-arrow-circle-right">  कृपया ध्यान दें कि आवेदन पूरा होने पर <a href="./payment.html" style="color: blue;">भुगतान</a> (payment) आवश्यक है। </i>
+
+</ul>
+           </div>
+
+               <button type="button" onclick="printForm()" style="background-color: rgb(91, 91, 94);">Print</button>
+        <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+    <script >
+        
+        function printForm() {
+            const form = document.getElementById('myForm');
+            const formData = new FormData(form);
+            let printContent = '';
+
+               // Get the current date and time
+        const now = new Date();
+        const date = now.toLocaleDateString();
+        const time = now.toLocaleTimeString();
+  // Append the date and time to the print content
+  printContent += 'Date: ' + date + '\nTime: ' + time + '\n\n';
+
+            formData.forEach((value, key) => {
+                printContent += `${key}: ${value}\n`;
+            });
+
+            const printWindow = window.open('', '', 'height=400,width=600');
+            printWindow.document.write('<pre>' + printContent + '</pre>');
+            printWindow.document.close();
+            printWindow.print();
+        }
+
+        
+    </script>
+</body>
+</html>
