@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Form</title>
+    <title>EXAM FORM</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <script>
@@ -107,48 +107,32 @@ button {
 button:hover {
     background-color: #45a049;
 }
+.error {
+            color: red;
+            display: none;
+        }
 
 
     </style>
 </head>
 <body>
     <h1> परीक्षा फॉर्म के लिए डमी आवेदन<br>Dummy Application  for Exam Form</h1>
-    <form id="myForm" action="https://api.web3forms.com/submit" method="post" >
-    
-            <input type="hidden" name="access_key" value="c4a1d48a-a6a3-4cb2-9867-1daeda687af6">
+    <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
         <fieldset>
-            <legend style="margin: 20px;">दस्तावेज़ अपलोड करें  / Upload required Document  </legend>  
-            <small style ="color:red"><i class="fa fa-info-circle"></i> नीचे दिए गए फॉर्म को भरने से पहले दस्तावेज़ अपलोड करें 
-            </small>
-    
-     <div style="width: 80%;
-    max-width: 700px;
-    height: 100px;
-    border: 2px dashed #ccc;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #fff;
-    position: relative;">
-        
-        <label for="file" class="file-label" style="display: inline-block;
-        padding: 10px 20px;
-        background-color: rgb(240, 240, 240);
-        color: white;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;">
-          
-          <p class="file-label-text" style="color: white;"><a href="https://forms.gle/hx4Pp6KqVRkka1d19" style="color: black;text-decoration:none">📁Choose a file...</a></p>
-        </label>
-      </div>
+            <label for="clientId">
+                <b style="color: red; margin-top: 0em;">Client ID:</b>
+                <input type="password" id="clientId" name="clientId" required>
+            </label>
+            <span id="error-message" class="error">Invalid ID- कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
+                <br><br>
+           
      
             
-<hr>
-<legend>परीक्षा विवरण  / Exam Details </legend>
+
+
+            <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">परीक्षा विवरण  / Exam Details </h2> <br>
+
             <label for="examtype">परीक्षा का प्रकार(Type of Application or Certificate) :</label>
               
         <select id="examType" name="examType">
@@ -198,7 +182,9 @@ button:hover {
 <hr>
 
             
-            <legend>छात्र व्यक्तिगत विवरण / Student Personal Details 👨‍🎓</legend>
+            
+            <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">छात्र व्यक्तिगत विवरण / Student Personal Details 👨‍🎓</h2>
           
          
             
@@ -239,7 +225,7 @@ button:hover {
 
 
             <label for="disability-status">क्या आप बेंचमार्क विकलांगता वाले व्यक्ति हैं? / Wheather a person with Benchmark Disability (pwBD):</label>
-        <select id="category" name="category">
+        <select id="dscategory" name="dscategory">
             <option value="">Please Select</option>
             <option value ="yes">Yes</option>
             <option value ="no">No</option>
@@ -256,7 +242,9 @@ button:hover {
             
 <hr>
     
-  <legend>Contact Information 🔎:</legend>  
+  
+  <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">Contact Information 🔎:</h2>
 
   <label for="mobileNumber">आवेदक का मोबाइल नंबर / Mobile No. of Applicant:</label>
   <input type="number" id="mobileNumber" name="mobileNumber" required>
@@ -324,7 +312,9 @@ button:hover {
             
 <hr>
 
-<legend>शैक्षणिक विवरण: /  Academic Details:   </legend>
+
+        <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">शैक्षणिक विवरण: /  Academic Details: </h2>
 
     <label for="qualification">Highest Educational Qualification:</label>
         
@@ -358,57 +348,98 @@ button:hover {
         <input type="text" id="rollNumber" name="rollNumber"  ><br>
 
         
-<hr>
+        <hr>
+        <div>
+            <ul >
 
-<label for="clientId"><b style="color: red;">Client ID:</b>
-<input type="password" id="clientId" name="clientId"  required>
-</label>
-<br><br>
-           <div>
-               <ul >
-    <i class="fa fa-arrow-circle-right">   इस फॉर्म को सबमिट करके आप पुष्टि करते हैं कि प्रदान किए गए सभी विवरण आपकी जानकारी के अनुसार सटीक और पूर्ण हैं।</i> <br><br>
-    <i class="fa fa-arrow-circle-right">   मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें।</i><br><br>
-    <i class="fa fa-arrow-circle-right">  कृपया ध्यान दें कि आवेदन पूरा होने पर भुगतान (payment) आवश्यक है। </i>
+                  <small style ="color:red ; font-size: 15px;"><i class="fa fa-info-circle"></i> मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें। 
+                 </small>
+             </ul>
+        </div>
 
-</ul>
-           </div>
+       
 
-          
+            <button type="button" onclick="printForm()" style="background-color: rgb(91, 91, 94);">Print</button>
+     <button type="submit">Submit</button>
+     </fieldset>
+ </form>
+ <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbzgPotn1w-OVMDH9lHwJrAdMYPLMr3vy4vkmODAfqrnXMmFc4RjYLp6KaFnru5SCDxacA/exec'
+         const form = document.forms['google-sheet']
+       
+         form.addEventListener('submit', e => {
+           e.preventDefault()
+           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+             .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+             .catch(error => console.error('Error!', error.message))
+         })
 
-               <button type="button" onclick="printForm()" style="background-color: rgb(91, 91, 94);">Print</button>
-        <button type="submit">Submit</button>
-        </fieldset>
-    </form>
-    <script>
-        function printForm() { 
-            const form = document.getElementById('myForm'); 
-            const formData = new FormData(form); 
-            let printContent = ''; 
+// redirect form 
+function redirectAfterSubmit(event) {
+         event.preventDefault(); // Prevent the default form submission behavior
+         // Perform your form validation or submission logic here
 
-            // Get the current date and time 
-            const now = new Date(); 
-            const date = now.toLocaleDateString(); 
-            const time = now.toLocaleTimeString(); 
+         // Redirect to another form
+         window.location.href = 'https://forms.gle/hx4Pp6KqVRkka1d19'; // Replace with your desired URL
+     }
 
-            // Append the date and time to the print content 
-            printContent += 'Date: ' + date + '
-Time: ' + time + '
+         // client id invalid 
 
-'; 
 
-            formData.forEach((value, key) => { 
-                // Skip 'clientId' field
-                if (key !== 'clientId') {
-                    printContent += `${key}: ${value}
-`; 
-                }
-            }); 
+         document.getElementById('clientId').addEventListener('input', function() {
+         const clientId = document.getElementById('clientId').value;
+         const errorMessage = document.getElementById('error-message');
+         const pattern = /^GD-00/;
 
-            const printWindow = window.open('', '', 'height=400,width=600'); 
-            printWindow.document.write('<pre>' + printContent + '</pre>'); 
-            printWindow.document.close(); 
-            printWindow.print(); 
-        }
-    </script>
+         if (!pattern.test(clientId)) {
+             errorMessage.style.display = 'inline';
+         } else {
+             errorMessage.style.display = 'none';
+         }
+     });
+
+     document.getElementById('clientForm').addEventListener('submit', function(event) {
+         const clientId = document.getElementById('clientId').value;
+         const errorMessage = document.getElementById('error-message');
+         const pattern = /^GD-00/;
+
+         if (!pattern.test(clientId)) {
+             errorMessage.style.display = 'inline';
+             event.preventDefault();
+         } else {
+             errorMessage.style.display = 'none';
+         }
+     });
+
+// print 
+
+     function printForm() { 
+         const form = document.getElementById('myForm'); 
+         const formData = new FormData(form); 
+         let printContent = ''; 
+
+         // Get the current date and time 
+         const now = new Date(); 
+         const date = now.toLocaleDateString(); 
+         const time = now.toLocaleTimeString(); 
+
+         // Append the date and time to the print content 
+         printContent += 'Date: ' + date + '\nTime: ' + time + '\n\n'; 
+
+         formData.forEach((value, key) => { 
+             // Skip 'clientId' field
+             if (key !== 'clientId') {
+                 printContent += `${key}: ${value}\n`; 
+             }
+         }); 
+
+         const printWindow = window.open('', '', 'height=400,width=600'); 
+         printWindow.document.write('<pre>' + printContent + '</pre>'); 
+         printWindow.document.close(); 
+         printWindow.print(); 
+     }
+
+
+ </script>
 </body>
 </html>
