@@ -358,49 +358,57 @@ button:hover {
         <input type="text" id="rollNumber" name="rollNumber"  ><br>
 
         
-<hr>        
+<hr>
 
-
-
-
+<label for="clientId"><b style="color: red;">Client ID:</b>
+<input type="password" id="clientId" name="clientId"  required>
+</label>
+<br><br>
            <div>
                <ul >
-    <i class="fa fa-arrow-circle-right">   इस फॉर्म को सबमिट करके आप पुष्टि करते हैं कि प्रदान किए गए सभी विवरण आपकी जानकारी के अनुसार सटीक और पूर्ण हैं।</i>
-    <i class="fa fa-arrow-circle-right">   मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें।</i>
-    <i class="fa fa-arrow-circle-right">  कृपया ध्यान दें कि आवेदन पूरा होने पर <a href="./payment.html" style="color: blue;">भुगतान</a> (payment) आवश्यक है। </i>
+    <i class="fa fa-arrow-circle-right">   इस फॉर्म को सबमिट करके आप पुष्टि करते हैं कि प्रदान किए गए सभी विवरण आपकी जानकारी के अनुसार सटीक और पूर्ण हैं।</i> <br><br>
+    <i class="fa fa-arrow-circle-right">   मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें।</i><br><br>
+    <i class="fa fa-arrow-circle-right">  कृपया ध्यान दें कि आवेदन पूरा होने पर भुगतान (payment) आवश्यक है। </i>
 
 </ul>
            </div>
+
+          
 
                <button type="button" onclick="printForm()" style="background-color: rgb(91, 91, 94);">Print</button>
         <button type="submit">Submit</button>
         </fieldset>
     </form>
-    <script >
-        
-        function printForm() {
-            const form = document.getElementById('myForm');
-            const formData = new FormData(form);
-            let printContent = '';
+    <script>
+        function printForm() { 
+            const form = document.getElementById('myForm'); 
+            const formData = new FormData(form); 
+            let printContent = ''; 
 
-               // Get the current date and time
-        const now = new Date();
-        const date = now.toLocaleDateString();
-        const time = now.toLocaleTimeString();
-  // Append the date and time to the print content
-  printContent += 'Date: ' + date + '\nTime: ' + time + '\n\n';
+            // Get the current date and time 
+            const now = new Date(); 
+            const date = now.toLocaleDateString(); 
+            const time = now.toLocaleTimeString(); 
 
-            formData.forEach((value, key) => {
-                printContent += `${key}: ${value}\n`;
-            });
+            // Append the date and time to the print content 
+            printContent += 'Date: ' + date + '
+Time: ' + time + '
 
-            const printWindow = window.open('', '', 'height=400,width=600');
-            printWindow.document.write('<pre>' + printContent + '</pre>');
-            printWindow.document.close();
-            printWindow.print();
+'; 
+
+            formData.forEach((value, key) => { 
+                // Skip 'clientId' field
+                if (key !== 'clientId') {
+                    printContent += `${key}: ${value}
+`; 
+                }
+            }); 
+
+            const printWindow = window.open('', '', 'height=400,width=600'); 
+            printWindow.document.write('<pre>' + printContent + '</pre>'); 
+            printWindow.document.close(); 
+            printWindow.print(); 
         }
-
-        
     </script>
 </body>
 </html>
