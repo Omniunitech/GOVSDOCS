@@ -110,6 +110,7 @@ button:hover {
 .error {
             color: red;
             display: none;
+            font-size:5px;
         }
 
 
@@ -121,9 +122,9 @@ button:hover {
         <fieldset>
             <label for="clientId">
                 <b style="color: red; margin-top: 0em;">Client ID:</b>
-                <input type="password" id="clientId" name="clientId" required>
+                <input type="text" id="clientId" name="clientId" required>
             </label>
-            <span id="error-message" class="error">Invalid ID- कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
+            <span id="error-message" class="error">Invalid ID- कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन आगे की प्रक्रिया शुरू नहीं करेंगे</span>
                 <br><br>
            
      
@@ -442,4 +443,4 @@ function redirectAfterSubmit(event) {
 
  </script>
 </body>
-</html>
+    </html>
