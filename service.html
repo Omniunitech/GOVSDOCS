@@ -299,82 +299,171 @@ button:hover {
         </fieldset>
     </form>
     <script>
-         const scriptURL = 'https://script.google.com/macros/s/AKfycbyOQZms8VdZKe1nO7zz6-roGCZ6ou4T0D_xUrNH7Wb8tft2gNypVQilAwjQmgmsCg/exec'
-            const form = document.forms['google-sheet']
-          
-            form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
-                .catch(error => console.error('Error!', error.message))
-            })
+         const scriptURL = 'https://script.google.com/macros/s/AKfycbyOQZms8VdZKe1nO7zz6-roGCZ6ou4T0D_xUrNH7Wb8tft2gNypVQilAwjQmgmsCg/exec';
+    const form = document.forms['google-sheet'];
+    
+    form.addEventListener('submit', e => { 
+        e.preventDefault(); 
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)}) 
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")) 
+            .catch(error => console.error('Error!', error.message)); 
+    });
 
-// redirect form 
-function redirectAfterSubmit(event) {
-            event.preventDefault(); // Prevent the default form submission behavior
-            // Perform your form validation or submission logic here
+    // Redirect form
+    function redirectAfterSubmit(event) { 
+        event.preventDefault(); // Prevent the default form submission behavior 
+        // Perform your form validation or submission logic here
+        
+        // Redirect to another form 
+        window.location.href = 'https://forms.gle/UPf4GfayNm7moj6H8'; // Replace with your desired URL 
+    }
 
-            // Redirect to another form
-            window.location.href = 'https://forms.gle/UPf4GfayNm7moj6H8'; // Replace with your desired URL
-        }
+    // Client ID validation
+    document.getElementById('clientId').addEventListener('input', function() { 
+        const clientId = document.getElementById('clientId').value; 
+        const errorMessage = document.getElementById('error-message'); 
+        const pattern = /^GD-00/; 
+        
+        if (!pattern.test(clientId)) { 
+            errorMessage.style.display = 'inline'; 
+        } else { 
+            errorMessage.style.display = 'none'; 
+        } 
+    });
 
-            // client id invalid 
+    document.getElementById('clientForm').addEventListener('submit', function(event) { 
+        const clientId = document.getElementById('clientId').value; 
+        const errorMessage = document.getElementById('error-message'); 
+        const pattern = /^GD-00/; 
+        
+        if (!pattern.test(clientId)) { 
+            errorMessage.style.display = 'inline'; 
+            event.preventDefault(); 
+        } else { 
+            errorMessage.style.display = 'none'; 
+        } 
+    });
 
+    // Print form
+    function printForm() { 
+    const form = document.getElementById('myForm'); 
+    const formData = new FormData(form); 
+    let printContent = ''; 
 
-            document.getElementById('clientId').addEventListener('input', function() {
-            const clientId = document.getElementById('clientId').value;
-            const errorMessage = document.getElementById('error-message');
-            const pattern = /^GD-00/;
+    // Get the current date and time 
+    const now = new Date(); 
+    const date = now.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+});
+    const time = now.toLocaleTimeString(); 
 
-            if (!pattern.test(clientId)) {
-                errorMessage.style.display = 'inline';
-            } else {
-                errorMessage.style.display = 'none';
+    // Start building the HTML for the print content
+    printContent += `
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                margin: 20px;
+               
             }
-        });
-
-        document.getElementById('clientForm').addEventListener('submit', function(event) {
-            const clientId = document.getElementById('clientId').value;
-            const errorMessage = document.getElementById('error-message');
-            const pattern = /^GD-00/;
-
-            if (!pattern.test(clientId)) {
-                errorMessage.style.display = 'inline';
-                event.preventDefault();
-            } else {
-                errorMessage.style.display = 'none';
+            h2 {
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 20px;
             }
-        });
+            .form-details {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                border-collapse: collapse;
+            }
+            .form-details th, .form-details td {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+            }
+            .form-details th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+            .form-details td {
+                background-color: #fff;
+            }
+            .date-time {
+                text-align: right;
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+            .recheck-message {
+                text-align: center;
+                margin-top: 40px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #d9534f; /* Bootstrap's "danger" color for emphasis */
+            }
+            .logo {
+                text-align: center;
+                margin-top: 40px;
+            }
+            .logo img {
+                width: 150px;
+                height: auto;
+            }
+        </style>
 
- // print 
+        <h2>GOVSDOCS Service Application Form (परीक्षा आवेदन पत्र)</h2>
+        <div class="logo">
+            <img src="logo.jpg" alt="Company Logo">
+        </div>
 
-        function printForm() { 
-            const form = document.getElementById('myForm'); 
-            const formData = new FormData(form); 
-            let printContent = ''; 
+        <div class="date-time">
+            <strong>Date (तारीख):</strong> ${date}<br>
+            <strong>Time (समय):</strong> ${time}
+        </div>
+        <table class="form-details">
+            <tbody>
+    `;
 
-            // Get the current date and time 
-            const now = new Date(); 
-            const date = now.toLocaleDateString(); 
-            const time = now.toLocaleTimeString(); 
+    formData.forEach((value, key) => { 
+        // Skip 'clientId' field if you don't want to print it
+        if (key !== 'clientId') {
+            // Find the corresponding label for the input field
+            const labelElement = form.querySelector(`label[for="${key}"]`);
+            const labelText = labelElement ? labelElement.textContent : key;
 
-            // Append the date and time to the print content 
-            printContent += 'Date: ' + date + '\nTime: ' + time + '\n\n'; 
-
-            formData.forEach((value, key) => { 
-                // Skip 'clientId' field
-                if (key !== 'clientId') {
-                    printContent += `${key}: ${value}\n`; 
-                }
-            }); 
-
-            const printWindow = window.open('', '', 'height=400,width=600'); 
-            printWindow.document.write('<pre>' + printContent + '</pre>'); 
-            printWindow.document.close(); 
-            printWindow.print(); 
+            printContent += `
+                <tr>
+                    <th>${labelText}</th>
+                    <td>${value}</td>
+                </tr>
+            `; 
         }
+    });
 
+    // Add a recheck message
+    printContent += `
+            </tbody>
+        </table>
+        <div class="recheck-message">
+            Please verify that the information you provided is entirely accurate. <br>
+            कृपया सुनिश्चित करें कि आपके द्वारा दिए गए विवरण पूरी तरह से सही हैं।
+        </div>
+    `;
 
+    // Add logo at the end
+    printContent += `
+        <div class="logo">
+            <img src="logo.jpg" alt="Company Logo">
+        </div>
+    `;
+
+    const printWindow = window.open('', '', 'height=600,width=800'); 
+    printWindow.document.write(printContent); 
+    printWindow.document.close(); 
+    printWindow.print(); 
+}
     </script>
 </body>
 </html>
