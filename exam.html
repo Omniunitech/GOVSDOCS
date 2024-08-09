@@ -114,6 +114,45 @@ button:hover {
         }
 
 
+        .form-details {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                border-collapse: collapse;
+            }
+            .form-details th, .form-details td {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+            }
+            .form-details th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+            .form-details td {
+                background-color: #fff;
+            }
+            .date-time {
+                text-align: right;
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+            .recheck-message {
+                text-align: center;
+                margin-top: 40px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #d9534f; /* Bootstrap's "danger" color for emphasis */
+            }
+            .logo {
+                text-align: center;
+                margin-top: 40px;
+            }
+            .logo img {
+                width: 150px;
+                height: auto;
+            }    
+
+
     </style>
 </head>
 <body>
@@ -155,11 +194,11 @@ button:hover {
         </select>
         
         
-          <label for="examName">Exam Name:</label>
+          <label for="examName">परीक्षा का नाम / Exam Name:</label>
         <input type="text" id="examName" name="examName">
 
 
-<h4>Exam Center Preference:</h4>
+<h4>परीक्षा केंद्र वरीयता / Exam Center Preference:</h4>
  <label for="center1">Center Preference 1:</label>
         <input type="text" id="center1" name="center1">
         <br>
@@ -173,7 +212,7 @@ button:hover {
         <input type="text" id="center4" name="center4"> 
         
         
-        <label for="examLanguage">Language of Exam:</label>
+        <label for="examLanguage">परीक्षा की भाषा / Language of Exam:</label>
         <select id="examLanguage" name="examLanguage">
             <option value="">Please Select</option>
             <option value="english">English</option>
@@ -225,7 +264,7 @@ button:hover {
             </select>
 
 
-            <label for="disability-status">क्या आप बेंचमार्क विकलांगता वाले व्यक्ति हैं? / Wheather a person with Benchmark Disability (pwBD):</label>
+            <label for="dscategory">क्या आप बेंचमार्क विकलांगता वाले व्यक्ति हैं? / Wheather a person with Benchmark Disability (pwBD):</label>
         <select id="dscategory" name="dscategory">
             <option value="">Please Select</option>
             <option value ="yes">Yes</option>
@@ -317,7 +356,7 @@ button:hover {
         <h2 style="font-size: 1.5em;
             margin-bottom: 10px;">शैक्षणिक विवरण: /  Academic Details: </h2>
 
-    <label for="qualification">Highest Educational Qualification:</label>
+    <label for="qualification">उच्चतम शैक्षणिक योग्यता / Highest Educational Qualification:</label>
         
         <select id="qualification" name="qualification" required>
             <option value="">Select your qualification</option>
@@ -364,83 +403,173 @@ button:hover {
      <button type="submit">Submit</button>
      </fieldset>
  </form>
- <script>
-      const scriptURL = 'https://script.google.com/macros/s/AKfycbzgPotn1w-OVMDH9lHwJrAdMYPLMr3vy4vkmODAfqrnXMmFc4RjYLp6KaFnru5SCDxacA/exec'
-         const form = document.forms['google-sheet']
-       
-         form.addEventListener('submit', e => {
-           e.preventDefault()
-           fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-             .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
-             .catch(error => console.error('Error!', error.message))
-         })
+ <script> 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzgPotn1w-OVMDH9lHwJrAdMYPLMr3vy4vkmODAfqrnXMmFc4RjYLp6KaFnru5SCDxacA/exec';
+    const form = document.forms['google-sheet'];
+    
+    form.addEventListener('submit', e => { 
+        e.preventDefault(); 
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)}) 
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")) 
+            .catch(error => console.error('Error!', error.message)); 
+    });
 
-// redirect form 
-function redirectAfterSubmit(event) {
-         event.preventDefault(); // Prevent the default form submission behavior
-         // Perform your form validation or submission logic here
+    // Redirect form
+    function redirectAfterSubmit(event) { 
+        event.preventDefault(); // Prevent the default form submission behavior 
+        // Perform your form validation or submission logic here
+        
+        // Redirect to another form 
+        window.location.href = 'https://forms.gle/hx4Pp6KqVRkka1d19'; // Replace with your desired URL 
+    }
 
-         // Redirect to another form
-         window.location.href = 'https://forms.gle/hx4Pp6KqVRkka1d19'; // Replace with your desired URL
-     }
+    // Client ID validation
+    document.getElementById('clientId').addEventListener('input', function() { 
+        const clientId = document.getElementById('clientId').value; 
+        const errorMessage = document.getElementById('error-message'); 
+        const pattern = /^GD-00/; 
+        
+        if (!pattern.test(clientId)) { 
+            errorMessage.style.display = 'inline'; 
+        } else { 
+            errorMessage.style.display = 'none'; 
+        } 
+    });
 
-         // client id invalid 
+    document.getElementById('clientForm').addEventListener('submit', function(event) { 
+        const clientId = document.getElementById('clientId').value; 
+        const errorMessage = document.getElementById('error-message'); 
+        const pattern = /^GD-00/; 
+        
+        if (!pattern.test(clientId)) { 
+            errorMessage.style.display = 'inline'; 
+            event.preventDefault(); 
+        } else { 
+            errorMessage.style.display = 'none'; 
+        } 
+    });
 
+    // Print form
+    function printForm() { 
+    const form = document.getElementById('myForm'); 
+    const formData = new FormData(form); 
+    let printContent = ''; 
 
-         document.getElementById('clientId').addEventListener('input', function() {
-         const clientId = document.getElementById('clientId').value;
-         const errorMessage = document.getElementById('error-message');
-         const pattern = /^GD-00/;
+    // Get the current date and time 
+    const now = new Date(); 
+    const date = now.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+});
+    const time = now.toLocaleTimeString(); 
 
-         if (!pattern.test(clientId)) {
-             errorMessage.style.display = 'inline';
-         } else {
-             errorMessage.style.display = 'none';
-         }
-     });
+    // Start building the HTML for the print content
+    printContent += `
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                margin: 20px;
+               
+            }
+            h2 {
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .form-details {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                border-collapse: collapse;
+            }
+            .form-details th, .form-details td {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+            }
+            .form-details th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+            .form-details td {
+                background-color: #fff;
+            }
+            .date-time {
+                text-align: right;
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+            .recheck-message {
+                text-align: center;
+                margin-top: 40px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #d9534f; /* Bootstrap's "danger" color for emphasis */
+            }
+            .logo {
+                text-align: center;
+                margin-top: 40px;
+            }
+            .logo img {
+                width: 150px;
+                height: auto;
+            }
+        </style>
 
-     document.getElementById('clientForm').addEventListener('submit', function(event) {
-         const clientId = document.getElementById('clientId').value;
-         const errorMessage = document.getElementById('error-message');
-         const pattern = /^GD-00/;
+        <h2>GOVSDOCS Exam Application Form (परीक्षा आवेदन पत्र)</h2>
+        <div class="logo">
+            <img src="logo.jpg" alt="Company Logo">
+        </div>
 
-         if (!pattern.test(clientId)) {
-             errorMessage.style.display = 'inline';
-             event.preventDefault();
-         } else {
-             errorMessage.style.display = 'none';
-         }
-     });
+        <div class="date-time">
+            <strong>Date (तारीख):</strong> ${date}<br>
+            <strong>Time (समय):</strong> ${time}
+        </div>
+        <table class="form-details">
+            <tbody>
+    `;
 
-// print 
+    formData.forEach((value, key) => { 
+        // Skip 'clientId' field if you don't want to print it
+        if (key !== 'clientId') {
+            // Find the corresponding label for the input field
+            const labelElement = form.querySelector(`label[for="${key}"]`);
+            const labelText = labelElement ? labelElement.textContent : key;
 
-     function printForm() { 
-         const form = document.getElementById('myForm'); 
-         const formData = new FormData(form); 
-         let printContent = ''; 
+            printContent += `
+                <tr>
+                    <th>${labelText}</th>
+                    <td>${value}</td>
+                </tr>
+            `; 
+        }
+    });
 
-         // Get the current date and time 
-         const now = new Date(); 
-         const date = now.toLocaleDateString(); 
-         const time = now.toLocaleTimeString(); 
+    // Add a recheck message
+    printContent += `
+            </tbody>
+        </table>
+        <div class="recheck-message">
+            Please verify that the information you provided is entirely accurate. <br>
+            कृपया सुनिश्चित करें कि आपके द्वारा दिए गए विवरण पूरी तरह से सही हैं।
+        </div>
+    `;
 
-         // Append the date and time to the print content 
-         printContent += 'Date: ' + date + '\nTime: ' + time + '\n\n'; 
+    // Add logo at the end
+    printContent += `
+        <div class="logo">
+            <img src="logo.jpg" alt="Company Logo">
+        </div>
+    `;
 
-         formData.forEach((value, key) => { 
-             // Skip 'clientId' field
-             if (key !== 'clientId') {
-                 printContent += `${key}: ${value}\n`; 
-             }
-         }); 
+    const printWindow = window.open('', '', 'height=600,width=800'); 
+    printWindow.document.write(printContent); 
+    printWindow.document.close(); 
+    printWindow.print(); 
+}
 
-         const printWindow = window.open('', '', 'height=400,width=600'); 
-         printWindow.document.write('<pre>' + printContent + '</pre>'); 
-         printWindow.document.close(); 
-         printWindow.print(); 
-     }
-
-
- </script>
+</script>
 </body>
     </html>
