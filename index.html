@@ -1,298 +1,575 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>GOVSDOCS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAM FORM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+        function copyAddress() {
+            if (document.getElementById("sameAsAbove").checked) {
+                document.getElementById("state2").value = document.getElementById("state1").value;
+                document.getElementById("district2").value = document.getElementById("district1").value;
+                document.getElementById("subDivision2").value = document.getElementById("subDivision1").value;
+                document.getElementById("block2").value = document.getElementById("block1").value;
+                document.getElementById("village2").value = document.getElementById("village1").value;
+                document.getElementById("postOffice2").value = document.getElementById("postOffice1").value;
+                document.getElementById("wardNo2").value = document.getElementById("wardNo1").value;
+                document.getElementById("pinCode2").value = document.getElementById("pinCode1").value;
+                document.getElementById("localBodyType2").value = document.getElementById("localBodyType1").value;
+                document.getElementById("localbodyname2").value = document.getElementById("localbodyname1").value;
+            } else {
+                document.getElementById("state2").value = "";
+                document.getElementById("district2").value = "";
+                document.getElementById("subDivision2").value = "";
+                document.getElementById("block2").value = "";
+                document.getElementById("village2").value = "";
+                document.getElementById("postOffice2").value = "";
+                document.getElementById("wardNo2").value = "";
+                document.getElementById("pinCode2").value = "";
+                document.getElementById("localBodyType2").value = "";
+                document.getElementById("localbodyname2").value = "";
+            }
+        }
+    </script>
+    
     <style>
-        /* Basic styling for navigation */
-        .navbar {
-            background-color: #333;
-            overflow: hidden;
-        }
-        
-        header {
-            
-           
-            background-color: black;
-            
-            color: white;
-            padding: 100px;
-            text-align: center;
-        }
-        
-        .navbar a {
-            float: right;
-            display: block;
-            color: #fff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .navbar a:hover {
-            background-color: #ddd;
-            color: #333;
-        }
-        /* Additional styling */
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .content {
-            padding: 20px;
-        }
-        
-.container {
-      border-radius: 5px;
-      padding: 2rem 1rem;
-      width: 45rem;
-      background: #F8F8FF;
-      text-align: center;
-
-      margin: 0 auto;
-      font-family: "Times New Roman", Times, serif;
-      font-size:33px;
-      box-shadow: 0 0 15px  rgba(0, 0, 0, 0.3);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f2f2f2;
 }
 
-.button1 {
-  background-color: #04AA6D; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+h1 {
+    text-align: center;
 }
 
-
-.button2 {
-  background-color: #f44336; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-textarea {
-    
-    border-width: medium medium medium 1px;
+fieldset {
+    border: none;
+    margin-bottom: 15px;
 }
 
-input {
-    border-width: medium medium medium 1px;
+legend {
+    font-size: 1.5em;
+    margin-bottom: 10px;
 }
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="date"],
+input[type="number"],
 
 select {
-    border-width: medium medium medium 1px;
-}
-
-.form {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1000px;
-            margin: auto;
-        }
-       
-        .grid-item {
-    background-color: white;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    z-index: 1; /* Ensure the content is above the pseudo-element */
-}
-
-.grid-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 8px;
-    border: 4px solid transparent;
-    background: linear-gradient(white, white) padding-box, 
-                linear-gradient(90deg, black, transparent) border-box;
-    animation: moveGradient 5s infinite linear;
-    z-index: -1; /* Place the pseudo-element behind the content */
-}
-
-@keyframes moveGradient {
-    0% { background: linear-gradient(white, white) padding-box, 
-                  linear-gradient(90deg, black, transparent) border-box; }
-    100% { background: linear-gradient(white, white) padding-box, 
-                  linear-gradient(90deg, transparent, black) border-box; }
-}
-
-.grid-item h2 {
-    margin-bottom: 20px;
-}
-
-.grid-item a {
-    display: block;
-    margin: 20px 0;
-    padding: 20px;
-    color: white;
-    background-color: #007BFF;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.grid-item a:hover {
-    background-color: #0056b3;
-}
-
-        
-
-        
-
-
-        
-
-footer {
-    margin-top: auto;
+    width: calc(50% - 10px);
     padding: 10px;
-    background-color: #f1f1f1;
-    text-align: center;
-    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.footer-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin: 0px;
-    padding: -100px;
+input[type="radio"] {
+    margin-right: 10px;
 }
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.error {
+            color: red;
+            display: none;
+            font-size: 10px;
+        }
+
+
+        .form-details {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                border-collapse: collapse;
+            }
+            .form-details th, .form-details td {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+            }
+            .form-details th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+            .form-details td {
+                background-color: #fff;
+            }
+            .date-time {
+                text-align: right;
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+            .recheck-message {
+                text-align: center;
+                margin-top: 40px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #d9534f; /* Bootstrap's "danger" color for emphasis */
+            }
+            .logo {
+                text-align: center;
+                margin-top: 40px;
+            }
+            .logo img {
+                width: 150px;
+                height: auto;
+            }    
+
+
     </style>
 </head>
 <body>
-    
-  <!-- Navigation bar -->
-    <div class="navbar">
-        
-        
-        <a href="http://ridewavegovs.blogspot.com/2024/07/govsdocs-update.html"><i class='fa fa-bell'></i></a>
-        
-        <a href="./payment&policy.html">PAYMENT | POLICY</a>
-        <a href="./client.html">CLIENT REG</a>
-        <a href="https://t.me/OmniunitechBot" style="background-color:blue"><i class='	fa fa-handshake-o'> SUPPORT</i></a>
-        
-    </div>
-
-    
-    <header>
-        <h1>GOVSDOCS</h1>
-        <p>- भारत के ई-सेवाओं के लिए आवेदन का प्रतिकृति प्रस्तुतिकरण (Digital CyberCafe) -</p>
-    </header>
-    
-    
-    <!-- introduction -->
-
-    
-    <div class="content" >
-        <div class="grid1" style="text-align: center;  "> 
-            
-        <p><u>Your One-Stop Solution for Hassle-Free Form Filling</u></p><br>
-        
-        <p >GOVSDOCS में आपका स्वागत है, जहाँ हम विभिन्न सरकारी सेवाओं (उदाहरण : आय प्रमाण पत्र , आवासीय प्रमाणपत्र ....) और परीक्षाओं के लिए आवेदन भरने की प्रक्रिया को सरल बनाते हैं। हमारी समर्पित टीम आपकी ओर से थकाऊ कागजी कार्रवाई को संभालने के लिए यहाँ है, जिससे सटीकता और दक्षता सुनिश्चित होती है। GOVSDOCS के साथ, आप लंबी कतारों और भ्रामक फ़ॉर्म को अलविदा कह सकते हैं, और सुविधा और मन की शांति को नमस्ते कह सकते हैं।</p>
-        <p style="color: lightslategray;">Welcome to GOVSDOCS, where we simplify the process of filling out applications for various government services and exams. Our dedicated team is here to handle the tedious paperwork on your behalf, ensuring accuracy and efficiency. With GOVSDOCS, you can say goodbye to long queues and confusing forms, and say hello to convenience and peace of mind.</p>
-
-        </div>
-        
-
-
-
-
-        <div>
-            <h2>Why Choose GOVSDOCS?</h2>
-        <ul>
-            <li><strong>Ease of Use:</strong> Simply provide your details, and our team will take care of the rest.(उपयोग में आसानी: बस अपना विवरण प्रदान करें, और हमारी टीम बाकी का काम संभाल लेगी।)</li><br>
-            <li><strong>Accuracy:</strong> Our experts ensure that all forms are filled out correctly and completely.(सटीकता: हमारे विशेषज्ञ यह सुनिश्चित करते हैं कि सभी फॉर्म सही और पूर्ण रूप से भरे जाएं।)</li><br>
-            <li><strong>Time-Saving:</strong> Save valuable time by letting us handle the paperwork.(समय की बचत: कागजी कार्रवाई हमें सौंपकर अपना बहुमूल्य समय बचाएं।)</li><br>
-            <li><strong>Secure:</strong> Your data is protected with the highest security standards.(सुरक्षित: आपका डेटा उच्चतम सुरक्षा मानकों के साथ संरक्षित है।)</li>
-        </ul>
-
-        </div>
-        
-    </div>
-
-    <h2 style="text-align: center;">Our Service</h2> <br>
-<!-- Form  -->
-<div class="form">
-        <div class="grid-item">
-            
-            <i class='fa fa-address-card' ></i>
-            <h2 style="font-family: Verdana;">Apply for Service</h2>
-            <a href="./service.html" style="font-family: monospace;">Apply Through Client Assistance </a>
-            <p >or</p>
-            <a href="https://forms.gle/HQKns2CTG3GgqDJT7" style="font-family: monospace;">Apply by Yourself</a>
-
-        </div>
-            
-            
-        
-        <div class="grid-item">
-            <i class='fa fa-server' ></i>
-            <h2 style="font-family: Verdana;">Apply for Exam</h2>
-            <a href="./exam.html" style="font-family: monospace;">Apply Through Client Assistance </a>
-            <p >or</p>
-            <a href="https://forms.gle/o79eiRH5jCVQ2HcX6" style="font-family: monospace;">Apply by Yourself</a>
-
-        </div>
-            
-            
-        
-        
-    </div>
-  
-  <!-- Image of location/map -->
-
- <img src="parliament.jpg" class="w3-image w3-greyscale-min" style="width:100%;height:400px;">
- 
-    <!-- Footer -->
-<h2 style="text-align: center; size: 10px; font-size: 20px;" ><b><u>HelpDesk</u></b><i class='fa fa-fax'></i></h2>
-
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-    
-       <div class="footer-content" style="height: 20px;">
-           <i class="fa fa-envelope" style="width:30px"> </i> <a href="mailto:ridewave000@gmail.com">Email</a><br>
-  <i class="fa fa-telegram w3-hover-opacity "></i>
-  <a href="https://t.me/SIKBOYS5" target="_blank" rel="noopener noreferrer">Message</a>
-  
-  
-  
-  <br>
-         <label><font size="3" color="black"><b>Powered by GOVSDOCS.</b><br> </font> </label>  
-         
-         <label><font size="2" color="black"><b>Hosted by: <a href="https://t.me/OmniunitechBot" target="_blank" rel="noopener noreferrer">OMNIUNITECH.</a></b><br></font> </label>  
-         <label><font size="2" color="black"><b> © GOVSDOCS Services (2024).</b><br></font> </label>  
-         <label><font size="2" color="black"><b>Last updated on: 21/04/2023 </b></font> </label>  
+    <h1> परीक्षा फॉर्म के लिए डमी आवेदन<br>Dummy Application  for Exam Form</h1>
+    <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
+        <fieldset>
+            <label for="clientId">
+                <b style="color: red; margin-top: 0em;">Client ID:</b>
+                <input type="text" id="clientId" name="clientId" required>
+            </label>
+            <span id="error-message" class="error">Invalid ID- कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन आगे की प्रक्रिया शुरू नहीं करेंगे</span>
+                <br><br>
            
-       </div>
+     
+            
+
+
+            <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">परीक्षा विवरण  / Exam Details </h2> <br>
+
+            <label for="examtype">परीक्षा का प्रकार(Type of Application or Certificate) :</label>
+              
+        <select id="examType" name="examType">
+            <option value="">Please Select</option>
+            
+            <option value="ssc">SSC</option>
+            <option value="banking">Banking</option>
+            <option value="railways">Railways</option>
+            <option value="civilService">Civil Service</option>
+            <option value="teaching">Teaching</option>
+            <option value="stateGovt">State Govt.</option>
+            <option value="otherGovt">Other Govt.</option>
+            <option value="police">Police</option>
+            <option value="defence">Defence</option>
+            <option value="cuetUgEntrance">CUET & UG Entrance Exam</option>
+            <option value="insurance">Insurance</option>
+            <option value="nursing">Nursing</option>
+            <option value="govtOrg">Govt Organisation</option>
+        </select>
         
-  
         
+          <label for="examName">परीक्षा का नाम / Exam Name:</label>
+        <input type="text" id="examName" name="examName">
+
+
+<h4>परीक्षा केंद्र वरीयता / Exam Center Preference:</h4>
+ <label for="center1">Center Preference 1:</label>
+        <input type="text" id="center1" name="center1">
+        <br>
+        <label for="center2">Center Preference 2:</label>
+        <input type="text" id="center2" name="center2">
+        <br>
+        <label for="center3">Center Preference 3:</label>
+        <input type="text" id="center3" name="center3">
+        <br>
+        <label for="center4">Center Preference 4:</label>
+        <input type="text" id="center4" name="center4"> 
+        
+        
+        <label for="examLanguage">परीक्षा की भाषा / Language of Exam:</label>
+        <select id="examLanguage" name="examLanguage">
+            <option value="">Please Select</option>
+            <option value="english">English</option>
+            <option value="hindi">Hindi</option>
+            <option value="other">Other</option>
+        </select>           
+<hr>
+
+            
+            
+            <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">छात्र व्यक्तिगत विवरण / Student Personal Details 👨‍🎓</h2>
+          
          
-         
+            
+               <label for="gender">लिंग / Gender:</label>
+            <select id="gender" name="gender">
+                <option value="none"></option>
+                <option value="male">पुरुष / Male</option>
+                <option value="female">महिला / Female</option>
+                <option value="thirdGender">तृतीय लिंग / Third Gender</option>
+            </select>
+
+
+            <label for="studentName">छात्र का नाम / Name of Student:</label>
+            <input type="text" id="studentName" name="studentName" required>
+
+            <label for="fatherName">पिता का नाम / Name of Father:</label>
+            <input type="text" id="fatherName" name="fatherName" required>
+
+            <label for="motherName">माता का नाम / Name of Mother:</label>
+            <input type="text" id="motherName" name="motherName" required>
+
+            <label for="birthday">Date of Birth/जन्म की तारीख :</label>
+        <input type="date" id="birthday" name="birthday">
+
+          
+             
+
+            <label for="category"> वर्ग / Category:</label>
+            <select id="category" name="category">
+                <option value="">Please Select</option>
+                <option value ="General">General</option>
+                <option value ="Obc">OBC</option>
+                <option value ="Sc">SC</option>
+                <option value ="st">ST</option>
+                <option value ="other">Other </option>
+                
+            </select>
+
+
+            <label for="dscategory">क्या आप बेंचमार्क विकलांगता वाले व्यक्ति हैं? / Wheather a person with Benchmark Disability (pwBD):</label>
+        <select id="dscategory" name="dscategory">
+            <option value="">Please Select</option>
+            <option value ="yes">Yes</option>
+            <option value ="no">No</option>
+            <option value ="maybe">Maybe</option>
+        </select>
+
+
+        <label for="visualmark">Visual mark of identification पहचान का दृश्य चिह्न. : :</label>
+        <input type="text" id="visualmark" name="visualmark">
+
+
+       
+        
+            
+<hr>
     
+  
+  <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">Contact Information 🔎:</h2>
+
+  <label for="mobileNumber">आवेदक का मोबाइल नंबर / Mobile No. of Applicant:</label>
+  <input type="number" id="mobileNumber" name="mobileNumber" required>
+
+  <label for="email">आवेदक का ईमेल / Email of Applicant:</label>
+  <input type="email" id="email" name="email">
+
+    <h3>स्थायी पता / Permanent Address: -</h3>
+
+    <label for="state1">राज्य / State:</label>
+    <input type="text" id="state1" name="state1">
+    
+    <label for="district1">जिला / District:</label>
+    <input type="text" id="district1" name="district1">
+
+    <label for="subDivision1">अनुमंडल / Sub-Division:</label>
+    <input type="text" id="subDivision1" name="subDivision1">
+
+    <label for="block1">प्रखंड / Block:</label>
+    <input type="text" id="block1" name="block1">
+
+    <label for="village1">गांव / Village:</label>
+    <input type="text" id="village1" name="village1">
+
+    <label for="postOffice1">डाक घर / Post Office:</label>
+    <input type="text" id="postOffice1" name="postOffice1">
+
+    <label for="wardNo1">वार्ड नंबर / Ward No.:</label>
+    <input type="text" id="wardNo1" name="wardNo1">
+
+    <label for="pinCode1">पिन कोड / Pin Code:</label>
+    <input type="text" id="pinCode1" name="pinCode1">
+
+    
+
+    <h3>वर्तमान पता / Present Address: -</h3>
+
+    <label for="sameAsAbove">उपर्य जैसा / Same as Above</label>
+    <input type="checkbox" id="sameAsAbove" name="presentAddress" value="sameAsAbove" onclick="copyAddress()">
+    
+    <label for="state2">राज्य / State:</label>
+    <input type="text" id="state2" name="state2">
+    
+    <label for="district2">जिला / District:</label>
+    <input type="text" id="district2" name="district2">
+
+    <label for="subDivision2">अनुमंडल / Sub-Division:</label>
+    <input type="text" id="subDivision2" name="subDivision2">
+
+    <label for="block2">प्रखंड / Block:</label>
+    <input type="text" id="block2" name="block2">
+
+    <label for="village2">गांव / Village:</label>
+    <input type="text" id="village2" name="village2">
+
+    <label for="postOffice2">डाक घर / Post Office:</label>
+    <input type="text" id="postOffice2" name="postOffice2">
+
+    <label for="wardNo2">वार्ड नंबर / Ward No.:</label>
+    <input type="text" id="wardNo2" name="wardNo2">
+
+    <label for="pinCode2">पिन कोड / Pin Code:</label>
+    <input type="text" id="pinCode2" name="pinCode2">  
+    
+            
+<hr>
+
+
+        <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">शैक्षणिक विवरण: /  Academic Details: </h2>
+
+    <label for="qualification">उच्चतम शैक्षणिक योग्यता / Highest Educational Qualification:</label>
+        
+        <select id="qualification" name="qualification" required>
+            <option value="">Select your qualification</option>
+             <option value="primary-school-certificate">1-10 Standard (Primary School Certificate)</option>
+             <option value="secondary-school-certificate">10th Standard (Secondary School Certificate)</option>
+             <option value="higher-secondary-certificate">12th Standard (Higher Secondary Certificate)</option>
+             <option value="diploma">Diploma</option>
+            <option value="bachelors-degree">Bachelor's Degree / Equivalent Graduate</option>
+             <option value="masters-degree">Master's Degree</option>
+            <option value="professional-degree-other">Professional Degree / Other (specify)</option>
+</select>
+<small style ="color:Blue"><i class="fa fa-info-circle"></i> परीक्षा के अनुसार आवश्यक 
+            </small>
+<br>
+
+
+
+<label for="school-college-name">School/College /Board/University Name:  </label>
+        <input type="text" id="school-college-name" name="school-college-name" placeholder="Enter School/College Name" ><br>
+
+
+        <label for="year-of-passing">Year of Passing:</label>
+        <input type="number" id="year-of-passing" name="year-of-passing" placeholder="YYYY" min="1900" max="2099" step="1" ><br>
+
+ <label for="percentage">Percentage/CGPA Obtained:</label>
+        <input type="text" id="percentage/CGPA" name="percentage/CGPA" ><br>
+        
+       <label for="rollNumber">Roll Number (for relevant exams):</label>
+        <input type="text" id="rollNumber" name="rollNumber"  ><br>
+
+        
+        <hr>
+        <div>
+            <ul >
+
+                  <small style ="color:red ; font-size: 15px;"><i class="fa fa-info-circle"></i> मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें। 
+                 </small>
+             </ul>
+        </div>
+
+       
+
+            <button type="button" onclick="printForm()" style="background-color: rgb(91, 91, 94);">Print</button>
+     <button type="submit">Submit</button>
+     </fieldset>
+ </form>
+ <script> 
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzgPotn1w-OVMDH9lHwJrAdMYPLMr3vy4vkmODAfqrnXMmFc4RjYLp6KaFnru5SCDxacA/exec';
+    const form = document.forms['google-sheet'];
+    
+    form.addEventListener('submit', e => { 
+        e.preventDefault(); 
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)}) 
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")) 
+            .catch(error => console.error('Error!', error.message)); 
+    });
+
+    // Redirect form
+    function redirectAfterSubmit(event) { 
+        event.preventDefault(); // Prevent the default form submission behavior 
+        // Perform your form validation or submission logic here
+        
+        // Redirect to another form 
+        window.location.href = 'https://forms.gle/hx4Pp6KqVRkka1d19'; // Replace with your desired URL 
+    }
+
+    // Client ID validation
+    document.getElementById('clientId').addEventListener('input', function() { 
+        const clientId = document.getElementById('clientId').value; 
+        const errorMessage = document.getElementById('error-message'); 
+        const pattern = /^GD-00/; 
+        
+        if (!pattern.test(clientId)) { 
+            errorMessage.style.display = 'inline'; 
+        } else { 
+            errorMessage.style.display = 'none'; 
+        } 
+    });
+
+    document.getElementById('clientForm').addEventListener('submit', function(event) { 
+        const clientId = document.getElementById('clientId').value; 
+        const errorMessage = document.getElementById('error-message'); 
+        const pattern = /^GD-00/; 
+        
+        if (!pattern.test(clientId)) { 
+            errorMessage.style.display = 'inline'; 
+            event.preventDefault(); 
+        } else { 
+            errorMessage.style.display = 'none'; 
+        } 
+    });
+
+    // Print form
+    function printForm() { 
+    const form = document.getElementById('myForm'); 
+    const formData = new FormData(form); 
+    let printContent = ''; 
+
+    // Get the current date and time 
+    const now = new Date(); 
+    const date = now.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+});
+    const time = now.toLocaleTimeString(); 
+
+    // Start building the HTML for the print content
+    printContent += `
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                margin: 20px;
+               
+            }
+            h2 {
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .form-details {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                border-collapse: collapse;
+            }
+            .form-details th, .form-details td {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+            }
+            .form-details th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+            .form-details td {
+                background-color: #fff;
+            }
+            .date-time {
+                text-align: right;
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+            .recheck-message {
+                text-align: center;
+                margin-top: 40px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #d9534f; /* Bootstrap's "danger" color for emphasis */
+            }
+            .logo {
+                text-align: center;
+                margin-top: 40px;
+            }
+            .logo img {
+                width: 150px;
+                height: auto;
+            }
+        </style>
+
+        <h2>GOVSDOCS Exam Application Form (परीक्षा आवेदन पत्र)</h2>
+        <div class="logo">
+            <img src="logo.jpg" alt="Company Logo">
+        </div>
+
+        <div class="date-time">
+            <strong>Date (तारीख):</strong> ${date}<br>
+            <strong>Time (समय):</strong> ${time}
+        </div>
+        <table class="form-details">
+            <tbody>
+    `;
+
+    formData.forEach((value, key) => { 
+        // Skip 'clientId' field if you don't want to print it
+        if (key !== 'clientId') {
+            // Find the corresponding label for the input field
+            const labelElement = form.querySelector(`label[for="${key}"]`);
+            const labelText = labelElement ? labelElement.textContent : key;
+
+            printContent += `
+                <tr>
+                    <th>${labelText}</th>
+                    <td>${value}</td>
+                </tr>
+            `; 
+        }
+    });
+
+    // Add a recheck message
+    printContent += `
+            </tbody>
+        </table>
+        <div class="recheck-message">
+            Please verify that the information you provided is entirely accurate. <br>
+            कृपया सुनिश्चित करें कि आपके द्वारा दिए गए विवरण पूरी तरह से सही हैं।
+        </div>
+    `;
+
+    // Add logo at the end
+    printContent += `
+        <div class="logo">
+            <img src="logo.jpg" alt="Company Logo">
+        </div>
+    `;
+
+    const printWindow = window.open('', '', 'height=600,width=800'); 
+    printWindow.document.write(printContent); 
+    printWindow.document.close(); 
+    printWindow.print(); 
+}
+
+</script>
 </body>
-</html>
+    </html>
