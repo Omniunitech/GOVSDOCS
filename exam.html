@@ -113,44 +113,15 @@ button:hover {
             font-size: 10px;
         }
 
+#datetime {
+   
+    text-align: center;
+    margin-left: 43em;
 
-        .form-details {
-                width: 100%;
-                max-width: 600px;
-                margin: 0 auto;
-                border-collapse: collapse;
-            }
-            .form-details th, .form-details td {
-                padding: 8px 12px;
-                border: 1px solid #ddd;
-            }
-            .form-details th {
-                background-color: #f2f2f2;
-                text-align: left;
-            }
-            .form-details td {
-                background-color: #fff;
-            }
-            .date-time {
-                text-align: right;
-                margin-bottom: 20px;
-                font-size: 14px;
-            }
-            .recheck-message {
-                text-align: center;
-                margin-top: 40px;
-                font-size: 16px;
-                font-weight: bold;
-                color: #d9534f; /* Bootstrap's "danger" color for emphasis */
-            }
-            .logo {
-                text-align: center;
-                margin-top: 40px;
-            }
-            .logo img {
-                width: 150px;
-                height: auto;
-            }    
+}
+        
+       
+        
 
 
     </style>
@@ -159,6 +130,7 @@ button:hover {
     <h1> परीक्षा फॉर्म के लिए डमी आवेदन<br>Dummy Application  for Exam Form</h1>
     <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
         <fieldset>
+             <input type="datetime-local" id="datetime" name="datetime" value="">
             <label for="clientId">
                 <b style="color: red; margin-top: 0em;">Client ID:</b>
                 <input type="text" id="clientId" name="clientId" required>
@@ -213,12 +185,7 @@ button:hover {
         
         
         <label for="examLanguage">परीक्षा की भाषा / Language of Exam:</label>
-        <select id="examLanguage" name="examLanguage">
-            <option value="">Please Select</option>
-            <option value="english">English</option>
-            <option value="hindi">Hindi</option>
-            <option value="other">Other</option>
-        </select>           
+        <input type="text" id="examLanguage" name="examLanguage">   
 <hr>
 
             
@@ -395,6 +362,13 @@ button:hover {
                   <small style ="color:red ; font-size: 15px;"><i class="fa fa-info-circle"></i> मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें। 
                  </small>
              </ul>
+
+            <ul>
+                    <small style ="color: lightslategray; font-size: 15px;"><i class="fa fa-info-circle"></i> यदि फॉर्म भरते समय आपको कोई समस्या आती है, तो कृपया सहायता के लिए हमारी सहायता टीम से संपर्क करने में संकोच न करें। हम एक सहज और परेशानी मुक्त अनुभव सुनिश्चित करने में मदद के लिए यहां हैं। <a href="https://t.me/OmniunitechBot" style="color:blue"><i class='	fa fa-handshake-o'> SUPPORT</i></a> पर हमसे संपर्क करें, और हमें आपकी सहायता करने में खुशी होगी।
+                    </small>
+
+
+                </ul>
         </div>
 
        
@@ -519,7 +493,7 @@ button:hover {
         </style>
 
         <h2>GOVSDOCS Exam Application Form (परीक्षा आवेदन पत्र)</h2>
-        <p><em>"The Whole World is One Family"</em></p>
+        <p style=" text-align: center;">🙏<em>" The Whole World is One Family"</em>🙏</p>
 
         <div class="date-time">
             <strong>Date (तारीख):</strong> ${date}<br>
@@ -555,12 +529,7 @@ button:hover {
         </div>
     `;
 
-    // Add logo at the end
-    printContent += `
-        <div class="logo">
-            <img src="logo.jpg" alt="Company Logo">
-        </div>
-    `;
+   
 
     const printWindow = window.open('', '', 'height=600,width=800'); 
     printWindow.document.write(printContent); 
