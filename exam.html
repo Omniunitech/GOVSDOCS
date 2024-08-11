@@ -130,7 +130,7 @@ button:hover {
     <h1> परीक्षा फॉर्म के लिए डमी आवेदन<br>Dummy Application  for Exam Form</h1>
     <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
         <fieldset>
-             <input type="datetime-local" id="datetime" name="datetime" value=""> <br>
+             <input type="datetime-local" id="datetime" name="datetime" value=""> <br><br>
             <label for="clientId">
                 <b style="color: red; margin-top: 0em;">Client ID:</b>
                 <input type="text" id="clientId" name="clientId" required>
@@ -387,6 +387,12 @@ button:hover {
             .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")) 
             .catch(error => console.error('Error!', error.message)); 
     });
+
+     // Set the current date and time to the datetime-local input
+    const now = new Date();
+        const offset = now.getTimezoneOffset() * 60000;
+        const localDateTime = new Date(now - offset).toISOString().slice(0, 16);
+        document.getElementById('datetime').value = localDateTime;
 
     // Redirect form
     function redirectAfterSubmit(event) { 
