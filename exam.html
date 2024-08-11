@@ -393,6 +393,11 @@ button:hover {
         const offset = now.getTimezoneOffset() * 60000;
         const localDateTime = new Date(now - offset).toISOString().slice(0, 16);
         document.getElementById('datetime').value = localDateTime;
+     const date = now.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+});
 
     // Redirect form
     function redirectAfterSubmit(event) { 
