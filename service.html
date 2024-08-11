@@ -18,6 +18,8 @@
                 document.getElementById("pinCode2").value = document.getElementById("pinCode1").value;
                 document.getElementById("localBodyType2").value = document.getElementById("localBodyType1").value;
                 document.getElementById("localbodyname2").value = document.getElementById("localbodyname1").value;
+                document.getElementById("policestation2").value = document.getElementById("policestation1").value;
+                
             } else {
                 document.getElementById("state2").value = "";
                 document.getElementById("district2").value = "";
@@ -29,6 +31,7 @@
                 document.getElementById("pinCode2").value = "";
                 document.getElementById("localBodyType2").value = "";
                 document.getElementById("localbodyname2").value = "";
+                document.getElementById("policestation2").value="";
             }
         }
     </script>
@@ -113,15 +116,22 @@ button:hover {
             font-size: 10px;
     
         }
+#datetime {
+   
+    text-align: center;
+    margin-left: 43em;
 
+}
 
     </style>
 </head>
 <body>
-    <h1> प्रमाण पत्र के लिए डमी आवेदन पत्र<br>Dummy Application Form for Certificate</h1>
+    <h1> प्रमाण पत्र के लिए डमी आवेदन पत्र<br>Dummy Application Form for Service</h1>
     <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
             
         <fieldset>
+            
+            <input type="datetime-local" id="datetime" name="datetime" value="">
             <label for="clientId">
                 <b style="color: red; margin-top: 0em;">Client ID:</b>
                 <input type="text" id="clientId" name="clientId" required>
@@ -129,17 +139,20 @@ button:hover {
             <span id="error-message" class="error">Invalid ID- कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
                 <br><br>
 
+                
+        
+
             
 
             
             
             <h2 style="font-size: 1.5em;
             margin-bottom: 10px;">आवेदक का विवरण / Details of Applicant</h2>
-            <label for="applicationtype">आवेदन का प्रकार/नाम(Type/Name of Application or Certificate) :</label>
-            <input type="text" id="applicationtype" name="applicationtype" required>
+            <label for="applicationtype">  आवेदन का प्रकार/नाम(Type/Name of Application or Certificate) :</label>
+            <input type="text" id="applicationtype" name="applicationtype" placeholder="Name of Application / Level " required>
          
             
-               <label for="gender">लिंग / Gender:</label>
+               <label for="gender">  लिंग / Gender:</label>
             <select id="gender" name="gender">
                 <option value="none"></option>
                 <option value="male">पुरुष / Male</option>
@@ -149,14 +162,14 @@ button:hover {
 
             
 
-            <label for="salutation">श्रीमान / सुश्री / Salutation:</label>
+            <label for="salutation">  श्रीमान / सुश्री / Salutation:</label>
             <select id="salutation" name="salutation">
                 <option value ="none">कुछ नहीं </option>
                 <option value="mr">श्रीमान / Mr.</option>
                 <option value="ms">सुश्री / Ms.</option>
             </select>
 
-            <label for="applicantName">आवेदक का नाम / Name of Applicant:</label>
+            <label for="applicantName"> आवेदक का नाम / Name of Applicant:</label>
             <input type="text" id="applicantName" name="applicantName" required>
 
             <label for="fatherName">पिता का नाम / Name of Father:</label>
@@ -177,27 +190,7 @@ button:hover {
             <label for="email">आवेदक का ईमेल / Email of Applicant:</label>
             <input type="email" id="email" name="email">
             
-             <label for="profession">श्रेणी / Profession:</label>
-            <select id="profession" name="profession">
-                <option value="">Please Select</option>
-                <option value ="student">विद्यार्थी/Student</option>
-                <option value ="govservice">सरकारी सेवा/ Govt. Service</option>
-                <option value ="private service">निजी सेवा /Private service</option>
-                <option value ="farmer">किसान / Farmer</option>
-                <option value ="Business">व्यापार / Business</option>
-                <option value ="Housewife">गृहिणी /Housewife</option>
-            </select>
-
-            <label for="category"> वर्ग / Category:</label>
-            <select id="category" name="category">
-                <option value="">Please Select</option>
-                <option value ="General">General</option>
-                <option value ="Obc">OBC</option>
-                <option value ="Sc">SC</option>
-                <option value ="st">ST</option>
-                <option value ="other">Other </option>
-                
-            </select>
+           
             
 <hr>
     
@@ -241,9 +234,13 @@ button:hover {
     <label for="localbodyname1">स्थानीय निकाय का नाम / Name of Local Body :</label>
     <input type="text" id="localbodyname1" name="localbodyname1">
 
+    <label for ="policestation1"> थाना / Police Station : </label>
+    <input type="text" id="policestation1" name="policestation1">
+    
+
     <h3>वर्तमान पता / Present Address: -</h3>
 
-    <label for="sameAsAbove">उपर्य जैसा / Same as Above</label>
+    <label for="sameAsAbove">उपर् जैसा / Same as Above</label>
     <input type="checkbox" id="sameAsAbove" name="presentAddress" value="sameAsAbove" onclick="copyAddress()">
     
     <label for="state2">राज्य / State:</label>
@@ -281,14 +278,73 @@ button:hover {
 
     <label for="localbodyname2">स्थानीय निकाय का नाम / Name of Local Body :</label>
     <input type="text" id="localbodyname2" name="localbodyname2">
+
+    <label for ="policestation2"> थाना / Police Station : </label>
+    <input type="text" id="policestation2" name="policestation2">
     
                
 <hr>
+
+<h2 style="font-size: 1.1em;
+text-align: center;">अन्य / Other</h2>
+
+ <label for="profession">पेशा / Profession:</label>
+<select id="profession" name="profession">
+    <option value="">Please Select</option>
+    <option value ="student">विद्यार्थी/Student</option>
+    <option value ="govservice">सरकारी सेवा/ Govt. Service</option>
+    <option value ="private service">निजी सेवा /Private service</option>
+    <option value ="farmer">किसान / Farmer</option>
+    <option value ="Business">व्यापार / Business</option>
+    <option value ="Housewife">गृहिणी /Housewife</option>
+</select>
+
+<label for="category"> वर्ग / Category:</label>
+<select id="category" name="category">
+    <option value="">Please Select</option>
+    <option value ="General">General</option>
+    <option value ="Obc">OBC</option>
+    <option value ="Sc">SC</option>
+    <option value ="st">ST</option>
+    <option value ="other">Other </option>
+    
+</select>
+
+    <label for ="caste"> जाति / Caste : </label>
+    <input type="text" id="caste" name="caste">
+
+    <label for ="caste-serial-no"> जाति अनुक्रमांक / Caste Serial number  : </label>
+    <input type="text" id="caste-serial-no" name="caste-serial-no">
+
+    <label for ="subcaste"> उपजाति / Sub-Caste : </label>
+    <input type="text" id="subcaste" name="subcaste">
+
+    <label for ="subcaste-serial-no"> उपजाति अनुक्रमांक / Sub-Caste Serial number : </label>
+    <input type="text" id="subcaste-serial-no" name="subcaste-serial-no">
+
+<hr>
+
+
+    <h2 style="font-size: 1.1em;
+    text-align: center;">Additional Details</h2>
+
+    <label for ="apply-office"> Apply to this Office : </label>
+    <input type="text" id="apply-office" name="apply-office">
+
+
+
            <div>
                <ul >
    
                      <small style ="color:red ; font-size: 15px;"><i class="fa fa-info-circle"></i> मैं यह पुष्टि करना चाहता हूँ कि आपने आगे बढ़ने से पहले फॉर्म में दर्ज सभी विवरणों की अच्छी तरह से जाँच कर ली है। एक बार जब आप सब कुछ देख लें, तो कृपया फॉर्म की हार्ड कॉपी बनाने के लिए "प्रिंट" बटन का उपयोग करें। कृपया इस मुद्रित दस्तावेज़ को आगे की प्रक्रिया के लिए अपने पास रखें। 
                     </small>
+                </ul>
+
+                <ul>
+                    <small style ="color: lightslategray; font-size: 15px;"><i class="fa fa-info-circle"></i> यदि फॉर्म भरते समय आपको कोई समस्या आती है, तो कृपया सहायता के लिए हमारी सहायता टीम से संपर्क करने में संकोच न करें। हम एक सहज और परेशानी मुक्त अनुभव सुनिश्चित करने में मदद के लिए यहां हैं। <a href="https://t.me/OmniunitechBot" style="color:blue"><i class='	fa fa-handshake-o'> SUPPORT</i></a> पर हमसे संपर्क करें, और हमें आपकी सहायता करने में खुशी होगी।
+                    </small>
+
+
                 </ul>
            </div>
 
@@ -308,6 +364,12 @@ button:hover {
             .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")) 
             .catch(error => console.error('Error!', error.message)); 
     });
+
+    // Set the current date and time to the datetime-local input
+    const now = new Date();
+        const offset = now.getTimezoneOffset() * 60000;
+        const localDateTime = new Date(now - offset).toISOString().slice(0, 16);
+        document.getElementById('datetime').value = localDateTime;
 
     // Redirect form
     function redirectAfterSubmit(event) { 
@@ -403,18 +465,11 @@ button:hover {
                 font-weight: bold;
                 color: #d9534f; /* Bootstrap's "danger" color for emphasis */
             }
-            .logo {
-                text-align: center;
-                margin-top: 40px;
-            }
-            .logo img {
-                width: 150px;
-                height: auto;
-            }
+            
         </style>
 
         <h2>GOVSDOCS Service Application Form (परीक्षा आवेदन पत्र)</h2>
-        <p><em>"The Whole World is One Family"</em></p>
+        <p style=" text-align: center;">🙏<em>" The Whole World is One Family"</em>🙏</p>
         <div class="date-time">
             <strong>Date (तारीख):</strong> ${date}<br>
             <strong>Time (समय):</strong> ${time}
@@ -449,12 +504,7 @@ button:hover {
         </div>
     `;
 
-    // Add logo at the end
-    printContent += `
-        <div class="logo">
-            <img src="logo.jpg" alt="Company Logo">
-        </div>
-    `;
+    
 
     const printWindow = window.open('', '', 'height=600,width=800'); 
     printWindow.document.write(printContent); 
