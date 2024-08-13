@@ -197,7 +197,7 @@
             doc.text(`Name: ${name}`, 10, 20);
             doc.text(`Amount: ${amount}`, 10, 30);
             doc.text(`Payment For: ${getPaymentForText(paymentFor)}`, 10, 40);
-            doc.text(`Transaction ID: ${Math.random().toString(36).substr(2, 9)}`, 10, 50);
+            doc.text(`Transaction ID: T${Math.floor(Math.random() * 1000000000)}`, 10, 50);
             doc.text(`Date: ${new Date().toLocaleString()}`, 10, 60);
 
             doc.save('payment_slip.pdf');
