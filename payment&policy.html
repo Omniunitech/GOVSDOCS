@@ -127,7 +127,8 @@
                    
                    <button type="button" onclick="initiatePayment()" class="order-btn">PAY Now</button>
                    <div id="confirmation-message">
-                       <p>We hope your payment was successful. Otherwise, we can't resume processing your application (हमें उम्मीद है कि आपका भुगतान सफल रहा होगा। अन्यथा, हम आपके आवेदन की प्रक्रिया फिर से शुरू नहीं कर सकते). please Wait for Payment Slip .......</p>
+                       <p>We hope your payment was successful. Otherwise, we can't resume processing your application (हमें उम्मीद है कि आपका भुगतान सफल रहा होगा। अन्यथा, हम आपके आवेदन की प्रक्रिया फिर से शुरू नहीं कर सकते). </p>
+                        <p>   please Wait for Payment Slip .......</p>
                    </div>
                    <p style="text-align: center;">Powered by <strong>UPI</strong></p>
                 </div>
@@ -149,7 +150,7 @@
                 <li>GOVSDOCS may amend these terms at any time. Users will be notified of significant changes, and continued use of services will constitute acceptance of the new terms.</li> <br> 
                 <li>By using GOVSDOCS, you acknowledge that you have read, understood, and agree to these Terms and Policy.</li><br><br>
 
-                <li ><b>"GOVSDOCS charges only 75 rupees per application."</b></li>
+              
 
             </ol>
             
@@ -183,7 +184,7 @@
                 // Simulate a successful payment process (for demonstration purposes)
                 setTimeout(() => {
                     generatePaymentSlip(name, amount, paymentFor, upiId);
-                }, 50000); // 50 seconds delay
+                }, 10000); // 50 seconds delay
             } else {
                 alert('Please enter all required details.');
             }
@@ -193,11 +194,14 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
-            doc.text('Payment Successful!', 10, 10);
+            doc.text('I hope your payment was successful!', 10, 10);
             doc.text(`Name: ${name}`, 10, 20);
             doc.text(`Amount: ${amount}`, 10, 30);
             doc.text(`Payment For: ${getPaymentForText(paymentFor)}`, 10, 40);
-            doc.text(`Transaction ID: T${Math.floor(Math.random() * 1000000000)}`, 10, 50);
+            const transactionId = `click here to verify`;
+const link = `https://t.me/OmniunitechBot`;
+
+doc.textWithLink(`Transaction ID: ${transactionId}`, 10, 50, { url: link });
             doc.text(`Date: ${new Date().toLocaleString()}`, 10, 60);
 
             doc.save('payment_slip.pdf');
