@@ -161,7 +161,36 @@ select {
 }
 
         
+.marquee {
+    display: flex;
+    margin-top: 0px;
+    align-items: center;
+    height: 3vh;
+    overflow: hidden;
+    background-color: black;
+    color: white;
+    border: 5px solid black;
+    
+}
 
+.marquee p {
+    white-space: nowrap;
+    display: inline-block;
+    animation: marquee 10s linear infinite;
+    padding: 0px 0px;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
         
 
 
@@ -205,6 +234,10 @@ footer {
     
     
     <!-- introduction -->
+
+     <div class="marquee">
+            <p><b>GOVSDOCS  प्रति आवेदन के लिए केवल 75 रुपये शुल्क लेता है !</b></p>
+     </div>
 
     
     <div class="content" >
