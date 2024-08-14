@@ -131,12 +131,20 @@ button:hover {
     <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
         <fieldset>
              <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
-            <label for="clientId">
-                <b style="color: red; margin-top: 0em;">Client ID:</b>
-                <input type="text" id="clientId" name="clientId" required>
-            </label>
-            <span id="error-message" class="error">Invalid ID- कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन आगे की प्रक्रिया शुरू नहीं करेंगे</span>
-                <br><br>
+            
+            <label for="filling_option">Please select how you would like to fill the form (कृपया चुनें कि आप फॉर्म कैसे भरना चाहते हैं):</label>
+  <select id="filling_option" name="filling_option" >
+    <option value="self"> स्वयं से  </option>
+    <option value="cybercafe"> Cybercafe की मदद से </option>
+  </select>
+  
+  
+  
+  <div id="cybercafeId" style="display: none;">
+    <label for="clientId" style="color: red; margin-top: 0em;" > <b>Enter Cybercafe (Client ID) :</b></label>
+    <input type="text" id="clientId" name="clientId" ><br>
+    <span id="error-message" class="error"  >कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
+  </div>
            
      
             
@@ -409,6 +417,36 @@ button:hover {
     }
 
     // Client ID validation
+     
+    
+
+    // Print form
+    function printForm() { 
+    const form = document.getElementById('myForm'); 
+    const formData = new FormData(form); 
+    let printContent = ''; 
+
+    // Get the current date and time 
+    const now = new Date(); 
+    const date = now.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+});
+    const time = now.toLocaleTimeString(); 
+
+    // Start building the HTML for the print content
+    printContent const fillingOption = document.getElementById('filling_option');
+  const cybercafeIdField = document.getElementById('cybercafeId');
+
+  fillingOption.addEventListener('change', function() {
+    if (fillingOption.value === 'cybercafe') {
+      cybercafeIdField.style.display = 'block';
+    } else {
+      cybercafeIdField.style.display = 'none';
+    }
+  });
+    // Client ID validation
     document.getElementById('clientId').addEventListener('input', function() { 
         const clientId = document.getElementById('clientId').value; 
         const errorMessage = document.getElementById('error-message'); 
@@ -433,24 +471,7 @@ button:hover {
             errorMessage.style.display = 'none'; 
         } 
     });
-
-    // Print form
-    function printForm() { 
-    const form = document.getElementById('myForm'); 
-    const formData = new FormData(form); 
-    let printContent = ''; 
-
-    // Get the current date and time 
-    const now = new Date(); 
-    const date = now.toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-});
-    const time = now.toLocaleTimeString(); 
-
-    // Start building the HTML for the print content
-    printContent += `
++= `
         <style>
             body {
                 font-family: Arial, sans-serif;
