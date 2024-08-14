@@ -190,7 +190,7 @@
             }
         }
 
-        function generatePaymentSlip(name, amount, paymentFor, upiId) {
+        function generatePaymentSlip(name, amount, paymentFor) {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
@@ -198,11 +198,12 @@
             doc.text(`Name: ${name}`, 10, 20);
             doc.text(`Amount: ${amount}`, 10, 30);
             doc.text(`Payment For: ${getPaymentForText(paymentFor)}`, 10, 40);
-            const transactionId = `click here to verify`;
-const link = "https://t.me/OmniunitechBot";
-const transactionId = `<a href="${link}" style="color: blue; text-decoration: underline;">click here to verify</a>`;
-            
             doc.text(`Date: ${new Date().toLocaleString()}`, 10, 60);
+            
+            
+// Set text color to blue and underline "Click here to Verify"
+           doc.setTextColor(0, 0, 255); // Set text color to blue (RGB)
+           doc.textWithLink('Click here to Verify ', 10, 70, { url: 'https://t.me/OmniunitechBot' });
 
             doc.save('payment_slip.pdf');
         }
