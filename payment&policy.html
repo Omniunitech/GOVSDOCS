@@ -191,23 +191,34 @@
         }
 
         function generatePaymentSlip(name, amount, paymentFor) {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
 
-            doc.text('I hope your payment was successful!', 10, 10);
-            doc.text(`Name: ${name}`, 10, 20);
-            doc.text(`Amount: ${amount}`, 10, 30);
-            doc.text(`Payment For: ${getPaymentForText(paymentFor)}`, 10, 40);
-            doc.text(`Date: ${new Date().toLocaleString()}`, 10, 60);
-            
-            
-// Set text color to blue and underline "Click here to Verify"
-           doc.setTextColor(0, 0, 255); // Set text color to blue (RGB)
-           doc.textWithLink('Click here to Verify ', 10, 70, { url: 'https://t.me/OmniunitechBot' });
+    // Set font to monospaced and text alignment to center
+    doc.setFont("courier", "normal");
+    doc.setFontSize(12);
+    doc.text('I hope your payment was successful!', doc.internal.pageSize.getWidth() / 2, 20, { align: 'center' });
 
-            doc.save('payment_slip.pdf');
+    doc.text(`Name: ${name}`, doc.internal.pageSize.getWidth() / 2, 40, { align: 'center' });
+    doc.text(`Amount: ${amount}`, doc.internal.pageSize.getWidth() / 2, 50, { align: 'center' });
+    doc.text(`Payment For: ${getPaymentForText(paymentFor)}`, doc.internal.pageSize.getWidth() / 2, 60, { align: 'center' });
+    doc.text(`Date: ${new Date().toLocaleString()}`, doc.internal.pageSize.getWidth() / 2, 80, { align: 'center' });
+
+    // Set text color to blue and underline "Click here to Verify"
+    doc.setTextColor(0, 0, 255); // Set text color to blue (RGB)
+    doc.textWithLink('Click here to Verify', doc.internal.pageSize.getWidth() / 2, 100, {
+        url: 'https://t.me/OmniunitechBot',
+        align: 'center'
+    });
+
+    // Save the PDF
+    doc.save('payment_slip.pdf');
+}
+
+function getPaymentForText(paymentFor) {
+    // You can customize this function to return a proper description of the payment
+    return paymentFor;
         }
-
         function getPaymentForText(value) {
             switch (value) {
                 case '2':
