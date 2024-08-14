@@ -132,20 +132,18 @@ button:hover {
         <fieldset>
              <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
             
-            <label for="filling_option">Please select how you would like to fill the form (कृपया चुनें कि आप फॉर्म कैसे भरना चाहते हैं):</label>
+             <label for="filling_option">Please select how you would like to fill the form (कृपया चुनें कि आप फॉर्म कैसे भरना चाहते हैं):</label>
   <select id="filling_option" name="filling_option" >
     <option value="self"> स्वयं से  </option>
     <option value="cybercafe"> Cybercafe की मदद से </option>
   </select>
-  
-  
-  
-  <div id="cybercafeId" style="display: none;">
+                
+        
+<div id="cybercafeId" style="display: none;">
     <label for="clientId" style="color: red; margin-top: 0em;" > <b>Enter Cybercafe (Client ID) :</b></label>
     <input type="text" id="clientId" name="clientId" ><br>
     <span id="error-message" class="error"  >कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
   </div>
-           
      
             
 
@@ -385,8 +383,8 @@ button:hover {
      <button type="submit">Submit</button>
      </fieldset>
  </form>
- <script> 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzgPotn1w-OVMDH9lHwJrAdMYPLMr3vy4vkmODAfqrnXMmFc4RjYLp6KaFnru5SCDxacA/exec';
+  <script>
+         const scriptURL = 'https://script.google.com/macros/s/AKfycbzgPotn1w-OVMDH9lHwJrAdMYPLMr3vy4vkmODAfqrnXMmFc4RjYLp6KaFnru5SCDxacA/exec';
     const form = document.forms['google-sheet'];
     
     form.addEventListener('submit', e => { 
@@ -396,7 +394,7 @@ button:hover {
             .catch(error => console.error('Error!', error.message)); 
     });
 
-     // Set the current date and time to the datetime-local input
+// Set the current date and time to the datetime-local input
     const now = new Date();
         const offset = now.getTimezoneOffset() * 60000;
         const localDateTime = new Date(now - offset).toISOString().slice(0, 16);
@@ -406,7 +404,7 @@ button:hover {
     month: '2-digit',
     year: 'numeric'
 });
-
+        
     // Redirect form
     function redirectAfterSubmit(event) { 
         event.preventDefault(); // Prevent the default form submission behavior 
@@ -417,26 +415,7 @@ button:hover {
     }
 
     // Client ID validation
-     
-    
-
-    // Print form
-    function printForm() { 
-    const form = document.getElementById('myForm'); 
-    const formData = new FormData(form); 
-    let printContent = ''; 
-
-    // Get the current date and time 
-    const now = new Date(); 
-    const date = now.toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-});
-    const time = now.toLocaleTimeString(); 
-
-    // Start building the HTML for the print content
-    printContent const fillingOption = document.getElementById('filling_option');
+    const fillingOption = document.getElementById('filling_option');
   const cybercafeIdField = document.getElementById('cybercafeId');
 
   fillingOption.addEventListener('change', function() {
@@ -471,7 +450,23 @@ button:hover {
             errorMessage.style.display = 'none'; 
         } 
     });
-+= `
+    // Print form
+    function printForm() { 
+    const form = document.getElementById('myForm'); 
+    const formData = new FormData(form); 
+    let printContent = ''; 
+
+    // Get the current date and time 
+    const now = new Date(); 
+    const date = now.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+});
+    const time = now.toLocaleTimeString(); 
+
+    // Start building the HTML for the print content
+    printContent += `
         <style>
             body {
                 font-family: Arial, sans-serif;
@@ -514,19 +509,11 @@ button:hover {
                 font-weight: bold;
                 color: #d9534f; /* Bootstrap's "danger" color for emphasis */
             }
-            .logo {
-                text-align: center;
-                margin-top: 40px;
-            }
-            .logo img {
-                width: 150px;
-                height: auto;
-            }
+            
         </style>
 
         <h2>GOVSDOCS Exam Application Form (परीक्षा आवेदन पत्र)</h2>
         <p style=" text-align: center;">🙏<em>" The Whole World is One Family"</em>🙏</p>
-
         <div class="date-time">
             <strong>Date (तारीख):</strong> ${date}<br>
             <strong>Time (समय):</strong> ${time}
@@ -561,14 +548,13 @@ button:hover {
         </div>
     `;
 
-   
+    
 
     const printWindow = window.open('', '', 'height=600,width=800'); 
     printWindow.document.write(printContent); 
     printWindow.document.close(); 
     printWindow.print(); 
 }
-
-</script>
+    </script>
 </body>
-    </html>
+</html>
