@@ -199,9 +199,9 @@
             doc.text(`Amount: ${amount}`, 10, 30);
             doc.text(`Payment For: ${getPaymentForText(paymentFor)}`, 10, 40);
             const transactionId = `click here to verify`;
-const link = `https://t.me/OmniunitechBot`;
-
-doc.textWithLink(`Transaction ID: ${transactionId}`, 10, 50, { url: link });
+const link = "https://t.me/OmniunitechBot";
+const transactionId = `<a href="${link}" style="color: blue; text-decoration: underline;">click here to verify</a>`;
+            
             doc.text(`Date: ${new Date().toLocaleString()}`, 10, 60);
 
             doc.save('payment_slip.pdf');
