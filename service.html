@@ -133,18 +133,22 @@ button:hover {
             
             <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
             
-             <label for="filling_option">Please select how you would like to fill the form (कृपया चुनें कि आप फॉर्म कैसे भरना चाहते हैं):</label>
-  <select id="filling_option" name="filling_option" >
-    <option value="self"> स्वयं से  </option>
-    <option value="cybercafe"> Cybercafe की मदद से </option>
-  </select>
-                
-        
-<div id="cybercafeId" style="display: none;">
-    <label for="clientId" style="color: red; margin-top: 0em;" > <b>Enter Cybercafe (Client ID) :</b></label>
-    <input type="text" id="clientId" name="clientId" ><br>
-    <span id="error-message" class="error"  >कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
+             <label for="filling_option">Please select how you would like to fill the form (कृपया चुनें कि आप फॉर्म कैसे भरना चाहते हैं):</label><br>
+  
+  <label for="self">
+  <input type="radio" id="self" name="filling_option" value="self">स्वयं से (Self Mode)
+</label>
+  
+  <label for="cybercafe">
+  <input type="radio" id="cybercafe" name="filling_option" value="cybercafe">Cybercafe की मदद से</label><br>
+  
+  <div id="cybercafeId" style="display: none;">
+    <label for="clientId" style="color: red; margin-top: 0em;"><b>Enter Cybercafe (Client ID) :</b></label>
+    <input type="text" id="clientId" name="clientId"><br>
+    <span id="error-message" class="error" style="display:none;">कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
   </div>
+  
+            
   
             
 
@@ -388,43 +392,50 @@ text-align: center;">अन्य / Other</h2>
         // Redirect to another form 
         window.location.href = 'https://forms.gle/UPf4GfayNm7moj6H8'; // Replace with your desired URL 
     }
+         // Show/hide Client ID field based on radio selection
+const fillingOptionRadios = document.getElementsByName('filling_option');
+const cybercafeIdField = document.getElementById('cybercafeId');
 
-    // Client ID validation
-    const fillingOption = document.getElementById('filling_option');
-  const cybercafeIdField = document.getElementById('cybercafeId');
 
-  fillingOption.addEventListener('change', function() {
-    if (fillingOption.value === 'cybercafe') {
+fillingOptionRadios.forEach(radio => {
+  radio.addEventListener('change', function() {
+    if (document.getElementById('cybercafe').checked) {
       cybercafeIdField.style.display = 'block';
     } else {
       cybercafeIdField.style.display = 'none';
     }
   });
-    // Client ID validation
-    document.getElementById('clientId').addEventListener('input', function() { 
-        const clientId = document.getElementById('clientId').value; 
-        const errorMessage = document.getElementById('error-message'); 
-        const pattern = /^GD-00/; 
-        
-        if (!pattern.test(clientId)) { 
-            errorMessage.style.display = 'inline'; 
-        } else { 
-            errorMessage.style.display = 'none'; 
-        } 
-    });
+});
 
-    document.getElementById('clientForm').addEventListener('submit', function(event) { 
-        const clientId = document.getElementById('clientId').value; 
-        const errorMessage = document.getElementById('error-message'); 
-        const pattern = /^GD-00/; 
-        
-        if (!pattern.test(clientId)) { 
-            errorMessage.style.display = 'inline'; 
-            event.preventDefault(); 
-        } else { 
-            errorMessage.style.display = 'none'; 
-        } 
-    });
+
+// Client ID validation
+document.getElementById('clientId').addEventListener('input', function() { 
+    const clientId = document.getElementById('clientId').value; 
+    const errorMessage = document.getElementById('error-message'); 
+    const pattern = /^GD-00/; 
+    
+    if (!pattern.test(clientId)) { 
+        errorMessage.style.display = 'inline'; 
+    } else { 
+        errorMessage.style.display = 'none'; 
+    } 
+});
+
+
+document.getElementById('clientForm').addEventListener('submit', function(event) { 
+    const clientId = document.getElementById('clientId').value; 
+    const errorMessage = document.getElementById('error-message'); 
+    const pattern = /^GD-00/; 
+    
+    if (document.getElementById('cybercafe').checked && !pattern.test(clientId)) { 
+        errorMessage.style.display = 'inline'; 
+        event.preventDefault(); 
+    } else { 
+        errorMessage.style.display = 'none'; 
+    } 
+});
+
+    
     // Print form
     function printForm() { 
     const form = document.getElementById('myForm'); 
