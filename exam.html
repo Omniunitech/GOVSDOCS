@@ -383,7 +383,7 @@ button:hover {
 
        
 
-            <button type="button" onclick="printForm()" style="background-color: rgb(91, 91, 94);">Print</button>
+            <button type="button" onclick="previewForm()" style="background-color: rgb(91, 91, 94);">Preview</button>
      <button type="submit">Submit</button>
      </fieldset>
  </form>
@@ -461,30 +461,29 @@ document.getElementById('clientForm').addEventListener('submit', function(event)
 });
 
     
-    // Print form
-    function printForm() { 
+    // Preview Form Function
+function previewForm() { 
     const form = document.getElementById('myForm'); 
     const formData = new FormData(form); 
-    let printContent = ''; 
+    let previewContent = ''; 
 
     // Get the current date and time 
     const now = new Date(); 
     const date = now.toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric'
-});
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
     const time = now.toLocaleTimeString(); 
 
-    // Start building the HTML for the print content
-    printContent += `
+    // Start building the HTML for the preview content
+    previewContent += `
         <style>
             body {
                 font-family: Arial, sans-serif;
                 line-height: 1.6;
                 color: #333;
                 margin: 20px;
-               
             }
             h2 {
                 text-align: center;
@@ -520,7 +519,20 @@ document.getElementById('clientForm').addEventListener('submit', function(event)
                 font-weight: bold;
                 color: #d9534f; /* Bootstrap's "danger" color for emphasis */
             }
-            
+            .print-button {
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .print-button button {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
         </style>
 
         <h2>GOVSDOCS Exam Application Form (परीक्षा आवेदन पत्र)</h2>
@@ -534,13 +546,13 @@ document.getElementById('clientForm').addEventListener('submit', function(event)
     `;
 
     formData.forEach((value, key) => { 
-        // Skip 'clientId' field if you don't want to print it
+        // Skip 'clientId' field if you don't want to include it in the preview
         if (key !== 'clientId') {
             // Find the corresponding label for the input field
             const labelElement = form.querySelector(`label[for="${key}"]`);
             const labelText = labelElement ? labelElement.textContent : key;
 
-            printContent += `
+            previewContent += `
                 <tr>
                     <th>${labelText}</th>
                     <td>${value}</td>
@@ -550,21 +562,21 @@ document.getElementById('clientForm').addEventListener('submit', function(event)
     });
 
     // Add a recheck message
-    printContent += `
+    previewContent += `
             </tbody>
         </table>
         <div class="recheck-message">
             Please verify that the information you provided is entirely accurate. <br>
             कृपया सुनिश्चित करें कि आपके द्वारा दिए गए विवरण पूरी तरह से सही हैं।
         </div>
+        <div class="print-button">
+            <button onclick="window.print()">Print Form</button>
+        </div>
     `;
 
-    
-
-    const printWindow = window.open('', '', 'height=600,width=800'); 
-    printWindow.document.write(printContent); 
-    printWindow.document.close(); 
-    printWindow.print(); 
+    const previewWindow = window.open('', '', 'height=600,width=800'); 
+    previewWindow.document.write(previewContent); 
+    previewWindow.document.close(); 
 }
     </script>
 </body>
