@@ -46,7 +46,7 @@
         .payment-section select, 
         .payment-section input {
             display: block;
-            width: 100%;
+            width: 95%%;
             margin-bottom: 10px;
             padding: 10px;
             border: 1px solid #ccc;
@@ -73,8 +73,11 @@
             cursor: pointer;
         }
         .qr {
-            margin-left: 0em;
-            padding: 0em;
+             position: absolute;
+             left: 20px;
+        
+            
+            
         }
         li {
                 font-size: 1em;
@@ -108,15 +111,18 @@
                    <h2 > Payment to GOVSDOCS</h2>
                    
                    
-                   <input type="text" id="name" name="name" placeholder="Enter your name or CLIENT ID">
+                   <input type="text" id="name" name="name" placeholder="Enter your name / for Cybercafe ( CLIENT ID)">
 
                    <input type="number" id="amount" name="amount" placeholder="Enter Amount (to pay)" required>
-                   <button type="button" onclick="showQRCode()" class="qr" >or Show QR Code</button> <br>
-
+                  
+                  
+                   <button type="button" onclick="toggleQRCode()" class="qr"> Show QR Code</button> <br>
+<img src="qrcode.jpg" id="qr-code" style="width:50%; height: 30%; display:none;">
+<p id="payment-verify" style="text-align: left; color:blue; display:none;">
+  <b><u><a href="https://t.me/OmniunitechBot" style="color: Tomato; text-decoration: underline;">Payment Verify?</a></u></b>
+</p>
+              <br>     
                    
-       
-                   
-                   <img src="qrcode.jpg" id="qr-code" style="width:50%; height: 30%; display:none;"><br>
                    <select id="month" name="month" aria-placeholder="PAYMENT FOR:">
                        <option value="1"></option>
                        <option value="2">Service Charge</option>
@@ -131,6 +137,7 @@
                        <p>We hope your payment was successful. Otherwise, we can't resume processing your application (हमें उम्मीद है कि आपका भुगतान सफल रहा होगा। अन्यथा, हम आपके आवेदन की प्रक्रिया फिर से शुरू नहीं कर सकते). </p>
                         <p>   please Wait for Payment Slip .......</p>
                    </div>
+                   
                    <p style="text-align: center;">Powered by <strong>UPI</strong></p>
                 </div>
                </form>  
@@ -231,10 +238,18 @@ function getPaymentForText(paymentFor) {
             }
         }
 
-        function showQRCode() {
-            const qrCode = document.getElementById('qr-code');
-            qrCode.style.display = 'block';
-        }
+        function toggleQRCode() {
+    const qrCode = document.getElementById('qr-code');
+    const paymentVerify = document.getElementById('payment-verify');
+    
+    if (qrCode.style.display === 'none') {
+      qrCode.style.display = 'block';
+      paymentVerify.style.display = 'block';
+    } else {
+      qrCode.style.display = 'none';
+      paymentVerify.style.display = 'none';
+    }
+  }
     </script>
 </body>
 </html>
