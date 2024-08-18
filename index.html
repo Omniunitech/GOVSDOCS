@@ -16,11 +16,38 @@
         }
 
         header {
-            background-color: black;
-            color: white;
+            
             padding: 50px 20px; /* Adjusted padding for smaller screens */
             text-align: center;
         }
+        
+        
+        .hero {
+    background: #e0efff;
+    padding: 60px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    margin: 0 0 20px;
+    font-size: 1em;
+    color: #007bff;
+}
+
+.hero p {
+    font-size: 0.6em;
+    color: #555;
+}
+
+.hero .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 10px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
 
         .navbar a {
             float: right;
@@ -28,7 +55,6 @@
             color: #fff;
             text-align: center;
             padding: 14px 16px;
-            
             text-decoration: none;
         }
 
@@ -89,27 +115,31 @@
             gap: 20px;
             max-width: 100%; /* Full width for mobile screens */
             margin: auto;
+            
         }
 
         @media screen and (min-width: 768px) {
             .form {
                 grid-template-columns: 1fr 1fr;
                 gap: 40px;
+                
             }
         }
 
         .grid-item {
-            background-color: white;
+            background-color: green;
             border-radius: 8px;
             padding: 20px;
             text-align: center;
             position: relative;
             overflow: hidden;
             z-index: 1;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .grid-item::before {
             content: '';
+            
             position: absolute;
             top: 0;
             left: 0;
@@ -118,7 +148,7 @@
             border-radius: 8px;
             border: 2px solid transparent;
             background: linear-gradient(white, white) padding-box,
-                        linear-gradient(90deg, black, transparent) border-box;
+                        linear-gradient(90deg, white, transparent) border-box;
             animation: moveGradient 5s infinite linear;
             z-index: -1;
         }
@@ -153,9 +183,9 @@
             align-items: center;
             height: 5vh;
             overflow: hidden;
-            background-color: black;
-            color: white;
-            border: 5px solid black;
+            background-color: #e0efff;
+            color: black;
+            border: 5px solid #e0efff;
             padding: 5px 10px;
         }
 
@@ -208,6 +238,14 @@
         .w3-button {
             margin: 10px;
         }
+        
+        
+        
+        
+       
+        
+      
+        
     </style>
 </head>
 <body>
@@ -218,10 +256,18 @@
         <a href="./payment&policy.html">PAYMENT | POLICY</a>
         <a href="./client.html">CLIENT REG</a>
     </div>
-    <header>
-        <h1>GOVSDOCS</h1>
-        <p>- भारत के ई-सेवाओं के लिए आवेदन का प्रतिकृति प्रस्तुतिकरण (Digital CyberCafe) -</p>
-    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>GOVSDOCS</h2>
+                <p>भारत के ई-सेवाओं के लिए आवेदन का प्रतिकृति प्रस्तुतिकरण (Digital CyberCafe) -</p>
+                <a href="https://t.me/GOVSDOCSBOT" class="btn" style="font-size:0.6em;"">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    
 
     <!-- Marquee -->
     <div class="marquee">
@@ -231,27 +277,41 @@
     <!-- Introduction -->
     <div class="content">
         <div class="grid1" style="text-align: center;">
-            <p><u>Your One-Stop Solution for Hassle-Free Form Filling</u></p><br>
-             <p >GOVSDOCS में आपका स्वागत है, जहाँ हम विभिन्न सरकारी सेवाओं (उदाहरण : आय प्रमाण पत्र , आवासीय प्रमाणपत्र ....) और परीक्षाओं के लिए आवेदन भरने की प्रक्रिया को सरल बनाते हैं। हमारी समर्पित टीम आपकी ओर से थकाऊ कागजी कार्रवाई को संभालने के लिए यहाँ है, जिससे सटीकता और दक्षता सुनिश्चित होती है। GOVSDOCS के साथ, आप लंबी कतारों और भ्रामक फ़ॉर्म को अलविदा कह सकते हैं, और सुविधा और मन की शांति को नमस्ते कह सकते हैं।</p>
-        <p style="color: lightslategray;">Welcome to GOVSDOCS, where we simplify the process of filling out applications for various government services and exams. Our dedicated team is here to handle the tedious paperwork on your behalf, ensuring accuracy and efficiency. With GOVSDOCS, you can say goodbye to long queues and confusing forms, and say hello to convenience and peace of mind.</p>
+            
+    
+     <!-- About Section -->
+               
+               
+               
+   <div class="about-us-container">
+        <h3 style="text-align: left;"><b>ABOUT US</b></h3>
+        <p>GOVSDOCS में आपका स्वागत है, जहाँ हम विभिन्न सरकारी सेवाओं (उदाहरण : आय प्रमाण पत्र, आवासीय प्रमाणपत्र ....) और परीक्षाओं के लिए आवेदन भरने की प्रक्रिया को सरल बनाते हैं। हमारी समर्पित टीम आपकी ओर से थकाऊ कागजी कार्रवाई को संभालने के लिए यहाँ है, जिससे सटीकता और दक्षता सुनिश्चित होती है। GOVSDOCS के साथ, आप लंबी कतारों और झामक फ़ॉर्म को अलविदा कह सकते हैं, और सुविधा और मन की शांति को नमस्ते कह सकते हैं।</p>
         
-        
-        
-         <h2>Why Choose GOVSDOCS?</h2>
-        <ul>
-            <li><strong>Ease of Use:</strong> Simply provide your details, and our team will take care of the rest.(उपयोग में आसानी: बस अपना विवरण प्रदान करें, और हमारी टीम बाकी का काम संभाल लेगी।)</li><br>
-            <li><strong>Accuracy:</strong> Our experts ensure that all forms are filled out correctly and completely.(सटीकता: हमारे विशेषज्ञ यह सुनिश्चित करते हैं कि सभी फॉर्म सही और पूर्ण रूप से भरे जाएं।)</li><br>
-            <li><strong>Time-Saving:</strong> Save valuable time by letting us handle the paperwork.(समय की बचत: कागजी कार्रवाई हमें सौंपकर अपना बहुमूल्य समय बचाएं , हम आपका आवेदन 36 घंटे के भीतर भर देंगे।)</li><br>
-            <li><strong>Secure:</strong> Your data is protected with the highest security standards.(सुरक्षित: आपका डेटा उच्चतम सुरक्षा मानकों के साथ संरक्षित है।)</li><br>
-            <li><strong>Payment:</strong> Please note that all money is refundable in the event that our team is unsuccessful in filling out your form or if any type of error is committed by us.(कृपया ध्यान दें कि यदि हमारी टीम आपका फॉर्म भरने में असफल रहती है या हमसे किसी प्रकार की त्रुटि हो जाती है तो सारा पैसा वापस कर दिया जाएगा।)</li><br>
-            <li><strong>Reapply:</strong> If you provide incorrect information and our team fills out the form based on that data, we can refill the same application form with the correct information at no additional charge.(यदि आप गलत जानकारी देते हैं और हमारी टीम उस डेटा के आधार पर फ़ॉर्म भरती है, तो हम बिना किसी अतिरिक्त शुल्क के उसी आवेदन फ़ॉर्म को सही जानकारी के साथ फिर से भर सकते हैं।)</li>
-        </div>
     </div>
-
-    <!-- Our Service Section -->
+    <section class="about" style="color: lightslategray;font-size: 0.8em; " >
+        <div >
+            
+           
+             
+        
+            <p><strong>Ease of Use:</strong> बस अपना विवरण प्रदान करें, और हमारी टीम बाकी का काम संभाल लेगी।</p>
+            <p><strong>Accuracy:</strong> हमारे विशेषज्ञ यह सुनिश्चित करते हैं कि सभी फॉर्म सही और पूर्ण रूप से भरे जाएं |</p>
+            <p></p><strong>Time-Saving:</strong> कागजी कार्रवाई हमें सौंपकर अपना बहुमूल्य समय बचाएं , हम आपका आवेदन 36 घंटे के भीतर भर देंगे।</p>
+            <p><strong>Secure:</strong> आपका डेटा उच्चतम सुरक्षा मानकों के साथ संरक्षित है।</p>
+            <p><strong>Payment:</strong>कृपया ध्यान दें कि यदि हमारी टीम आपका फॉर्म भरने में असफल रहती है या हमसे किसी प्रकार की त्रुटि हो जाती है तो सारा पैसा वापस कर दिया जाएगा।</p>
+            <p><strong>Reapply:</strong> यदि आप गलत जानकारी देते हैं और हमारी टीम उस डेटा के आधार पर फ़ॉर्म भरती है, तो हम बिना किसी अतिरिक्त शुल्क के उसी आवेदन फ़ॉर्म को सही जानकारी के साथ फिर से भर सकते हैं।</p>
+           
+        
+        </div>
+    </section>
+            
+     <!-- Our Service Section -->
+     
     
     
     <!-- Form Grid -->
+    <h3 style="text-align: left;"><b>OUR SERVICE</b></h3>
+    
     <div class="form">
         <div class="grid-item">
             <i class='fa fa-address-card'></i>
@@ -264,6 +324,11 @@
             <a href="./exam.html" style="font-family: monospace; font-size: 16px;">Click <i class='fa fa-arrow-circle-o-right'></i></a>
         </div>
     </div>
+             
+       
+        </div>
+    </div>
+           
 
     <!-- Image of location/map -->
     <img src="parliament.jpg" alt="Parliament Image" class="w3-image w3-greyscale-min">
@@ -273,7 +338,7 @@
         <h2><b><u>HelpDesk</u></b> <i class='fa fa-fax'></i></h2>
         <i class="fa fa-envelope"> <a href="mailto:ridewave000@gmail.com"><b>Email</b></a></i><br>
         <i class="fa fa-telegram w3-hover-opacity">
-           <a href="https://t.me/GOVSDOCSBOT" target="_blank" rel="noopener noreferrer"><b>Message</b></a></i> <br>
+           <a href="https://t.me/OmniunitechBot" target="_blank" rel="noopener noreferrer"><b>Message</b></a></i> <br>
 
 <a href="https://omniunitech.github.io/GOVSDOCS/" title="Refresh">
         <i class="fa fa-rotate-right" aria-hidden="true"></i>
