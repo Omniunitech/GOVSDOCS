@@ -161,7 +161,7 @@ button:hover {
          
             
                <label for="gender">  लिंग / Gender:</label>
-            <select id="gender" name="gender">
+            <select id="gender" name="gender" required>
                 <option value="none"></option>
                 <option value="male">पुरुष / Male</option>
                 <option value="female">महिला / Female</option>
@@ -171,7 +171,7 @@ button:hover {
             
 
             <label for="salutation">  श्रीमान / सुश्री / Salutation:</label>
-            <select id="salutation" name="salutation">
+            <select id="salutation" name="salutation" required>
                 <option value ="none">कुछ नहीं </option>
                 <option value="mr">श्रीमान / Mr.</option>
                 <option value="ms">सुश्री / Ms.</option>
@@ -187,10 +187,10 @@ button:hover {
             <input type="text" id="motherName" name="motherName" required>
 
             <label for="husbandName">पति का नाम / Name of Husband:</label>
-            <input type="text" id="husbandName" name="husbandName">
+            <input type="text" id="husbandName" name="husbandName" required>
 
             <label for="birthday">Date of Birth/जन्म की तारीख :</label>
-            <input type="date" id="birthday" name="birthday">
+            <input type="date" id="birthday" name="birthday" required>
 
             <label for="mobileNumber">आवेदक का मोबाइल नंबर / Mobile No. of Applicant:</label>
             <input type="number" id="mobileNumber" name="mobileNumber" required>
@@ -207,31 +207,31 @@ button:hover {
     <h3>स्थायी पता / Permanent Address: -</h3>
 
     <label for="state1">राज्य / State:</label>
-    <input type="text" id="state1" name="state1">
+    <input type="text" id="state1" name="state1" required>
     
     <label for="district1">जिला / District:</label>
-    <input type="text" id="district1" name="district1">
+    <input type="text" id="district1" name="district1" required>
 
     <label for="subDivision1">अनुमंडल / Sub-Division:</label>
-    <input type="text" id="subDivision1" name="subDivision1">
+    <input type="text" id="subDivision1" name="subDivision1" required>
 
     <label for="block1">प्रखंड / Block:</label>
-    <input type="text" id="block1" name="block1">
+    <input type="text" id="block1" name="block1" required>
 
     <label for="village1">गांव / Village:</label>
-    <input type="text" id="village1" name="village1">
+    <input type="text" id="village1" name="village1" required>
 
     <label for="postOffice1">डाक घर / Post Office:</label>
-    <input type="text" id="postOffice1" name="postOffice1">
+    <input type="text" id="postOffice1" name="postOffice1" required>
 
     <label for="wardNo1">वार्ड नंबर / Ward No.:</label>
-    <input type="text" id="wardNo1" name="wardNo1">
+    <input type="text" id="wardNo1" name="wardNo1" required>
 
     <label for="pinCode1">पिन कोड / Pin Code:</label>
-    <input type="text" id="pinCode1" name="pinCode1">
+    <input type="text" id="pinCode1" name="pinCode1" required>
 
     <label for="localBodyType1">स्थानीय निकाय का प्रकार / Type of Local Body:</label>
-    <select id="localBodyType1" name="localBodyType1">
+    <select id="localBodyType1" name="localBodyType1" required>
         <option value=""> </option>
         <option value="villagePanchayat">ग्राम पंचायत / Village Panchayat</option>
         <option value="municipalCorporation">नगर निगम / Municipal Corporation</option>
@@ -240,10 +240,10 @@ button:hover {
     </select>
 
     <label for="localbodyname1">स्थानीय निकाय का नाम / Name of Local Body :</label>
-    <input type="text" id="localbodyname1" name="localbodyname1">
+    <input type="text" id="localbodyname1" name="localbodyname1" required>
 
     <label for ="policestation1"> थाना / Police Station : </label>
-    <input type="text" id="policestation1" name="policestation1">
+    <input type="text" id="policestation1" name="policestation1" required>
     
 
     <h3>वर्तमान पता / Present Address: -</h3>
@@ -252,31 +252,31 @@ button:hover {
     <input type="checkbox" id="sameAsAbove" name="presentAddress" value="sameAsAbove" onclick="copyAddress()">
     
     <label for="state2">राज्य / State:</label>
-    <input type="text" id="state2" name="state2">
+    <input type="text" id="state2" name="state2" required>
     
     <label for="district2">जिला / District:</label>
-    <input type="text" id="district2" name="district2">
+    <input type="text" id="district2" name="district2" required>
 
     <label for="subDivision2">अनुमंडल / Sub-Division:</label>
-    <input type="text" id="subDivision2" name="subDivision2">
+    <input type="text" id="subDivision2" name="subDivision2" required>
 
     <label for="block2">प्रखंड / Block:</label>
-    <input type="text" id="block2" name="block2">
+    <input type="text" id="block2" name="block2" required>
 
     <label for="village2">गांव / Village:</label>
-    <input type="text" id="village2" name="village2">
+    <input type="text" id="village2" name="village2" required>
 
     <label for="postOffice2">डाक घर / Post Office:</label>
-    <input type="text" id="postOffice2" name="postOffice2">
+    <input type="text" id="postOffice2" name="postOffice2" required>
 
     <label for="wardNo2">वार्ड नंबर / Ward No.:</label>
-    <input type="text" id="wardNo2" name="wardNo2">
+    <input type="text" id="wardNo2" name="wardNo2" required>
 
     <label for="pinCode2">पिन कोड / Pin Code:</label>
-    <input type="text" id="pinCode2" name="pinCode2">
+    <input type="text" id="pinCode2" name="pinCode2" required>
 
     <label for="localBodyType2">स्थानीय निकाय का प्रकार / Type of Local Body:</label>
-    <select id="localBodyType2" name="localBodyType2">
+    <select id="localBodyType2" name="localBodyType2" required>
         <option value=""> </option>
         <option value="villagePanchayat">ग्राम पंचायत / Village Panchayat</option>
         <option value="municipalCorporation">नगर निगम / Municipal Corporation</option>
@@ -285,10 +285,10 @@ button:hover {
     </select>
 
     <label for="localbodyname2">स्थानीय निकाय का नाम / Name of Local Body :</label>
-    <input type="text" id="localbodyname2" name="localbodyname2">
+    <input type="text" id="localbodyname2" name="localbodyname2" required>
 
     <label for ="policestation2"> थाना / Police Station : </label>
-    <input type="text" id="policestation2" name="policestation2">
+    <input type="text" id="policestation2" name="policestation2" required>
     
                
 <hr>
@@ -297,7 +297,7 @@ button:hover {
 text-align: center;">अन्य / Other</h2>
 
  <label for="profession">पेशा / Profession:</label>
-<select id="profession" name="profession">
+<select id="profession" name="profession" required>
     <option value="">Please Select</option>
     <option value ="student">विद्यार्थी/Student</option>
     <option value ="govservice">सरकारी सेवा/ Govt. Service</option>
@@ -308,7 +308,7 @@ text-align: center;">अन्य / Other</h2>
 </select>
 
 <label for="category"> वर्ग / Category:</label>
-<select id="category" name="category">
+<select id="category" name="category" required>
     <option value="">Please Select</option>
     <option value ="General">General</option>
     <option value ="Obc">OBC</option>
@@ -319,16 +319,16 @@ text-align: center;">अन्य / Other</h2>
 </select>
 
     <label for ="caste"> जाति / Caste : </label>
-    <input type="text" id="caste" name="caste">
+    <input type="text" id="caste" name="caste" required>
 
     <label for ="caste-serial-no"> जाति अनुक्रमांक / Caste Serial number  : </label>
-    <input type="text" id="caste-serial-no" name="caste-serial-no">
+    <input type="text" id="caste-serial-no" name="caste-serial-no" required>
 
     <label for ="subcaste"> उपजाति / Sub-Caste : </label>
-    <input type="text" id="subcaste" name="subcaste">
+    <input type="text" id="subcaste" name="subcaste" required>
 
     <label for ="subcaste-serial-no"> उपजाति अनुक्रमांक / Sub-Caste Serial number : </label>
-    <input type="text" id="subcaste-serial-no" name="subcaste-serial-no">
+    <input type="text" id="subcaste-serial-no" name="subcaste-serial-no" required>
 
 <hr>
 
@@ -337,7 +337,7 @@ text-align: center;">अन्य / Other</h2>
     text-align: center;">Additional Details</h2>
 
     <label for ="apply-office"> Apply to this Office : </label>
-    <input type="text" id="apply-office" name="apply-office">
+    <input type="text" id="apply-office" name="apply-office" required>
 
 
 
