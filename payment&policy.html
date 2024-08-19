@@ -97,6 +97,34 @@
             text-align: center;
             color: #d9534f;
         }
+        .payment-button {
+            display: inline-block;
+            padding: 8px 8px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 1px;
+            transition: background-color 0.3s, transform 0.3s;
+            item-align: left ;
+            position: relative;
+            
+             left: -40%;
+        }
+
+        .payment-button:hover {
+            background-color: #ff6347;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-button:active {
+            transform: translateY(0);
+            box-shadow: none;
+        }
+        
     </style>
 </head>
 <body>
@@ -118,8 +146,8 @@
                   
                    <button type="button" onclick="toggleQRCode()" class="qr"> Show QR Code</button> <br>
 <img src="qrcode.jpg" id="qr-code" style="width:50%; height: 30%; display:none;">
-<p id="payment-verify" style="text-align: left; color:blue; display:none;">
-  <b><u><a href="https://t.me/OmniunitechBot" style="color: Tomato; text-decoration: underline;">Payment Verify?</a></u></b>
+
+  
 </p>
               <br>     
                    
@@ -135,13 +163,14 @@
                    <button type="button" onclick="initiatePayment()" class="order-btn">PAY Now</button>
                    <div id="confirmation-message">
                        <p>We hope your payment was successful. Otherwise, we can't resume processing your application (हमें उम्मीद है कि आपका भुगतान सफल रहा होगा। अन्यथा, हम आपके आवेदन की प्रक्रिया फिर से शुरू नहीं कर सकते). </p>
-                        <p>   please Wait for Payment Slip .......</p>
+                        <p>   please Verify Your Payment .......</p>
                    </div>
-                   
-                   <p style="text-align: center;">Powered by <strong>UPI</strong></p>
+                  
+                   <p style="text-align: center;">                         Powered by <strong>UPI</strong></p>
+                    
                 </div>
                </form>  
-
+<a href="https://t.me/OmniunitechBot" class="payment-button">Payment Verify?</a>
                <hr>
 
 
@@ -244,10 +273,10 @@ function getPaymentForText(paymentFor) {
     
     if (qrCode.style.display === 'none') {
       qrCode.style.display = 'block';
-      paymentVerify.style.display = 'block';
+      
     } else {
       qrCode.style.display = 'none';
-      paymentVerify.style.display = 'none';
+      
     }
   }
     </script>
