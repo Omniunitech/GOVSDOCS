@@ -157,7 +157,7 @@ button:hover {
 
             <label for="examtype">परीक्षा का प्रकार(Type of Application or Certificate) :</label>
               
-        <select id="examType" name="examType">
+        <select id="examType" name="examType" required>
             <option value="">Please Select</option>
             
             <option value="ssc">SSC</option>
@@ -177,25 +177,25 @@ button:hover {
         
         
           <label for="examName">परीक्षा का नाम / Exam Name:</label>
-        <input type="text" id="examName" name="examName">
+        <input type="text" id="examName" name="examName" required>
 
 
 <h4>परीक्षा केंद्र वरीयता / Exam Center Preference:</h4>
  <label for="center1">Center Preference 1:</label>
-        <input type="text" id="center1" name="center1">
+        <input type="text" id="center1" name="center1" required>
         <br>
         <label for="center2">Center Preference 2:</label>
-        <input type="text" id="center2" name="center2">
+        <input type="text" id="center2" name="center2" required>
         <br>
         <label for="center3">Center Preference 3:</label>
-        <input type="text" id="center3" name="center3">
+        <input type="text" id="center3" name="center3" required>
         <br>
         <label for="center4">Center Preference 4:</label>
-        <input type="text" id="center4" name="center4"> 
+        <input type="text" id="center4" name="center4" required> 
         
         
         <label for="examLanguage">परीक्षा की भाषा / Language of Exam:</label>
-        <input type="text" id="examLanguage" name="examLanguage">   
+        <input type="text" id="examLanguage" name="examLanguage" required>   
 <hr>
 
             
@@ -206,7 +206,7 @@ button:hover {
          
             
                <label for="gender">लिंग / Gender:</label>
-            <select id="gender" name="gender">
+            <select id="gender" name="gender" required>
                 <option value="none"></option>
                 <option value="male">पुरुष / Male</option>
                 <option value="female">महिला / Female</option>
@@ -224,13 +224,13 @@ button:hover {
             <input type="text" id="motherName" name="motherName" required>
 
             <label for="birthday">Date of Birth/जन्म की तारीख :</label>
-        <input type="date" id="birthday" name="birthday">
+        <input type="date" id="birthday" name="birthday" required>
 
           
              
 
             <label for="category"> वर्ग / Category:</label>
-            <select id="category" name="category">
+            <select id="category" name="category" required>
                 <option value="">Please Select</option>
                 <option value ="General">General</option>
                 <option value ="Obc">OBC</option>
@@ -242,7 +242,7 @@ button:hover {
 
 
             <label for="dscategory">क्या आप बेंचमार्क विकलांगता वाले व्यक्ति हैं? / Wheather a person with Benchmark Disability (pwBD):</label>
-        <select id="dscategory" name="dscategory">
+        <select id="dscategory" name="dscategory" required>
             <option value="">Please Select</option>
             <option value ="yes">Yes</option>
             <option value ="no">No</option>
@@ -251,7 +251,7 @@ button:hover {
 
 
         <label for="visualmark">Visual mark of identification पहचान का दृश्य चिह्न. : :</label>
-        <input type="text" id="visualmark" name="visualmark">
+        <input type="text" id="visualmark" name="visualmark" required>
 
 
        
@@ -267,33 +267,33 @@ button:hover {
   <input type="number" id="mobileNumber" name="mobileNumber" required>
 
   <label for="email">आवेदक का ईमेल / Email of Applicant:</label>
-  <input type="email" id="email" name="email">
+  <input type="email" id="email" name="email" required>
 
     <h3>स्थायी पता / Permanent Address: -</h3>
 
     <label for="state1">राज्य / State:</label>
-    <input type="text" id="state1" name="state1">
+    <input type="text" id="state1" name="state1" required>
     
     <label for="district1">जिला / District:</label>
-    <input type="text" id="district1" name="district1">
+    <input type="text" id="district1" name="district1" required>
 
     <label for="subDivision1">अनुमंडल / Sub-Division:</label>
-    <input type="text" id="subDivision1" name="subDivision1">
+    <input type="text" id="subDivision1" name="subDivision1" >
 
     <label for="block1">प्रखंड / Block:</label>
-    <input type="text" id="block1" name="block1">
+    <input type="text" id="block1" name="block1" required>
 
     <label for="village1">गांव / Village:</label>
-    <input type="text" id="village1" name="village1">
+    <input type="text" id="village1" name="village1" required>
 
     <label for="postOffice1">डाक घर / Post Office:</label>
-    <input type="text" id="postOffice1" name="postOffice1">
+    <input type="text" id="postOffice1" name="postOffice1" required>
 
     <label for="wardNo1">वार्ड नंबर / Ward No.:</label>
-    <input type="text" id="wardNo1" name="wardNo1">
+    <input type="text" id="wardNo1" name="wardNo1" >
 
     <label for="pinCode1">पिन कोड / Pin Code:</label>
-    <input type="text" id="pinCode1" name="pinCode1">
+    <input type="text" id="pinCode1" name="pinCode1" required>
 
     
 
@@ -303,28 +303,28 @@ button:hover {
     <input type="checkbox" id="sameAsAbove" name="presentAddress" value="sameAsAbove" onclick="copyAddress()">
     
     <label for="state2">राज्य / State:</label>
-    <input type="text" id="state2" name="state2">
+    <input type="text" id="state2" name="state2" required>
     
     <label for="district2">जिला / District:</label>
-    <input type="text" id="district2" name="district2">
+    <input type="text" id="district2" name="district2" required>
 
     <label for="subDivision2">अनुमंडल / Sub-Division:</label>
     <input type="text" id="subDivision2" name="subDivision2">
 
     <label for="block2">प्रखंड / Block:</label>
-    <input type="text" id="block2" name="block2">
+    <input type="text" id="block2" name="block2" required>
 
     <label for="village2">गांव / Village:</label>
-    <input type="text" id="village2" name="village2">
+    <input type="text" id="village2" name="village2" required>
 
     <label for="postOffice2">डाक घर / Post Office:</label>
-    <input type="text" id="postOffice2" name="postOffice2">
+    <input type="text" id="postOffice2" name="postOffice2" required>
 
     <label for="wardNo2">वार्ड नंबर / Ward No.:</label>
     <input type="text" id="wardNo2" name="wardNo2">
 
     <label for="pinCode2">पिन कोड / Pin Code:</label>
-    <input type="text" id="pinCode2" name="pinCode2">  
+    <input type="text" id="pinCode2" name="pinCode2"required>  
     
             
 <hr>
@@ -352,17 +352,17 @@ button:hover {
 
 
 <label for="school-college-name">School/College /Board/University Name:  </label>
-        <input type="text" id="school-college-name" name="school-college-name" placeholder="Enter School/College Name" ><br>
+        <input type="text" id="school-college-name" name="school-college-name" placeholder="Enter School/College Name" required><br>
 
 
         <label for="year-of-passing">Year of Passing:</label>
-        <input type="number" id="year-of-passing" name="year-of-passing" placeholder="YYYY" min="1900" max="2099" step="1" ><br>
+        <input type="number" id="year-of-passing" name="year-of-passing" placeholder="YYYY" min="1900" max="2099" step="1" required><br>
 
  <label for="percentage">Percentage/CGPA Obtained:</label>
-        <input type="text" id="percentage/CGPA" name="percentage/CGPA" ><br>
+        <input type="text" id="percentage/CGPA" name="percentage/CGPA" required><br>
         
        <label for="rollNumber">Roll Number (for relevant exams):</label>
-        <input type="text" id="rollNumber" name="rollNumber"  ><br>
+        <input type="text" id="rollNumber" name="rollNumber" required><br>
 
         
         <hr>
@@ -516,8 +516,8 @@ function previewForm() {
                 color: #d9534f; /* Bootstrap's "danger" color for emphasis */
             }
              .notice {
-              font-size: 8px;
-              color: lightblue;
+              font-size: 10px;
+              color: gray;
                 
             }
             .print-button {
