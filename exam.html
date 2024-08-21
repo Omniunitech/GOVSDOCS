@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAM FORM</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script>
+        function copyAddress() {
+            if (document.getElementById("sameAsAbove").checked) {
+                document.getElementById("state2").value = document.getElementById("state1").value;
+                document.getElementById("district2").value = document.getElementById("district1").value;
+                document.getElementById("subDivision2").value = document.getElementById("subDivision1").value;
+                document.getElementById("block2").value = document.getElementById("block1").value;
+                document.getElementById("village2").value = document.getElementById("village1").value;
+                document.getElementById("postOffice2").value = document.getElementById("postOffice1").value;
+                document.getElementById("wardNo2").value = document.getElementById("wardNo1").value;
+                document.getElementById("pinCode2").value = document.getElementById("pinCode1").value;
+                document.getElementById("localBodyType2").value = document.getElementById("localBodyType1").value;
+                document.getElementById("localbodyname2").value = document.getElementById("localbodyname1").value;
+            } else {
+                document.getElementById("state2").value = "";
+                document.getElementById("district2").value = "";
+                document.getElementById("subDivision2").value = "";
+                document.getElementById("block2").value = "";
+                document.getElementById("village2").value = "";
+                document.getElementById("postOffice2").value = "";
+                document.getElementById("wardNo2").value = "";
+                document.getElementById("pinCode2").value = "";
+                document.getElementById("localBodyType2").value = "";
+                document.getElementById("localbodyname2").value = "";
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+    border: none;
+    margin-bottom: 15px;
+}
+
+legend {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+input[type="date"],
+input[type="number"],
+
+select {
+    width: calc(50% - 10px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.error {
+            color: red;
+            display: none;
+            font-size: 10px;
+        }
+
+#datetime {
+   
+    text-align: center;
+   
+
+}
+    
+.logout-button {
+    
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+}
+
+.logout-button a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF; /* Bootstrap primary blue color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.logout-button a:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+        
+
+
+    </style>
+</head>
+<body>
+    <h1> परीक्षा फॉर्म के लिए डमी आवेदन<br>Dummy Application  for Exam Form</h1>
+    <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
+        <fieldset>
+             <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
+            
+             <label for="filling_option">Please select how you would like to fill the form (कृपया चुनें कि आप फॉर्म कैसे भरना चाहते हैं):</label><br>
+  
+  <label for="self">
+  <input type="radio" id="self" name="filling_option" value="self">स्वयं से (Self Mode)
+</label>
+  
+  <label for="cybercafe">
+  <input type="radio" id="cybercafe" name="filling_option" value="cybercafe">Cybercafe की मदद से</label><br>
+  
+  <div id="cybercafeId" style="display: none;">
+    <label for="clientId" style="color: red; margin-top: 0em;"><b>Enter Cybercafe (Client ID) :</b></label>
+    <input type="text" id="clientId" name="clientId"><br>
+    <span id="error-message" class="error" style="display:none;">कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
+  </div>
+  
+            
+     
+            
+
+
+            <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">परीक्षा विवरण  / Exam Details </h2> <br>
+
+            <label for="examtype">परीक्षा का प्रकार(Type of Application or Certificate) :</label>
+              
+        <select id="examType" name="examType" required>
+            <option value="">Please Select</option>
+            
+            <option value="ssc">SSC</option>
+            <option value="banking">Banking</option>
+            <option value="railways">Railways</option>
+            <option value="civilService">Civil Service</option>
+            <option value="teaching">Teaching</option>
+            <option value="stateGovt">State Govt.</option>
+            <option value="otherGovt">Other Govt.</option>
+            <option value="police">Police</option>
+            <option value="defence">Defence</option>
+            <option value="cuetUgEntrance">CUET & UG Entrance Exam</option>
+            <option value="insurance">Insurance</option>
+            <option value="nursing">Nursing</option>
+            <option value="govtOrg">Govt Organisation</option>
+        </select>
+        
+        
+          <label for="examName">परीक्षा का नाम / Exam Name:</label>
+        <input type="text" id="examName" name="examName" required>
+
+
+<h4>परीक्षा केंद्र वरीयता / Exam Center Preference:</h4>
+ <label for="center1">Center Preference 1:</label>
+        <input type="text" id="center1" name="center1" required>
+        <br>
+        <label for="center2">Center Preference 2:</label>
+        <input type="text" id="center2" name="center2" required>
+        <br>
+        <label for="center3">Center Preference 3:</label>
+        <input type="text" id="center3" name="center3" required>
+        <br>
+        <label for="center4">Center Preference 4:</label>
+        <input type="text" id="center4" name="center4" required> 
+        
+        
+        <label for="examLanguage">परीक्षा की भाषा / Language of Exam:</label>
+        <input type="text" id="examLanguage" name="examLanguage" required>   
+<hr>
+
+            
+            
+            <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">छात्र व्यक्तिगत विवरण / Student Personal Details 👨‍🎓</h2>
+          
+         
+            
+               <label for="gender">लिंग / Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="none"></option>
+                <option value="male">पुरुष / Male</option>
+                <option value="female">महिला / Female</option>
+                <option value="thirdGender">तृतीय लिंग / Third Gender</option>
+            </select>
+
+
+            <label for="studentName">छात्र का नाम / Name of Student:</label>
+            <input type="text" id="studentName" name="studentName" required>
+
+            <label for="fatherName">पिता का नाम / Name of Father:</label>
+            <input type="text" id="fatherName" name="fatherName" required>
+
+            <label for="motherName">माता का नाम / Name of Mother:</label>
+            <input type="text" id="motherName" name="motherName" required>
+
+            <label for="birthday">Date of Birth/जन्म की तारीख :</label>
+        <input type="date" id="birthday" name="birthday" required>
+
+          
+             
+
+            <label for="category"> वर्ग / Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Please Select</option>
+                <option value ="General">General</option>
+                <option value ="Obc">OBC</option>
+                <option value ="Sc">SC</option>
+                <option value ="st">ST</option>
+                <option value ="other">Other </option>
+                
+            </select>
+
+
+            <label for="dscategory">क्या आप बेंचमार्क विकलांगता वाले व्यक्ति हैं? / Wheather a person with Benchmark Disability (pwBD):</label>
+        <select id="dscategory" name="dscategory" required>
+            <option value="">Please Select</option>
+            <option value ="yes">Yes</option>
+            <option value ="no">No</option>
+            <option value ="maybe">Maybe</option>
+        </select>
+
+
+        <label for="visualmark">Visual mark of identification पहचान का दृश्य चिह्न. : :</label>
+        <input type="text" id="visualmark" name="visualmark" required>
+
+
+       
+        
+            
+<hr>
+    
+  
+  <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">Contact Information 🔎:</h2>
+
+  <label for="mobileNumber">आवेदक का मोबाइल नंबर / Mobile No. of Applicant:</label>
+  <input type="number" id="mobileNumber" name="mobileNumber" required>
+
+  <label for="email">आवेदक का ईमेल / Email of Applicant:</label>
+  <input type="email" id="email" name="email" required>
+
+    <h3>स्थायी पता / Permanent Address: -</h3>
+
+    <label for="state1">राज्य / State:</label>
+    <input type="text" id="state1" name="state1" required>
+    
+    <label for="district1">जिला / District:</label>
+    <input type="text" id="district1" name="district1" required>
+
+    <label for="subDivision1">अनुमंडल / Sub-Division:</label>
+    <input type="text" id="subDivision1" name="subDivision1" >
+
+    <label for="block1">प्रखंड / Block:</label>
+    <input type="text" id="block1" name="block1" required>
+
+    <label for="village1">गांव / Village:</label>
+    <input type="text" id="village1" name="village1" required>
+
+    <label for="postOffice1">डाक घर / Post Office:</label>
+    <input type="text" id="postOffice1" name="postOffice1" required>
+
+    <label for="wardNo1">वार्ड नंबर / Ward No.:</label>
+    <input type="text" id="wardNo1" name="wardNo1" >
+
+    <label for="pinCode1">पिन कोड / Pin Code:</label>
+    <input type="text" id="pinCode1" name="pinCode1" required>
+
+    
+
+    <h3>वर्तमान पता / Present Address: -</h3>
+
+    <label for="sameAsAbove">उपर्य जैसा / Same as Above</label>
+    <input type="checkbox" id="sameAsAbove" name="presentAddress" value="sameAsAbove" onclick="copyAddress()">
+    
+    <label for="state2">राज्य / State:</label>
+    <input type="text" id="state2" name="state2" required>
+    
+    <label for="district2">जिला / District:</label>
+    <input type="text" id="district2" name="district2" required>
+
+    <label for="subDivision2">अनुमंडल / Sub-Division:</label>
+    <input type="text" id="subDivision2" name="subDivision2">
+
+    <label for="block2">प्रखंड / Block:</label>
+    <input type="text" id="block2" name="block2" required>
+
+    <label for="village2">गांव / Village:</label>
+    <input type="text" id="village2" name="village2" required>
+
+    <label for="postOffice2">डाक घर / Post Office:</label>
+    <input type="text" id="postOffice2" name="postOffice2" required>
+
+    <label for="wardNo2">वार्ड नंबर / Ward No.:</label>
+    <input type="text" id="wardNo2" name="wardNo2">
+
+    <label for="pinCode2">पिन कोड / Pin Code:</label>
+    <input type="text" id="pinCode2" name="pinCode2"required>  
+    
+            
+<hr>
+
+
+        <h2 style="font-size: 1.5em;
+            margin-bottom: 10px;">शैक्षणिक विवरण: /  Academic Details: </h2>
+
+    <label for="qualification">उच्चतम शैक्षणिक योग्यता / Highest Educational Qualification:</label>
+        
+        <select id="qualification" name="qualification" required>
+            <option value="">Select your qualification</option>
+             <option value="primary-school-certificate">1-10 Standard (Primary School Certificate)</option>
+             <option value="secondary-school-certificate">10th Standard (Secondary School Certificate)</option>
+             <option value="higher-secondary-certificate">12th Standard (Higher Secondary Certificate)</option>
+             <option value="diploma">Diploma</option>
+            <option value="bachelors-degree">Bachelor's Degree / Equivalent Graduate</option>
+             <option value="masters-degree">Master's Degree</option>
+            <option value="professional-degree-other">Professional Degree / Other (specify)</option>
+</select>
+<small style ="color:Blue"><i class="fa fa-info-circle"></i> परीक्षा के अनुसार आवश्यक 
+            </small>
+<br>
+
+
+
+<label for="school-college-name">School/College /Board/University Name:  </label>
+        <input type="text" id="school-college-name" name="school-college-name" placeholder="Enter School/College Name" required><br>
+
+
+        <label for="year-of-passing">Year of Passing:</label>
+        <input type="number" id="year-of-passing" name="year-of-passing" placeholder="YYYY" min="1900" max="2099" step="1" required><br>
+
+ <label for="percentage">Percentage/CGPA Obtained:</label>
+        <input type="text" id="percentage/CGPA" name="percentage/CGPA" required><br>
+        
+       <label for="rollNumber">Roll Number (for relevant exams):</label>
+        <input type="text" id="rollNumber" name="rollNumber" required><br>
+
+        
+        <hr>
+        <div>
+            
+
+            <ul>
+                    <small style ="color: lightslategray; font-size: 0.6em;"><i class="fa fa-info-circle"></i> यदि फॉर्म भरते समय आपको कोई समस्या आती है, तो कृपया सहायता के लिए हमारी सहायता टीम से संपर्क करने में संकोच न करें। हम एक सहज और परेशानी मुक्त अनुभव सुनिश्चित करने में मदद के लिए यहां हैं। <a href="https://t.me/OmniunitechBot" style="color:blue"><i class='	fa fa-handshake-o'> SUPPORT</i></a> पर हमसे संपर्क करें, और हमें आपकी सहायता करने में खुशी होगी।
+                    </small>
+
+
+                </ul>
+        </div>
+
+       
+
+            <button type="button" onclick="previewForm()" style="background-color: rgb(91, 91, 94);">Preview</button>
+     <button type="submit">Submit</button>
+      <div class="logout-button"> 
+        <a href="login2.html"><b>Logout</b></a>
+    </div>
+     </fieldset>
+ </form>
+  <script>
+      
+      
+      
+              
+       document.addEventListener('DOMContentLoaded', function() {
+    const loggedInUser = sessionStorage.getItem('loggedInUser');
+    if (!loggedInUser) {
+        window.location.href = 'login2.html'; // Redirect to login if not logged in
+    } else {
+        const user = JSON.parse(localStorage.getItem(loggedInUser));
+        if (user) {
+            // Prefill the form with user data
+            document.getElementById('gender').value = user.gender || '';
+            document.getElementById('studentName').value = user.applicantName || '';
+            document.getElementById('fatherName').value = user.fatherName || '';
+            document.getElementById('motherName').value = user.motherName || '';
+            document.getElementById('birthday').value = user.birthday || '';
+            document.getElementById('category').value = user.category || '';
+            document.getElementById('dscategory').value = user.dscategory || '';
+            document.getElementById('visualmark').value = user.visualmark || '';
+            document.getElementById('mobileNumber').value = user.mobileNumber || '';
+            document.getElementById('email').value = user.email || '';
+            document.getElementById('state1').value = user.state1 || '';
+            document.getElementById('district1').value = user.district1 || '';
+            document.getElementById('subDivision1').value = user.subDivision1 || '';
+            document.getElementById('block1').value = user.block1 || '';
+            document.getElementById('village1').value = user.village1 || '';
+            document.getElementById('postOffice1').value = user.postOffice1 || '';
+            document.getElementById('wardNo1').value = user.wardNo1 || '';
+            document.getElementById('pinCode1').value = user.pinCode1 || '';
+            document.getElementById('state2').value = user.state2 || '';
+            document.getElementById('district2').value = user.district2 || '';
+            document.getElementById('subDivision2').value = user.subDivision2 || '';
+            document.getElementById('block2').value = user.block2 || '';
+            document.getElementById('village2').value = user.village2 || '';
+            document.getElementById('postOffice2').value = user.postOffice2 || '';
+            document.getElementById('wardNo2').value = user.wardNo2 || '';
+            document.getElementById('pinCode2').value = user.pinCode2 || '';
+        }
+    }
+
+    // Handle form submission
+    document.getElementById('myForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Collect form data
+        const gender = document.getElementById('gender').value;
+        const applicantName = document.getElementById('studentName').value;
+        const fatherName = document.getElementById('fatherName').value;
+        const motherName = document.getElementById('motherName').value;
+        const birthday = document.getElementById('birthday').value;
+        const category = document.getElementById('category').value;
+        const dscategory = document.getElementById('dscategory').value;
+        const visualmark = document.getElementById('visualmark').value;
+        const mobileNumber = document.getElementById('mobileNumber').value;
+        const email = document.getElementById('email').value;
+        const state1 = document.getElementById('state1').value;
+        const district1 = document.getElementById('district1').value;
+        const subDivision1 = document.getElementById('subDivision1').value;
+        const block1 = document.getElementById('block1').value;
+        const village1 = document.getElementById('village1').value;
+        const postOffice1 = document.getElementById('postOffice1').value;
+        const wardNo1 = document.getElementById('wardNo1').value;
+        const pinCode1 = document.getElementById('pinCode1').value;
+        const state2 = document.getElementById('state2').value;
+        const district2 = document.getElementById('district2').value;
+        const subDivision2 = document.getElementById('subDivision2').value;
+        const block2 = document.getElementById('block2').value;
+        const village2 = document.getElementById('village2').value;
+        const postOffice2 = document.getElementById('postOffice2').value;
+        const wardNo2 = document.getElementById('wardNo2').value;
+        const pinCode2 = document.getElementById('pinCode2').value;
+
+        const loggedInUser = sessionStorage.getItem('loggedInUser');
+        if (loggedInUser) {
+            const user = JSON.parse(localStorage.getItem(loggedInUser));
+            if (user) {
+                // Update user data
+                user.gender = gender;
+                user.applicantName = applicantName;
+                user.fatherName = fatherName;
+                user.motherName = motherName;
+                user.birthday = birthday;
+                user.category = category;
+                user.dscategory = dscategory;
+                user.visualmark = visualmark;
+                user.mobileNumber = mobileNumber;
+                user.email = email;
+                user.state1 = state1;
+                user.district1 = district1;
+                user.subDivision1 = subDivision1;
+                user.block1 = block1;
+                user.village1 = village1;
+                user.postOffice1 = postOffice1;
+                user.wardNo1 = wardNo1;
+                user.pinCode1 = pinCode1;
+                user.state2 = state2;
+                user.district2 = district2;
+                user.subDivision2 = subDivision2;
+                user.block2 = block2;
+                user.village2 = village2;
+                user.postOffice2 = postOffice2;
+                user.wardNo2 = wardNo2;
+                user.pinCode2 = pinCode2;
+
+                // Save updated user data
+                localStorage.setItem(loggedInUser, JSON.stringify(user));
+                alert('Information updated successfully!');
+            }
+        }
+    });
+});
+
+// submit
+      
+      
+      
+      
+      
+      
+         const scriptURL = 'https://script.google.com/macros/s/AKfycbzgPotn1w-OVMDH9lHwJrAdMYPLMr3vy4vkmODAfqrnXMmFc4RjYLp6KaFnru5SCDxacA/exec';
+    const form = document.forms['google-sheet'];
+    
+    form.addEventListener('submit', e => { 
+        e.preventDefault(); 
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)}) 
+            .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon...")) 
+            .catch(error => console.error('Error!', error.message)); 
+    });
+
+// Set the current date and time to the datetime-local input
+    const now = new Date();
+        const offset = now.getTimezoneOffset() * 60000;
+        const localDateTime = new Date(now - offset).toISOString().slice(0, 16);
+        document.getElementById('datetime').value = localDateTime;
+     const date = now.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+});
+        
+    // Redirect form
+    function redirectAfterSubmit(event) { 
+        event.preventDefault(); // Prevent the default form submission behavior 
+        // Perform your form validation or submission logic here
+        
+        // Redirect to another form 
+        window.location.href = 'https://forms.gle/hx4Pp6KqVRkka1d19'; // Replace with your desired URL 
+    }
+       // Show/hide Client ID field based on radio selection
+const fillingOptionRadios = document.getElementsByName('filling_option');
+const cybercafeIdField = document.getElementById('cybercafeId');
+
+
+fillingOptionRadios.forEach(radio => {
+  radio.addEventListener('change', function() {
+    if (document.getElementById('cybercafe').checked) {
+      cybercafeIdField.style.display = 'block';
+    } else {
+      cybercafeIdField.style.display = 'none';
+    }
+  });
+});
+
+
+
+
+    
+    // Preview Form Function
+function previewForm() { 
+    const form = document.getElementById('myForm'); 
+    const formData = new FormData(form); 
+    let previewContent = ''; 
+
+    // Get the current date and time 
+    const now = new Date(); 
+    const date = now.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+    const time = now.toLocaleTimeString(); 
+
+    // Start building the HTML for the preview content
+    previewContent += `
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                color: #333;
+                margin: 20px;
+            }
+            h2 {
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .form-details {
+                width: 100%;
+                max-width: 600px;
+                margin: 0 auto;
+                border-collapse: collapse;
+            }
+            .form-details th, .form-details td {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+            }
+            .form-details th {
+                background-color: #f2f2f2;
+                text-align: left;
+            }
+            .form-details td {
+                background-color: #fff;
+            }
+            .date-time {
+                text-align: right;
+                margin-bottom: 20px;
+                font-size: 14px;
+            }
+            .recheck-message {
+                text-align: center;
+                margin-top: 40px;
+                font-size: 16px;
+                font-weight: bold;
+                color: #d9534f; /* Bootstrap's "danger" color for emphasis */
+            }
+             .notice {
+              font-size: 10px;
+              color: gray;
+                
+            }
+            .print-button {
+                display: block;
+                text-align: center;
+                margin-top: 20px;
+            }
+            .print-button button {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+        </style>
+
+        <h2>GOVSDOCS Exam Application Form (परीक्षा आवेदन पत्र)</h2>
+        <p style=" text-align: center;">🙏<em>" The Whole World is One Family"</em>🙏</p>
+        <div class="date-time">
+            <strong>Date (तारीख):</strong> ${date}<br>
+            <strong>Time (समय):</strong> ${time}
+        </div>
+        <table class="form-details">
+            <tbody>
+    `;
+
+    formData.forEach((value, key) => { 
+        // Skip 'clientId' field if you don't want to include it in the preview
+        if (key !== 'clientId') {
+            // Find the corresponding label for the input field
+            const labelElement = form.querySelector(`label[for="${key}"]`);
+            const labelText = labelElement ? labelElement.textContent : key;
+
+            previewContent += `
+                <tr>
+                    <th>${labelText}</th>
+                    <td>${value}</td>
+                </tr>
+            `; 
+        }
+    });
+
+    // Add a recheck message
+    previewContent += `
+            </tbody>
+        </table>
+        <div class="recheck-message">
+            Please verify that the information you provided is entirely accurate. <br>
+            कृपया सुनिश्चित करें कि आपके द्वारा दिए गए विवरण पूरी तरह से सही हैं।
+        </div>
+         <p class="notice">यदि प्रिंट काम नहीं करता है तो कृपया आगे की जांच के लिए स्क्रीनशॉट लें </p>
+        <div class="print-button">
+            <button onclick="window.print()">Print Form</button>
+        </div>
+    `;
+
+    const previewWindow = window.open('', '', 'height=600,width=800'); 
+    previewWindow.document.write(previewContent); 
+    previewWindow.document.close(); 
+}
+    </script>
+</body>
+</html>
