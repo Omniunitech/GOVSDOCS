@@ -156,7 +156,7 @@ button:hover {
              <label for="filling_option">Please select how you would like to do the application (कृपया चुनें कि आप आवेदन कैसे करना चाहते हैं):</label><br>
     
     <label for="self" style="display: none;">
-        <input type="radio" id="self" name="filling_option" value="self"> GOVSDOCS की मदद से (Self Mode)
+        <input type="radio" id="self" name="filling_option" value="self">-
     </label>
 
     <label for="cybercafe">
@@ -567,24 +567,13 @@ text-align: center;">अन्य / Other</h2>
     }
 
 
+    
     // Show/hide Client ID field based on radio selection
-    let lastSelectedRadio = null;
-
     const fillingOptionRadios = document.getElementsByName('filling_option');
     const cybercafeIdField = document.getElementById('cybercafeId');
 
     fillingOptionRadios.forEach(radio => {
-        radio.addEventListener('click', function(event) {
-            if (lastSelectedRadio === event.target) {
-                // Deselect the radio button if it was the last selected one
-                event.target.checked = false;
-                lastSelectedRadio = null;
-            } else {
-                // Set the current radio as the last selected one
-                lastSelectedRadio = event.target;
-            }
-
-            // Toggle the visibility of the Client ID field based on the Cybercafe option
+        radio.addEventListener('change', function() {
             if (document.getElementById('cybercafe').checked) {
                 cybercafeIdField.style.display = 'block';
             } else {
@@ -592,7 +581,7 @@ text-align: center;">अन्य / Other</h2>
             }
         });
     });
-
+        
     // Preview Form Function
 function previewForm() { 
     const form = document.getElementById('myForm'); 
