@@ -153,20 +153,20 @@ button:hover {
             
             <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
             
-             <label for="filling_option">Please select how you would like to fill the form (कृपया चुनें कि आप फॉर्म कैसे भरना चाहते हैं):</label><br>
-  
-  <label for="self">
-  <input type="radio" id="self" name="filling_option" value="self">स्वयं से (Self Mode)
-</label>
-  
-  <label for="cybercafe">
-  <input type="radio" id="cybercafe" name="filling_option" value="cybercafe">Cybercafe की मदद से</label><br>
-  
-  <div id="cybercafeId" style="display: none;">
-    <label for="clientId" style="color: red; margin-top: 0em;"><b>Enter Cybercafe (Client ID) :</b></label>
-    <input type="text" id="clientId" name="clientId"><br>
-    <span id="error-message" class="error" style="display:none;">कृपया अपना वैध CLIENT ID डालें अन्यथा हम आपका आवेदन स्वीकार नहीं करेंगे</span>
-  </div>
+             <label for="filling_option">Please select how you would like to do the application (कृपया चुनें कि आप आवेदन कैसे करना चाहते हैं):</label><br>
+    
+    <label for="self" style="display: none;">
+        <input type="radio" id="self" name="filling_option" value="self"> GOVSDOCS की मदद से (Self Mode)
+    </label>
+
+    <label for="cybercafe">
+        <input type="radio" id="cybercafe" name="filling_option" value="cybercafe">Cybercafe की मदद से
+    </label><br>
+
+    <div id="cybercafeId" style="display: none;">
+        <label for="clientId" style="color: red; margin-top: 0em;"><b>Enter Cybercafe (Client ID) :</b></label>
+        <input type="text" id="clientId" name="clientId"><br>
+    </div>
   
             
   
@@ -565,21 +565,21 @@ text-align: center;">अन्य / Other</h2>
         // Redirect to another form 
         window.location.href = 'https://forms.gle/UPf4GfayNm7moj6H8'; // Replace with your desired URL 
     }
-         // Show/hide Client ID field based on radio selection
-const fillingOptionRadios = document.getElementsByName('filling_option');
-const cybercafeIdField = document.getElementById('cybercafeId');
 
 
-fillingOptionRadios.forEach(radio => {
-  radio.addEventListener('change', function() {
-    if (document.getElementById('cybercafe').checked) {
-      cybercafeIdField.style.display = 'block';
-    } else {
-      cybercafeIdField.style.display = 'none';
-    }
-  });
-});
+    // Show/hide Client ID field based on radio selection
+    const fillingOptionRadios = document.getElementsByName('filling_option');
+    const cybercafeIdField = document.getElementById('cybercafeId');
 
+    fillingOptionRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (document.getElementById('cybercafe').checked) {
+                cybercafeIdField.style.display = 'block';
+            } else {
+                cybercafeIdField.style.display = 'none';
+            }
+        });
+    });
 
     // Preview Form Function
 function previewForm() { 
