@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOVSDOCS</title>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* Additional styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        
+       
+
+        header {
+            
+            padding: 50px 20px; /* Adjusted padding for smaller screens */
+            text-align: center;
+        }
+         .content {
+            padding: 20px;
+        }
+
+        .container {
+            border-radius: 5px;
+            padding: 2rem 1rem;
+            max-width: 90%; /* Full width for mobile screens */
+            background: #F8F8FF;
+            text-align: center;
+            margin: 0 auto;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 2rem;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+       
+
+        textarea, input, select {
+            border-width: medium medium medium 1px;
+            width: 100%; /* Full width on smaller screens */
+            margin-bottom: 10px;
+        }
+        
+        
+   .hero {
+    background: #e0efff;
+    padding: 20px 0;
+    text-align: center;
+    display:flex;
+    
+}
+
+.hero h2 {
+    margin: 0 0 20px;
+    font-size: 1em;
+    color: #007bff;
+}
+
+.hero p {
+    font-size: 0.6em;
+    color: #555;
+}
+
+.hero .btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 10px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
+/* Moving Paragraph */
+
+ .marquee {
+            display: flex;
+            align-items: center;
+            height: 5vh;
+            overflow: hidden;
+            background-color: #e0efff;
+            color: black;
+            border: 5px solid #e0efff;
+            padding: 5px 10px;
+        }
+
+        .marquee p {
+            white-space: nowrap;
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+            padding: 5px 10px;
+            font-size: 1.10rem;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        
+
+
+
+ /* Basic styling for navigation */
+ 
+ 
+    .navbar ul {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to wrap onto the next line */
+    justify-content: center; /* Centers the items horizontally */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    flex: 1 1 30%; /* Adjust the flex-basis to control the width of the items */
+    margin: 5px;
+    text-align: center;
+}
+
+.navbar ul li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #005b9a;
+    font-size: 22px;
+    
+}
+
+.navbar ul li a:hover {
+    background-color: #555;
+}
+
+
+
+
+/* Basic styling for Main  */
+  main {
+    padding: 20px;
+    background-color: white;
+}
+
+.welcome-section h2 {
+    color: #005b9a;
+}
+
+.welcome-section p, .welcome-section ul {
+    margin-bottom: 20px;
+}
+
+.welcome-section ul {
+    list-style-type: decimal;
+    padding-left: 20px;
+}      
+
+       
+       
+
+       
+        img {
+            width: 100%; /* Make image responsive */
+            height: auto;
+        }
+
+        /* Responsive footer */
+        .footer {
+            background-color: rgb(240, 240, 240);
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 8px;
+        }
+
+        .footer h2 {
+            font-size: 1.5rem;
+        }
+
+        .footer i {
+            font-size: 1.2rem;
+        }
+
+        .footer a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .w3-button {
+            margin: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <!-- Hero Section -->
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>GOVSDOCS</h2>
+                <p>भारत के ई-सेवाओं के लिए आवेदन का प्रतिकृति प्रस्तुतिकरण (Digital CyberCafe) -</p>
+                <a href="https://t.me/GOVSDOCSBOT" class="btn" style="font-size:0.6em;"">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    
+     <!-- Marquee -->
+    <div class="marquee">
+        <p><b>GOVSDOCS प्रति आवेदन के लिए सामान्य से कम रुपये शुल्क लेता है !</b></p>
+    </div>
+    
+    
+    
+     <!-- Navigation bar -->
+     <nav class="navbar">
+        <ul>
+            
+            
+            <li><a href="./service.html">Apply for Services</a></li>
+            <li><a href="./exam.html">Apply for Exam</a></li>
+            <li><a href="./client.html">CLIENT REGIST</a></li>
+            <li><a href="./detailclient.html">Nearest Cybercafe</a></li>
+            <li><a href="./payment&policy.html">PAYMENT  POLICY</a></li>
+            <li><a href="http://ridewavegovs.blogspot.com/2024/07/govsdocs-update.html"><i class='fa fa-bell'>            </i></a></li>
+        </ul>
+    </nav>
+    
+      <main>
+        <section class="welcome-section">
+            <h2>Welcome to GOVSDOCS</h2>
+            <p>
+                GOVSDOCS में आपका स्वागत है, जहाँ हम विभिन्न सरकारी सेवाओं (उदाहरण : आय प्रमाण पत्र, आवासीय प्रमाणपत्र ....) और परीक्षाओं के लिए आवेदन भरने की प्रक्रिया को सरल बनाते हैं। हमारी समर्पित टीम आपकी ओर से थकाऊ कागजी कार्रवाई को संभालने के लिए यहाँ है, जिससे सटीकता और दक्षता सुनिश्चित होती है। GOVSDOCS के साथ, आप लंबी कतारों और झामक फ़ॉर्म को अलविदा कह सकते हैं, और सुविधा और मन की शांति को नमस्ते कह सकते हैं।
+            </p>
+            <h3>The following are the salient features of the Platform -</h3>
+            <ul>
+                <li><strong>Ease of Use:</strong> बस अपना विवरण प्रदान करें, और हमारी टीम और साइबरकैफे बाकी का काम संभाल लेगी।</li>
+                <li><strong>Accuracy:</strong> हमारे विशेषज्ञ यह सुनिश्चित करते हैं कि सभी फॉर्म सही और पूर्ण रूप से भरे जाएं |</li>
+                <li><strong>Time-Saving:</strong> कागजी कार्रवाई हमें सौंपकर अपना बहुमूल्य समय बचाएं , हम आपका आवेदन 36 घंटे के भीतर भर देंगे।</li>
+                <li><strong>Secure:</strong> आपका डेटा उच्चतम सुरक्षा मानकों के साथ संरक्षित है।</li>
+                <li><strong>Payment:</strong>कृपया ध्यान दें कि यदि हमारी टीम आपका फॉर्म भरने में असफल रहती है या हमसे किसी प्रकार की त्रुटि हो जाती है तो सारा पैसा वापस कर दिया जाएगा।</li>
+                <li><strong>Reapply:</strong> यदि आप गलत जानकारी देते हैं और हमारी टीम उस डेटा के आधार पर फ़ॉर्म भरती है, तो हम बिना किसी अतिरिक्त शुल्क के उसी आवेदन फ़ॉर्म को सही जानकारी के साथ फिर से भर सकते हैं।</li>
+               
+            </ul>
+        </section>
+    </main>
+   
+      
+    <!-- Image of location/map -->
+    <img src="parliament.jpg" alt="Parliament Image" class="w3-image w3-greyscale-min">
+
+    <!-- Footer -->
+    <div class="footer">
+        <h2><b><u>HelpDesk</u></b> <i class='fa fa-fax'></i></h2>
+        <i class="fa fa-envelope"> <a href="mailto:ridewave000@gmail.com"><b>Email</b></a></i><br>
+        <i class="fa fa-telegram w3-hover-opacity">
+           <a href="https://t.me/OmniunitechBot" target="_blank" rel="noopener noreferrer"><b>Message</b></a></i> <br>
+
+<a href="https://omniunitech.github.io/GOVSDOCS/" title="Refresh">
+        <i class="fa fa-rotate-right" aria-hidden="true"></i>
+    </a>
+    <a href="https://median.co/share/zeqpql#apk" download class="w3-button w3-green w3-round w3-large w3-hover-shadow">
+    Download App 
+</a>
+
+      </div>
+
+</body>
+</html>
