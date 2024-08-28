@@ -146,9 +146,12 @@ button:hover {
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
     <h1> परीक्षा फॉर्म के लिए डमी आवेदन<br>Dummy Application  for Exam Form</h1>
+        </div>
     <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
-        <fieldset>
+        <div class="form-section">
              <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
             
              <label for="filling_option">Please select how you would like to do the application (कृपया चुनें कि आप आवेदन कैसे करना चाहते हैं):
@@ -172,9 +175,8 @@ button:hover {
             
 
 
-            <h2 style="font-size: 1.5em;
-            margin-bottom: 10px;">परीक्षा विवरण  / Exam Details </h2> <br>
-
+            <h2>परीक्षा विवरण  / Exam Details </h2> <br>
+        <div class="form-group">
             <label for="examtype">परीक्षा का प्रकार(Type of Application or Certificate) :</label>
               
         <select id="examType" name="examType" required>
@@ -216,14 +218,13 @@ button:hover {
         
         <label for="examLanguage">परीक्षा की भाषा / Language of Exam:</label>
         <input type="text" id="examLanguage" name="examLanguage" required>   
-<hr>
+        </div>
 
             
             
-            <h2 style="font-size: 1.5em;
-            margin-bottom: 10px;">छात्र व्यक्तिगत विवरण / Student Personal Details 👨‍🎓</h2>
+            <h2>छात्र व्यक्तिगत विवरण / Student Personal Details 👨‍🎓</h2>
           
-         
+         <div class="form-group">
             
                <label for="gender">लिंग / Gender:</label>
             <select id="gender" name="gender" required>
@@ -273,16 +274,14 @@ button:hover {
         <label for="visualmark">Visual mark of identification पहचान का दृश्य चिह्न. : :</label>
         <input type="text" id="visualmark" name="visualmark" required>
 
-
+         </div>
        
         
-            
-<hr>
+         
     
   
-  <h2 style="font-size: 1.5em;
-            margin-bottom: 10px;">Contact Information 🔎:</h2>
-
+  <h2>Contact Information 🔎:</h2>
+<div class="form-group">
   <label for="mobileNumber">आवेदक का मोबाइल नंबर / Mobile No. of Applicant:</label>
   <input type="number" id="mobileNumber" name="mobileNumber" required>
 
@@ -345,14 +344,12 @@ button:hover {
 
     <label for="pinCode2">पिन कोड / Pin Code:</label>
     <input type="text" id="pinCode2" name="pinCode2"required>  
-    
-            
-<hr>
+</div>
+           
 
 
-        <h2 style="font-size: 1.5em;
-            margin-bottom: 10px;">शैक्षणिक विवरण: /  Academic Details: </h2>
-
+        <h2>शैक्षणिक विवरण: /  Academic Details: </h2>
+<div class="form-group">
     <label for="qualification">उच्चतम शैक्षणिक योग्यता / Highest Educational Qualification:</label>
         
         <select id="qualification" name="qualification" required>
@@ -383,28 +380,27 @@ button:hover {
         
        <label for="rollNumber">Roll Number (for relevant exams):</label>
         <input type="text" id="rollNumber" name="rollNumber" required><br>
-
+</div>
         
-        <hr>
-        <div>
-               
-
-                <ul>
-                    <small style ="color: lightslategray; font-size: 0.8em;"><i class="fa fa-info-circle"></i> यदि फॉर्म भरते समय आपको कोई समस्या आती है, तो कृपया सहायता के लिए हमारी सहायता टीम से संपर्क करने में संकोच न करें। हम एक सहज और परेशानी मुक्त अनुभव सुनिश्चित करने में मदद के लिए यहां हैं। <a href="https://t.me/GOVSDOCSBOT" style="color:blue;font-size: 1.4em;"><i class='	fa fa-handshake-o'><b> SUPPORT</b></i></a> पर हमसे संपर्क करें, और हमें आपकी सहायता करने में खुशी होगी।
-                    </small>
-
-
-                </ul>
-           </div>
-           <br>
        
+        <div class="form-group">
+                <button type="button" onclick="previewForm()" style="background-color: rgb(91, 91, 94);">Preview</button>
+                
+                <button type="reset" class="reset-button">Reset</button>
+                <button type="submit">Submit</button>
+                <div class="logout-button">
+        <a href="login.html"><b>New User Sign In ?</b></a>
+                </div>
 
-            <button type="button" onclick="previewForm()" style="background-color: rgb(91, 91, 94);">Preview</button>
-     <button type="submit">Submit</button>
-      <div class="logout-button"> 
-        <a href="login2.html"><b>New Candidate Sign In ?</b></a>
+                <div class="footer">
+            <i class="fa fa-info-circle"></i> यदि फॉर्म भरते समय आपको कोई समस्या आती है, तो कृपया सहायता के लिए हमारी सहायता टीम से संपर्क करने में संकोच न करें। हम एक सहज और परेशानी मुक्त अनुभव सुनिश्चित करने में मदद के लिए यहां हैं। <a href="https://t.me/GOVSDOCSBOT" style="color:blue;font-size: 1.1em;"><i class='	fa fa-handshake-o'><b> SUPPORT</b></i></a> पर हमसे संपर्क करें, और हमें आपकी सहायता करने में खुशी होगी।
+                </div>
+
+            
+
+          
     </div>
-     </fieldset>
+     
  </form>
   <script>
       
