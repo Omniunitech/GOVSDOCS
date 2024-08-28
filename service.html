@@ -38,36 +38,52 @@
     
     <style>
         body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f2f2f2;
-}
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
 
-h1 {
-    text-align: center;
-}
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
 
-form {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+        .header {
+            text-align: center;
+            background-color: #1f9bcf;
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
 
-fieldset {
-    border: none;
-    margin-bottom: 15px;
-}
+        .form-section {
+            margin-top: 20px;
+        }
 
-legend {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
+        .form-section h2 {
+            font-size: 16px;
+            background-color: #d3b674;
+            padding: 10px;
+            border-radius: 3px;
+            text-align:center;
+        }
 
-label {
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        label {
     display: block;
     margin-bottom: 5px;
 }
@@ -80,7 +96,7 @@ input[type="number"],
         
 
 select {
-    width: calc(70% - 10px);
+    width: 90%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -95,22 +111,53 @@ input[type="checkbox"] {
     margin-right: 5px;
 }
 
-button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
+        .form-group textarea {
+            height: 80px;
+        }
 
-button:hover {
-    background-color: #45a049;
-}
-.error {
+       
+       
+        .form-group button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #218838;
+        }
+
+        .form-group .reset-button {
+            background-color: #ffc107;
+        }
+
+        .form-group .reset-button:hover {
+            background-color: #e0a800;
+        }
+
+        .form-group .close-button {
+            background-color: #dc3545;
+        }
+
+        .form-group .close-button:hover {
+            background-color: #c82333;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .footer a {
+            color: #888;
+            text-decoration: none;
+        }
+        .error {
             color: red;
             display: none;
             font-size: 10px;
@@ -132,7 +179,7 @@ button:hover {
 
 .logout-button a {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 5px 20px;
     background-color: #007BFF; /* Bootstrap primary blue color */
     color: white;
     text-decoration: none;
@@ -142,15 +189,19 @@ button:hover {
 
 .logout-button a:hover {
     background-color: #0056b3; /* Darker blue on hover */
-}
+            }
+
     </style>
 </head>
 <body>
-    <h1> प्रमाण पत्र के लिए डमी आवेदन पत्र<br>Dummy Application Form for Service</h1>
+    <div class="container">
+        <div class="header">
+            <h1> प्रमाण पत्र के लिए आवेदन पत्र(Dummy Application Form for Service)</h1>
+        </div>
     <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
             
-        <fieldset>
-            
+        
+            <div class="form-section">
             <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
             
              <label for="filling_option">Please select how you would like to do the application (कृपया चुनें कि आप आवेदन कैसे करना चाहते हैं):</label><br>
@@ -174,8 +225,8 @@ button:hover {
 
             
             
-            <h2 style="font-size: 1.5em;
-            margin-bottom: 10px;">आवेदक का विवरण / Details of Applicant</h2>
+            <h2>Details of Applicant</h2>
+                <div class="form-group">
             <label for="applicationtype">  आवेदन का प्रकार/नाम(Type/Name of Application or Certificate) :</label>
             <input type="text" id="applicationtype" name="applicationtype" placeholder="Name of Application / Level " required>
          
@@ -218,14 +269,14 @@ button:hover {
             <label for="email">आवेदक का ईमेल / Email of Applicant:</label>
             <input type="email" id="email" name="email">
             
-           
+                </div>
             
-<hr>
+
     
    
   <h2>आवासीय पता / Residential Address</h2>
-    <h3>स्थायी पता / Permanent Address: -</h3>
-
+                <h3>स्थायी पता / Permanent Address: -</h3>
+         <div class="form-group">
     <label for="state1">राज्य / State:</label>
     <input type="text" id="state1" name="state1" required>
     
@@ -309,12 +360,12 @@ button:hover {
 
     <label for ="policestation2"> थाना / Police Station : </label>
     <input type="text" id="policestation2" name="policestation2" required>
-    
+         </div>
                
-<hr>
 
-<h2 style="font-size: 1.1em;
-text-align: center;">अन्य / Other</h2>
+
+<h2 >अन्य / Other</h2>
+     <div class="form-group">
 
  <label for="profession">पेशा / Profession:</label>
 <select id="profession" name="profession" required>
@@ -349,38 +400,45 @@ text-align: center;">अन्य / Other</h2>
 
     <label for ="subcaste-serial-no"> उपजाति अनुक्रमांक / Sub-Caste Serial number : </label>
     <input type="text" id="subcaste-serial-no" name="subcaste-serial-no" >
+     </div>
 
-<hr>
+                <div class="form-section">
+                <h2>Self Declaration</h2>
+                <p style="font-weight:bold">मैं घोषणा करता / करती हूँ कि मेरे विरुद्ध किसी भी थाना या न्यायालय में कोई अपराधिक या दिवानी का मुकदमा लंबित नहीं हैं| यदि मेरे द्वारा दी गई जानकारी गलत / त्रुटिपूर्ण पाए जाने पर मैं खुद का भागी होऊँगा / होऊँगी| </p>
+                <div class="form-group">
+                    <input type="checkbox" id="agree" required> 
+                    <label for="agree">I Agree</label>
+                </div>
+                </div> 
+                
 
-    <h2 style="font-size: 1.1em;
-    text-align: center;">Additional Details</h2>
-
+    <div class="form-section">
+                <h2>Additional Details</h2>
+                <div class="form-group">
     <label for ="apply-office"> Apply to this Office : </label>
     <input type="text" id="apply-office" name="apply-office" required>
+                </div>
 
-
-
-           <div>
-               
-
-                <ul>
-                    <small style ="color: lightslategray; font-size: 0.8em;"><i class="fa fa-info-circle"></i> यदि फॉर्म भरते समय आपको कोई समस्या आती है, तो कृपया सहायता के लिए हमारी सहायता टीम से संपर्क करने में संकोच न करें। हम एक सहज और परेशानी मुक्त अनुभव सुनिश्चित करने में मदद के लिए यहां हैं। <a href="https://t.me/GOVSDOCSBOT" style="color:blue;font-size: 1.4em;"><i class='	fa fa-handshake-o'><b> SUPPORT</b></i></a> पर हमसे संपर्क करें, और हमें आपकी सहायता करने में खुशी होगी।
-                    </small>
-
-
-                </ul>
-           </div>
-           <br>
           
 
-               <button type="button" onclick="previewForm()" style="background-color: rgb(91, 91, 94);">Preview</button>
-        <button type="submit">Submit</button>
-        
-        <div class="logout-button">
+               
+
+
+               <div class="footer">
+            <i class="fa fa-info-circle"></i> यदि फॉर्म भरते समय आपको कोई समस्या आती है, तो कृपया सहायता के लिए हमारी सहायता टीम से संपर्क करने में संकोच न करें। हम एक सहज और परेशानी मुक्त अनुभव सुनिश्चित करने में मदद के लिए यहां हैं। <a href="https://t.me/GOVSDOCSBOT" style="color:blue;font-size: 1.1em;"><i class='	fa fa-handshake-o'><b> SUPPORT</b></i></a> पर हमसे संपर्क करें, और हमें आपकी सहायता करने में खुशी होगी।
+               </div>
+
+            <div class="form-group">
+                <button type="button" onclick="previewForm()" style="background-color: rgb(91, 91, 94);">Preview</button>
+                
+                <button type="reset" class="reset-button">Reset</button>
+                <button type="submit">Submit</button>
+                <div class="logout-button">
         <a href="login.html"><b>New User Sign In ?</b></a>
+                </div>
     </div>
-        </fieldset>
-    </form>
+        
+     </form>
     <script>
        
         
