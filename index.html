@@ -288,13 +288,13 @@
       </div>
 <script>
     function switchLanguage(lang) {
-        document.querySelectorAll('[data-lang-en]').forEach(function(elem) {
-            elem.innerText = elem.getAttribute('data-lang-' + lang);
-        });
-    }
+    document.querySelectorAll('[data-lang-en]').forEach(function(elem) {
+        elem.innerHTML = elem.getAttribute('data-lang-' + lang);
+    });
+}
 
-    // Default language
-    switchLanguage('hi'); // or 'en' for English defaul
+// Default language
+switchLanguage('hi'); // or 'en' for English default
 </script>
 </body>
 </html>
