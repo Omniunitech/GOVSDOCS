@@ -79,8 +79,9 @@ body {
         .form-group label {
             display: block;
             font-weight:bold;
+            font-size: 14px;
             
-            margin-bottom: 5px;
+            margin-bottom: 12px;
         }
 
         label {
@@ -120,10 +121,13 @@ input[type="checkbox"] {
         .form-group button {
             background-color: #28a745;
             color: white;
-            padding: 10px 15px;
+            padding: 13px 31px;
             border: none;
             border-radius: 3px;
             cursor: pointer;
+            font-weight:bold;
+            margin: 5px;      
+            
         }
 
         .form-group button:hover {
@@ -147,6 +151,7 @@ input[type="checkbox"] {
         }
 
         .footer {
+      
             text-align: center;
             margin-top: 20px;
             font-size: 12px;
@@ -199,17 +204,17 @@ input[type="checkbox"] {
 <body>
     <div class="container">
         <div class="header">
-    <h1> परीक्षा फॉर्म के लिए डमी आवेदन<br>Dummy Application  for Exam Form</h1>
+    <h1> परीक्षा फॉर्म डमी आवेदन</h1>
         </div>
     <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
         <div class="form-section">
              <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
             
-             <label for="filling_option">Please select how you would like to do the application (कृपया चुनें कि आप आवेदन कैसे करना चाहते हैं):
-             </label><br>
+             <label for="filling_option">कृपया चुनें कि आप आवेदन कैसे करना चाहते हैं:
+             </label>
   
   <label for="self">
-  <input type="radio" id="self" name="filling_option" value="self">-
+  <input type="radio" id="self" name="filling_option" value="self">📋
 </label>
   
   <label for="cybercafe">
@@ -435,9 +440,10 @@ input[type="checkbox"] {
         
        
         <div class="form-group">
+            <button type="reset" class="reset-button">Reset</button>
                 <button type="button" onclick="previewForm()" style="background-color: rgb(91, 91, 94);">Preview</button>
                 
-                <button type="reset" class="reset-button">Reset</button>
+                
                 <button type="submit">Submit</button>
                 <div class="logout-button">
         <a href="login.html"><b>New User Sign In ?</b></a>
