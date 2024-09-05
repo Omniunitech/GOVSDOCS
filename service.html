@@ -202,7 +202,7 @@ input[type="checkbox"] {
 <body>
     <div class="container">
         <div class="header">
-            <h1> प्रमाण पत्र के लिए आवेदन पत्र(Dummy Application Form for Service)</h1>
+            <h1> प्रमाण पत्र डमी आवेदन</h1>
         </div>
     <form id="myForm" name="google-sheet" method="post" onsubmit="redirectAfterSubmit(event)" >
             
@@ -210,10 +210,10 @@ input[type="checkbox"] {
             <div class="form-section">
             <input type="datetime-local" id="datetime" name="datetime" value="" readonly> <br><br>
             
-             <label for="filling_option">Please select how you would like to do the application (कृपया चुनें कि आप आवेदन कैसे करना चाहते हैं):</label><br>
+             <label for="filling_option">कृपया चुनें कि आप आवेदन कैसे करना चाहते हैं:</label><br>
     
     <label for="self">
-        <input type="radio" id="self" name="filling_option" value="self">-
+        <input type="radio" id="self" name="filling_option" value="self">📋
     </label>
 
     <label for="cybercafe">
@@ -408,14 +408,7 @@ input[type="checkbox"] {
     <input type="text" id="subcaste-serial-no" name="subcaste-serial-no" >
      </div>
 
-                <div class="form-section">
-                <h2>Self Declaration</h2>
-                <p style="font-weight:bold">मैं घोषणा करता / करती हूँ की यदि मेरे द्वारा दी गई जानकारी गलत / त्रुटिपूर्ण पाए जाने पर मैं खुद का भागी होऊँगा / होऊँगी| </p>
-                <div class="form-group">
-                    <input type="checkbox" id="agree" required> 
-                    <label for="agree">I Agree</label>
-                </div>
-                </div> 
+                
                 
 
     <div class="form-section">
@@ -424,8 +417,9 @@ input[type="checkbox"] {
     <label for ="apply-office"> Apply to this Office : </label>
     <input type="text" id="apply-office" name="apply-office" required>
                 </div>
+        
 
-          
+          <p style="font-weight:bold ; font-size: 15px "><input type="checkbox" id="agree" required> मैं घोषणा करता / करती हूँ की यदि मेरे द्वारा दी गई जानकारी गलत / त्रुटिपूर्ण पाए जाने पर मैं खुद का भागी होऊँगा / होऊँगी|  </p>
 
                
 
@@ -433,9 +427,10 @@ input[type="checkbox"] {
                
 
             <div class="form-group">
+                <button type="reset" class="reset-button">Reset</button>
                 <button type="button" onclick="previewForm()" style="background-color: rgb(91, 91, 94);">Preview</button>
                 
-                <button type="reset" class="reset-button">Reset</button>
+                
                 <button type="submit">Submit</button>
                 <div class="logout-button">
         <a href="login.html"><b>New User Sign In ?</b></a>
