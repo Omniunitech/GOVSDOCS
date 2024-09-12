@@ -115,7 +115,7 @@
                 <div class="row button">
                     <input type="submit" value="Login">
                 </div>
-                <div class="signup-link">Not a member? <a href="#" id="register-link">Signup now</a></div>
+                <div class="signup-link">क्या आप सदस्य नहीं हैं ? <a href="#" id="register-link">Signup now</a></div>
                 
                 <br>
                 <hr>
@@ -161,7 +161,7 @@
             const password = document.getElementById('reg-password').value;
 
             if (localStorage.getItem(identifier)) {
-                alert('Account with this mobile number or email already exists!');
+                alert('इस मोबाइल नंबर या ईमेल वाला Account पहले से मौजूद है! कृपया पीछे वापस जाकर लॉगिन करें');
             } else {
                 localStorage.setItem(identifier, JSON.stringify({ name: name, password: password, data: '' }));
                 alert('Registration successful!');
@@ -181,7 +181,7 @@
                 sessionStorage.setItem('loggedInUser', identifier);
                 window.location.href = 'exam.html'; // Redirect to user-form.html
             } else {
-                alert('Account with this mobile number or email does not exist!');
+                alert('इस मोबाइल नंबर या ईमेल के साथ कोई Account मौजूद नहीं है! कृपया साइन इन करें');
             }
         });
     </script>
