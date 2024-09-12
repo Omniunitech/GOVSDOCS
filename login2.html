@@ -175,7 +175,7 @@
             const identifier = document.getElementById('reg-identifier').value;
 
             if (localStorage.getItem(identifier)) {
-                alert('इस मोबाइल नंबर या ईमेल वाला Account पहले से मौजूद है! कृपया पीछे वापस जाकर लॉगिन करें');
+                alert('इस मोबाइल नंबर या ईमेल वाला Account पहले से मौजूद है! कृपया लॉगिन करें |');
             } else {
                 localStorage.setItem(identifier, JSON.stringify({ name: name, data: '' }));
                 alert('Registration successful!');
