@@ -101,6 +101,18 @@
         form .signup-link a:hover {
             text-decoration: underline;
         }
+        .wrapper form .login-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 17px;
+        }
+        .wrapper form .login-link a {
+            color: #16a085;
+            text-decoration: none;
+        }
+        form .login-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -110,12 +122,12 @@
             <form id="login-form">
                 <div class="row">
                     <i class="fas fa-user"></i>
-                    <input type="text" id="login-identifier" placeholder=" Phone or Email" required>
+                    <input type="text" id="login-identifier" placeholder="Phone or Email" required>
                 </div>
                 <div class="row button">
                     <input type="submit" value="Login">
                 </div>
-                <div class="signup-link">क्या आप सदस्य नहीं हैं ? <a href="#" id="register-link">Signup now</a></div>
+                <div class="signup-link">क्या आप सदस्य नहीं हैं? <a href="#" id="register-link">Signup now</a></div>
                 
                 <br>
                 <hr>
@@ -135,13 +147,10 @@
                     <i class="fas fa-envelope"></i>
                     <input type="text" id="reg-identifier" placeholder=" Phone or Email" required>
                 </div>
-                <div class="row">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" id="reg-password" placeholder="Password (optional)" >
-                </div>
                 <div class="row button">
                     <input type="submit" value="Register">
                 </div>
+                <div class="login-link">क्या आपके पास पहले से खाता है? <a href="#" id="login-link">Login</a></div>
             </form>
         </div>
     </div>
@@ -153,17 +162,22 @@
             document.getElementById('registration-page').style.display = 'block';
         });
 
+        // Show login form
+        document.getElementById('login-link').addEventListener('click', function() {
+            document.getElementById('registration-page').style.display = 'none';
+            document.getElementById('login-page').style.display = 'block';
+        });
+
         // Registration functionality
         document.getElementById('registration-form').addEventListener('submit', function(e) {
             e.preventDefault();
             const name = document.getElementById('reg-name').value;
             const identifier = document.getElementById('reg-identifier').value;
-            const password = document.getElementById('reg-password').value;
 
             if (localStorage.getItem(identifier)) {
                 alert('इस मोबाइल नंबर या ईमेल वाला Account पहले से मौजूद है! कृपया पीछे वापस जाकर लॉगिन करें');
             } else {
-                localStorage.setItem(identifier, JSON.stringify({ name: name, password: password, data: '' }));
+                localStorage.setItem(identifier, JSON.stringify({ name: name, data: '' }));
                 alert('Registration successful!');
                 document.getElementById('registration-page').style.display = 'none';
                 document.getElementById('login-page').style.display = 'block';
@@ -181,7 +195,7 @@
                 sessionStorage.setItem('loggedInUser', identifier);
                 window.location.href = 'exam.html'; // Redirect to user-form.html
             } else {
-                alert('इस मोबाइल नंबर या ईमेल के साथ कोई Account मौजूद नहीं है! कृपया साइन इन करें');
+                alert('इस मोबाइल नंबर या ईमेल के साथ कोई Account मौजूद नहीं है! कृपया साइन अप करें');
             }
         });
     </script>
