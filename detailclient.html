@@ -1,122 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    
-    
-    <title>Details of Client</title>
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style >
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 800px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-#searchInput {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid #ddd;
-}
-
-th, td {
-    padding: 12px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1> CYBERCAFE DETAILS</h1>
-        <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search  Your Cybercafe..">
-
-        <table id="userTable">
-            <thead>
-                <tr>
-                    <th>CLIENT ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Shop-Address</th>
-                    <th>Phone</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>GD-0001</td>
-                    <td>-</td>
-                    <td>-</td>
-                    
-                    <td>-</td>
-                    <td><i class="fa fa-phone"></i></td>
-                </tr>
-                
-                <!-- Add more user rows as needed -->
-            </tbody>
-        </table>
-    </div>
-    <script >
-        
-        function searchTable() {
-    var input, filter, table, tr, td, i, j, txtValue;
-    input = document.getElementById("searchInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("userTable");
-    tr = table.getElementsByTagName("tr");
-
-    for (i = 1; i < tr.length; i++) {
-        tr[i].style.display = "none";
-        td = tr[i].getElementsByTagName("td");
-        for (j = 0; j < td.length; j++) {
-            if (td[j]) {
-                txtValue = td[j].textContent || td[j].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                    break;
-                }
-            }
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retrieve & Register Client Information</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      
     }
-}
-    </script>
+
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      max-width: 800px;
+      width: 100%;
+      text-align: left;
+    }
+
+    h1, h2, h4 {
+      color: black;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="date"], select {
+      width: calc(100% - 22px);
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+
+    button, input[type="submit"] {
+      background-color: #0056b3;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover, input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    .error {
+      color: red;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    small {
+      display: block;
+      margin-top: -10px;
+      color: red;
+    }
+
+    p a {
+      text-decoration: none;
+      color: blue;
+    }
+  </style>
+  <script>
+    function getUserInfo() {
+      var phoneNumber = document.getElementById("phoneNumber").value;
+      var url = "https://script.google.com/macros/s/AKfycbxSdGk2Pws_bn48q4EtvQ2kR2sdkytkuDsBmgJgchqQRT511w8VvwG4M84RJyJvNjKqkg/exec?phoneNumber=" + encodeURIComponent(phoneNumber); // Replace with your Web App URL
+
+      fetch(url, {
+        method: 'GET',
+      })
+      .then(response => response.text()) // Expect HTML or plain text from the server
+      .then(data => {
+        // Create table and insert client information
+        let tableHTML = "<table>";
+        tableHTML += "<tr><th>🔖</th><td>" + data + "</td></tr>";
+        tableHTML += "</table>";
+        document.getElementById("result").innerHTML = tableHTML;
+      })
+      .catch(error => {
+        console.error("Error:", error);
+        document.getElementById("result").innerHTML = "<p class='error'>Error retrieving data</p>";
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.forms['google-sheet'];
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbyj100zvsY0gHuF6XdUNa1BkYOwlXl1CezdXgCaxshYSV2NpVbV8WcMKr7aGBcGf7_Mfw/exec';
+
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => alert("पंजीकरण के लिए धन्यवाद! हम आपसे जल्द ही संपर्क करेंगे।..."))
+          .catch(error => console.error('Error!', error.message));
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Search Your Cybercafe</h1>
+    <form onsubmit="event.preventDefault(); getUserInfo();">
+      <label for="phoneNumber"></label>
+      <input type="text" id="phoneNumber" placeholder="Enter phone number" required>
+      <button type="submit">Search</button>
+    </form>
+
+    <div id="result">
+      <!-- Client information will be displayed here in a table -->
+    </div>
+
+    <hr>
+    <h3 style="text-align: center;">OR</h3>
+
+    <h1>New CyberCafe Registration</h1>
+    <p style="text-align: center;" >(अपनी खुद की साइबर कैफे दुकान खोले )</p>
+   
+    <form name="google-sheet">
+      <div class="form-group">
+        <label for="Nameclient"><i class="fas fa-user"></i> Name (नाम):</label>
+        <input type="text" id="Nameclient" name="Nameclient" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i> Email (ईमेल):</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone"><i class="fas fa-phone"></i> Phone Number:</label>
+        <input type="text" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="address"><i class="fas fa-home"></i> Address (पता):</label>
+        <input type="text" id="address" name="address" required>
+      </div>
+
+      <div class="form-group">
+        <label for="upi-id"><i class="fa fa-university"></i> UPI ID:</label>
+        <input type="text" id="upi-id" name="upi-id" placeholder="Enter UPI ID">
+        <small><i class="fa fa-info-circle"></i> CLIENT'ID 24 घंटे के भीतर आपके ईमेल पर भेज दिया जाएगा |</small>
+        <p style="font-size: 0.8em">कृपया यह दस्तावेज़ पढ़ें: <a href="https://featurepolicy.blogspot.com/2024/09/client-policy_3.html">documentation ⧄</a></p>
+      </div>
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
 </body>
+
 </html>
