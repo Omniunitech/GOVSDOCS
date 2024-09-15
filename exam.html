@@ -232,6 +232,8 @@ input[type="checkbox"] {
 
 
             <h2>परीक्षा विवरण  / Exam Details </h2> <br>
+            <small style ="color:red"><i class="fa fa-info-circle"></i>  यदि आप संस्थान (कॉलेज, स्कूल आदि) में प्रवेश, छात्रवृत्ति आदि के लिए आवेदन करना चाहते हैं तो कृपया इन अनुभागों ( Section ) को न भरें |
+            </small>
         <div class="form-group">
             <label for="examtype">परीक्षा का प्रकार(Type of Application or Certificate) :</label>
               
@@ -255,25 +257,17 @@ input[type="checkbox"] {
         
         
           <label for="examName">परीक्षा का नाम / Exam Name:</label>
-        <input type="text" id="examName" name="examName" required>
+        <input type="text" id="examName" name="examName" >
 
 
-<h4>परीक्षा केंद्र वरीयता / Exam Center Preference:</h4>
- <label for="center1">Center Preference 1:</label>
-        <input type="text" id="center1" name="center1" required>
-        <br>
-        <label for="center2">Center Preference 2:</label>
-        <input type="text" id="center2" name="center2" required>
-        <br>
-        <label for="center3">Center Preference 3:</label>
-        <input type="text" id="center3" name="center3" required>
-        <br>
-        <label for="center4">Center Preference 4:</label>
-        <input type="text" id="center4" name="center4" required> 
+
+ <label for="center">परीक्षा केंद्र वरीयता / Exam Center Preference:</label>
+        <input type="text" id="center" name="center" placeholder= "स्थान 1, स्थान 2, स्थान 3, स्थान 4">
+        
         
         
         <label for="examLanguage">परीक्षा की भाषा / Language of Exam:</label>
-        <input type="text" id="examLanguage" name="examLanguage" required>   
+        <input type="text" id="examLanguage" name="examLanguage" >   
         </div>
 
             
@@ -326,8 +320,23 @@ input[type="checkbox"] {
             <option value ="maybe">Maybe</option>
         </select>
 
+             
+  <label for="minority"> क्या आप अल्पसंख्यक हैं? / Do you belong to a minority : </label>
+  <select id="minority" name="minority">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+             
+            
+  <label for="specialQuota">क्या आप विशेष कोटे से संबंधित हैं? / Do you belong to Special Quota :</label>
+  <select id="specialQuota" name="specialQuota">
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+             
 
-        <label for="visualmark">Visual mark of identification पहचान का दृश्य चिह्न. : :</label>
+
+        <label for="visualmark">Visual mark of identification पहचान का दृश्य चिह्न :</label>
         <input type="text" id="visualmark" name="visualmark" required>
 
          </div>
